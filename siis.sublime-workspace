@@ -1,0 +1,2511 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"or",
+				"orderID"
+			],
+			[
+				"ent",
+				"entry"
+			],
+			[
+				"bb",
+				"bb_basis"
+			],
+			[
+				"_t",
+				"_timeframe"
+			],
+			[
+				"id",
+				"identity"
+			],
+			[
+				"sign",
+				"_signal"
+			],
+			[
+				"bre",
+				"break_up"
+			],
+			[
+				"com",
+				"compute"
+			],
+			[
+				"cro",
+				"crossover"
+			],
+			[
+				"break",
+				"break_up"
+			],
+			[
+				"_a",
+				"_awesome_slow_L"
+			],
+			[
+				"_",
+				"_fast_MA_L"
+			],
+			[
+				"ta_",
+				"ta_EMA"
+			],
+			[
+				"aw",
+				"awesome_slow_L"
+			],
+			[
+				"ba",
+				"base_multiplier"
+			],
+			[
+				"re",
+				"reduce"
+			],
+			[
+				"Re",
+				"ReduceOnly"
+			],
+			[
+				"base",
+				"base_tf"
+			],
+			[
+				"tim",
+				"timeframe"
+			],
+			[
+				"tf",
+				"tfs_chain"
+			],
+			[
+				"paren",
+				"parent_timeframe"
+			],
+			[
+				"pare",
+				"parent_timeframe"
+			],
+			[
+				"ti",
+				"timeframe"
+			],
+			[
+				"time",
+				"timeframes"
+			],
+			[
+				"last",
+				"last_price"
+			],
+			[
+				"_tr",
+				"_atrs"
+			],
+			[
+				"atr",
+				"atr_stop"
+			],
+			[
+				"ME",
+				"METHOD_FIBONACCI"
+			],
+			[
+				"Pi",
+				"PivotPointIndicator"
+			],
+			[
+				"ret",
+				"retained_exit"
+			],
+			[
+				"si",
+				"signal"
+			],
+			[
+				"comm",
+				"commission"
+			],
+			[
+				"tak",
+				"taker_fee"
+			],
+			[
+				"bitmex",
+				"bitmex-backtesting"
+			],
+			[
+				"lev",
+				"level1_signal"
+			],
+			[
+				"las",
+				"last_price"
+			],
+			[
+				"ave",
+				"average"
+			],
+			[
+				"for",
+				"forexalpha"
+			],
+			[
+				"take",
+				"take_profit"
+			],
+			[
+				"mod",
+				"modify_stop_loss"
+			],
+			[
+				"ORD",
+				"ORDER_MARKET"
+			],
+			[
+				"orde",
+				"order_type"
+			],
+			[
+				"OR",
+				"ORDER_MARKET"
+			],
+			[
+				"sell",
+				"sell_oid"
+			],
+			[
+				"lim",
+				"limit_order_qty"
+			],
+			[
+				"sto",
+				"stop_order_qty"
+			],
+			[
+				"stop",
+				"stop_loss"
+			],
+			[
+				"close",
+				"close_only"
+			],
+			[
+				"exec",
+				"exec_inst"
+			],
+			[
+				"post",
+				"postdict"
+			],
+			[
+				"exe",
+				"exec_inst"
+			],
+			[
+				"base_t",
+				"base_timeframe"
+			],
+			[
+				"confi",
+				"configured_symbols"
+			],
+			[
+				"_la",
+				"_last_tick"
+			],
+			[
+				"marke",
+				"market_id"
+			],
+			[
+				"_last_",
+				"_last_ohlc"
+			],
+			[
+				"tiemfr",
+				"timeframes"
+			],
+			[
+				"profit",
+				"profit_loss"
+			],
+			[
+				"score_r",
+				"score_regression_factor"
+			],
+			[
+				"score",
+				"score_accum"
+			],
+			[
+				"di",
+				"divergence"
+			],
+			[
+				"mn",
+				"minor"
+			],
+			[
+				"in",
+				"increase_factor"
+			],
+			[
+				"Sco",
+				"Scorify"
+			],
+			[
+				"hma",
+				"hma_trend"
+			],
+			[
+				"pri",
+				"price_vwma_cross_score_factor"
+			],
+			[
+				"ut",
+				"utils"
+			],
+			[
+				"trend",
+				"trend_extremum"
+			],
+			[
+				"wi",
+				"with_score"
+			],
+			[
+				"_s",
+				"_scores"
+			],
+			[
+				"mja",
+				"major_trend"
+			],
+			[
+				"majo",
+				"major"
+			],
+			[
+				"mi",
+				"minor"
+			],
+			[
+				"ind",
+				"indicator"
+			],
+			[
+				"prev",
+				"prev_scores"
+			],
+			[
+				"maj",
+				"major_div"
+			],
+			[
+				"mino",
+				"minor_div"
+			],
+			[
+				"ma",
+				"major"
+			],
+			[
+				"minor",
+				"minor_ut"
+			],
+			[
+				"major",
+				"major-minor"
+			],
+			[
+				"tri",
+				"trigger_score"
+			],
+			[
+				"dir",
+				"direction"
+			],
+			[
+				"mar",
+				"market_id"
+			],
+			[
+				"upda",
+				"update_strategy"
+			],
+			[
+				"do_up",
+				"do_update_minor"
+			],
+			[
+				"FirebirdStrategySubM",
+				"FirebirdStrategySubMinor"
+			],
+			[
+				"__",
+				"__init__"
+			],
+			[
+				"nee",
+				"need_update"
+			],
+			[
+				"last_",
+				"last_timestamp"
+			],
+			[
+				"min",
+				"minor"
+			],
+			[
+				"boll",
+				"bollinger"
+			],
+			[
+				"py",
+				"pyramided"
+			],
+			[
+				"UT_",
+				"UT_FIVE_MIN"
+			],
+			[
+				"In",
+				"InstrumentData"
+			],
+			[
+				"do_",
+				"do_update_min"
+			],
+			[
+				"des",
+				"desired"
+			],
+			[
+				"UT",
+				"UT_FIVE_MIN"
+			],
+			[
+				"of",
+				"ofr_price"
+			],
+			[
+				"bi",
+				"bid_price"
+			],
+			[
+				"pos",
+				"positions"
+			],
+			[
+				"rs",
+				"rsi_hma_div"
+			],
+			[
+				"dat",
+				"datetime"
+			],
+			[
+				"rsi",
+				"rsi_trend"
+			],
+			[
+				"de",
+				"depth"
+			],
+			[
+				"fina",
+				"final_score"
+			],
+			[
+				"hm",
+				"hma_vwma_score"
+			],
+			[
+				"price",
+				"price_vwma_score"
+			],
+			[
+				"em",
+				"ema_vwma_score"
+			],
+			[
+				"hw",
+				"hma_vwma_score"
+			],
+			[
+				"tota",
+				"total_score"
+			],
+			[
+				"ann",
+				"annotate"
+			],
+			[
+				"fig",
+				"figure"
+			],
+			[
+				"fi",
+				"figure"
+			],
+			[
+				"row",
+				"rows"
+			],
+			[
+				"ax",
+				"axis"
+			],
+			[
+				"la",
+				"last_prices"
+			],
+			[
+				"bolling",
+				"bollingerbands"
+			],
+			[
+				"sma",
+				"sma_hma_score"
+			],
+			[
+				"bo",
+				"bollinger"
+			],
+			[
+				"delt",
+				"delta_price"
+			],
+			[
+				"ex",
+				"expiry"
+			],
+			[
+				"mapp",
+				"mapped_symbol"
+			],
+			[
+				"inst",
+				"instrument"
+			],
+			[
+				"__f",
+				"__fetch_market_by_epic"
+			],
+			[
+				"_b",
+				"_backtesting"
+			],
+			[
+				"se",
+				"service"
+			],
+			[
+				"fin",
+				"final_score"
+			],
+			[
+				"num",
+				"num_samples"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "strategy/indicator/bbawe/bbawe.py",
+			"settings":
+			{
+				"buffer_size": 3010,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/cryptoalpha/casuba.py",
+			"settings":
+			{
+				"buffer_size": 37775,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "#!/bin/bash\nTO='2019-12-31T23:59:59'\n# mysql last '2019-04-01T00:00:00'\n# pgsql last '2019-04-07T00:00:00'\n\nFROM='2019-05-06T00:00:00'\npython runner.py real --fetch --broker=binance.com --market=*USDT,*BTC --from=$FROM --to=$TO --timeframe=1w &\n\nFROM='2019-05-06T00:00:00'\npython runner.py real --fetch --broker=binance.com --market=*USDT,*BTC --from=$FROM --to=$TO --timeframe=1d &\n\nFROM='2019-05-06T12:00:00'\npython runner.py real --fetch --broker=binance.com --market=*USDT,*BTC --from=$FROM --to=$TO --timeframe=4h &\n\nFROM='2019-05-06T20:00:00'\npython runner.py real --fetch --broker=binance.com --market=*USDT,*BTC --from=$FROM --to=$TO --timeframe=1h \n\nFROM='2019-05-06T20:00:00'\npython runner.py real --fetch --broker=binance.com --market=*USDT,*BTC --from=$FROM --to=$TO --timeframe=15m\npython runner.py real --fetch --broker=binance.com --market=*USDT,*BTC --from=$FROM --to=$TO --timeframe=5m\n",
+			"file": "scripts/fetch-binance",
+			"file_size": 903,
+			"file_write_time": 132012780376027433,
+			"settings":
+			{
+				"buffer_size": 903,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/indicator/atr/atr.py",
+			"settings":
+			{
+				"buffer_size": 4233,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/cryptoalpha/casubc.py",
+			"settings":
+			{
+				"buffer_size": 7420,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/cryptoalpha/castrategytrader.py",
+			"settings":
+			{
+				"buffer_size": 21333,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/bitcoinalpha/bcasuba.py",
+			"settings":
+			{
+				"buffer_size": 28694,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/bitcoinalpha/bcastrategytrader.py",
+			"settings":
+			{
+				"buffer_size": 23987,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/crystalball/cbparameters.py",
+			"settings":
+			{
+				"buffer_size": 5270,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/crystalball/cbstrategytrader.py",
+			"settings":
+			{
+				"buffer_size": 4467,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/frederic/.siis/config/appliance.py",
+			"settings":
+			{
+				"buffer_size": 26861,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/cryptoalpha/caparameters2.py",
+			"settings":
+			{
+				"buffer_size": 9234,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Anaconda Python Builder",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				"Syntax Check"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 32.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"gi",
+				"Git: Commit"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git com",
+				"Git: Commit"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git puh",
+				"Git: Push"
+			],
+			[
+				"git pus",
+				"Git: Push"
+			],
+			[
+				"erro",
+				"Anaconda: Show error list"
+			],
+			[
+				"git ad",
+				"Git: Add..."
+			],
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git tag",
+				"Git: New Tag"
+			],
+			[
+				"git psu",
+				"Git: Push"
+			],
+			[
+				"err",
+				"Anaconda: Show error list"
+			],
+			[
+				"requi",
+				"Set Syntax: requirements.txt"
+			],
+			[
+				"python",
+				"Build With: Python"
+			],
+			[
+				"run",
+				"Anaconda: Run Current Test"
+			],
+			[
+				"git",
+				"Git: Diff Current File"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"synta re",
+				"Set Syntax: reStructuredText Improved"
+			],
+			[
+				"restr",
+				"Set Syntax: reStructuredText Improved"
+			],
+			[
+				"rest",
+				"Set Syntax: reStructuredText Improved"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"git g",
+				"GitGutter: Compare Against HEAD"
+			],
+			[
+				"git gu",
+				"GitGutter: Compare Against Branch"
+			],
+			[
+				"enab",
+				"Package Control: Enable Package"
+			],
+			[
+				"emmet",
+				"Emmet: Split\\Join Tag"
+			],
+			[
+				"emme",
+				"Emmet: Go to Matching Pair"
+			],
+			[
+				"syn ht",
+				"Set Syntax: HTML"
+			],
+			[
+				"emmet ",
+				"Set Syntax: Emmet"
+			],
+			[
+				"packag ds",
+				"Package Control: Disable Package"
+			],
+			[
+				"pack en",
+				"Package Control: Enable Package"
+			],
+			[
+				"req",
+				"requirements.txt: Clear Cache"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"pack up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"ana",
+				"Anaconda: Show error list"
+			],
+			[
+				"ana got",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"an goto",
+				"Anaconda: Goto object definition"
+			],
+			[
+				"got",
+				"Emmet: Go to Matching Pair"
+			],
+			[
+				"find",
+				"Anaconda: Find object usage"
+			],
+			[
+				"packa en",
+				"Package Control: Enable Package"
+			],
+			[
+				"package dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"pack e",
+				"Package Control: Enable Package"
+			],
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"pac",
+				"Package Control: List Packages"
+			],
+			[
+				"error",
+				"Anaconda: Show error list"
+			],
+			[
+				"git diff",
+				"Git: Diff Tool Current File"
+			],
+			[
+				"pack lis",
+				"Package Control: List Packages"
+			],
+			[
+				"git dif",
+				"Git: Diff Current File"
+			],
+			[
+				"git commi",
+				"Git: Commit"
+			],
+			[
+				"build",
+				"Build With: Python"
+			],
+			[
+				"git pu",
+				"Git: Push"
+			],
+			[
+				"git co",
+				"Git: Commit"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"render",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"er",
+				"Anaconda: Show error list"
+			],
+			[
+				"git c",
+				"Git: Commit"
+			],
+			[
+				"id",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"iden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"git a",
+				"Git: Add..."
+			],
+			[
+				"git his",
+				"Git: Diff Current File (Ignore Whitespace)"
+			],
+			[
+				"tab",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"GIT AD",
+				"Git: Add..."
+			],
+			[
+				":empty",
+				"Snippet: for... empty..."
+			],
+			[
+				"gi add",
+				"Git: Add..."
+			],
+			[
+				"terl",
+				"TernJS: Rename variable"
+			],
+			[
+				"tern",
+				"TernJS: Reload"
+			],
+			[
+				"js",
+				"TernJS: Next Occurance"
+			],
+			[
+				"git commit",
+				"Git: Commit"
+			],
+			[
+				"space",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"count",
+				"Code Folding: Fold Tag Attributes"
+			],
+			[
+				"git push ",
+				"Git: Push"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"remvoe",
+				"Package Control: Remove Package"
+			],
+			[
+				"table",
+				"Table Editor: Disable 'align_number_right' for current view"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"git commit ",
+				"Git: Commit"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				":set ",
+				"Preferences: Settings - Default"
+			],
+			[
+				"pep8",
+				"Snippet: coding: utf-8"
+			],
+			[
+				"spac",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"disab",
+				"Package Control: Disable Package"
+			],
+			[
+				"commit",
+				"Git: Commit history"
+			],
+			[
+				"djan",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"gitg",
+				"GitGutter: Compare Against Branch"
+			],
+			[
+				"html",
+				"Set Syntax: HTML (Django)"
+			],
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"con",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"ind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"ident",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"intel",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"intell",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Intel",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 410.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/frederic/dev/trading/siis",
+		"/home/frederic/dev/trading/siis/strategy",
+		"/home/frederic/dev/trading/siis/strategy/crystalball"
+	],
+	"file_history":
+	[
+		"/home/frederic/dev/trading/siis/scripts/fetch-bitmex",
+		"/home/frederic/dev/trading/siis/scripts/fetch-ig",
+		"/home/frederic/dev/trading/siis/strategy/indicator/rsi/rsi.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsuba.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters2.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcaparameters.py",
+		"/home/frederic/dev/trading/siis/connector/bitmex/connector.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/fetcher.py",
+		"/home/frederic/dev/trading/siis/connector/binance/client.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casuba.py",
+		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/bollingerbands/bollingerbands.py",
+		"/home/frederic/dev/trading/siis/strategy/timeframebasedsub.py",
+		"/home/frederic/dev/trading/siis/strategy/strategy.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/service.py",
+		"/home/frederic/.siis/config/appliance.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategytrader.py",
+		"/home/frederic/dev/trading/siis/scripts/prefetch-binance",
+		"/home/frederic/dev/trading/siis/strategy/timeframebasedstrategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py",
+		"/home/frederic/dev/trading/siis/scripts/prefetch-bitmex",
+		"/home/frederic/dev/trading/siis/watcher/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/strategydatafeeder.py",
+		"/home/frederic/dev/trading/siis/database/database.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/indicator.py",
+		"/home/frederic/dev/trading/siis/instrument/instrument.py",
+		"/home/frederic/dev/trading/siis/terminal/terminal.py",
+		"/home/frederic/dev/trading/siis/scripts/fetch-binance",
+		"/home/frederic/dev/trading/siis/strategy/indicator/utils.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/tomdemark/tomdemark.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/__init__.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/price/price.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasuba.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsub.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasub.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasuba.py",
+		"/home/frederic/.siis/config/config.py",
+		"/home/frederic/dev/trading/siis/config/config.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
+		"/home/frederic/dev/trading/siis/trader/trader.py",
+		"/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/bbawe/bbawe.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasub.py",
+		"/home/frederic/dev/trading/siis/config/utils.py",
+		"/home/frederic/dev/trading/siis/common/utils.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubb.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubb.py",
+		"/home/frederic/dev/test.py",
+		"/home/frederic/dev/trading/siis/strategy/strategyassettrade.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubb.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casub.py",
+		"/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py",
+		"/home/frederic/dev/trading/siis/instrument/candlegenerator.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/pivotpoint/pivotpoint.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/atr/atr.py",
+		"/home/frederic/dev/trading/siis/strategy/strategysignal.py",
+		"/home/frederic/dev/trading/siis/strategy/strategymargintrade.py",
+		"/home/frederic/dev/trading/siis/trader/market.py",
+		"/home/frederic/dev/trading/siis/config/appliance.py",
+		"/home/frederic/dev/trading/siis/trader/connector/binance/trader.py",
+		"/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
+		"/home/frederic/dev/trading/siis/database/mysql.py",
+		"/home/frederic/dev/trading/siis/database/pgsql.py",
+		"/home/frederic/dev/trading/siis/sql/initpg.sql",
+		"/home/frederic/dev/trading/siis/trader/order.py",
+		"/home/frederic/dev/trading/siis/trader/position.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubc.py",
+		"/home/frederic/dev/trading/siis/runner.py",
+		"/home/frederic/asyncreq.py",
+		"/home/frederic/dev/trading/siis/connector/ig/connector.py",
+		"/home/frederic/dev/trading/siis/charting/charting.py",
+		"/home/frederic/dev/trading/siis/scripts/prefetch-ig",
+		"/home/frederic/dev/trading/siis/connector/binance/connector.py",
+		"/home/frederic/dev/trading/siis/trader/connector/ig/account.py",
+		"/home/frederic/dev/trading/siis/TODO",
+		"/home/fscherma/dev/siis/s4.py",
+		"/home/frederic/dev/trading/siis/strategy/firebird/strategy.py",
+		"/home/fscherma/dev/siis/siis/config/appliance.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/score.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/hma/hma.py",
+		"/home/fscherma/dev/siis/siis/trader/trader.py",
+		"/home/fscherma/dev/siis/siis/strategy/service.py",
+		"/home/fscherma/dev/siis/siis/terminal/terminal.py",
+		"/home/fscherma/dev/siis/siis/trader/connector/papertrader/trader.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/utils.py",
+		"/home/fscherma/dev/siis/siis/trader/market.py",
+		"/home/fscherma/dev/siis/siis/database/database.py",
+		"/home/fscherma/dev/siis/siis/instrument/instrument.py",
+		"/home/fscherma/dev/siis/siis/trader/position.py",
+		"/home/fscherma/dev/siis/siis/strategy/strategy.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/comparator.py",
+		"/home/fscherma/dev/collgate/bd.py",
+		"/home/fscherma/dev/siis/siis/runner.py",
+		"/home/fscherma/dev/siis/siis/siisutils/__init__.py",
+		"/home/fscherma/dev/siis/firebird.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/triangle/triangle.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/bollingerbands/bollingerbands.py",
+		"/home/fscherma/dev/siis/siis/TODO",
+		"/home/fscherma/dev/siis/s3.py",
+		"/home/fscherma/dev/siis/s2.py",
+		"/home/fscherma/dev/siis/s1.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/vwma/vwma.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/ema/ema.py",
+		"/home/fscherma/dev/siis/siis/strategy/boostedblueskyday/strategy.py",
+		"/home/fscherma/dev/siis/siis/connector/bitmex/connector.py",
+		"/home/fscherma/.cache/.fr-ngZmMo/price_data.npy",
+		"/home/fscherma/dev/siis/siis/charting/charting.py",
+		"/home/fscherma/dev/siis/siis/config/config.py",
+		"/home/fscherma/dev/siis/siis/strategy/indicator/stochastic/stochastic.py",
+		"/home/fscherma/dev/siis/strategy.rst",
+		"/home/fscherma/dev/siis/siis/trader/connector/ig/trader.py",
+		"/home/fscherma/dev/siis/siis/trader/connector/bitmex/trader.py"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 102.0,
+		"where_history":
+		[
+			"",
+			"*.py",
+			"",
+			"*.js",
+			"*.py",
+			"",
+			"*.js",
+			"",
+			"*.py",
+			"",
+			"*.py",
+			"",
+			"*.py",
+			"*.html",
+			"*.py",
+			"*.html",
+			"*.py",
+			"*.*",
+			"*.html",
+			"*.js",
+			"*.py",
+			"*.html",
+			"",
+			"*.html",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			".sl = ",
+			"process4(",
+			"rsi_ema_trend_div_factor",
+			"'o'",
+			"Retry-After",
+			"get_histo",
+			"print(",
+			"self._last_ticks",
+			"fetch",
+			"_format_datetime",
+			"def get_historical_trades",
+			"get_historical_trades",
+			"histor",
+			"'bbawe': ('bbawe', 36, 2.0, 3.0, 5, 34, False),",
+			"tomdemar",
+			"tomdemark",
+			"tomdemark\n",
+			"tomdemark",
+			"exits",
+			"exit",
+			".tf ",
+			"min_traded_timeframe",
+			".set_identifier",
+			"._identifier =",
+			".identifier",
+			"crystalball",
+			"binance-crystalball",
+			"bitmex-crystalball",
+			"trade.",
+			"bbawe",
+			"market = ",
+			"binance-crystalball",
+			"binance-crystalbal",
+			"CANDLE",
+			"def setup_live",
+			"setup_live",
+			"historical_data",
+			"def historical_data",
+			"setup_backtest",
+			"Database.inst().",
+			"Database.",
+			"setup_",
+			".load_market",
+			"load_market_ohlc_last_n",
+			"load_market_ohlc",
+			": 41,",
+			"def gen_candles_from_ticks",
+			"inner_low",
+			"'price': ('price', 1,),",
+			"PRICE_HLC",
+			".PRICE_HLC",
+			"identit",
+			"rsi_sco",
+			"2IN",
+			"2In",
+			"forexalp",
+			"bitmex-xbtusd-ethusd",
+			"bitmex-xbtusd-ethusd\n",
+			"top1",
+			"notify_order",
+			".notify_",
+			".notify(",
+			"notify",
+			"SubA",
+			"logger",
+			"cross",
+			"hl2",
+			"awesome",
+			"ema': ('ema', 3,),",
+			".sl = ",
+			"bb_break",
+			"bb_break = 0",
+			".sl ",
+			"modify_stop_loss",
+			"stream(",
+			".parent",
+			"'tf'",
+			"#             'tf': ",
+			"'tf'",
+			"'tf': ",
+			"'tf'",
+			"TimeframeBasedSub)",
+			"TimeframeBased",
+			"TimeframeBased)",
+			"TimeFrameBased)",
+			"TimeFrameBase(",
+			"bitmex-xb",
+			"supports",
+			"'close-only'",
+			"on_order_opened",
+			".SIGNAL_ORDER_OPENED",
+			"'close-only'",
+			"close_on",
+			".close_on",
+			"reduce_only",
+			"reduce_on",
+			"modify_take_profit",
+			"hed",
+			"hedge",
+			"StrategyMarginTrade",
+			"POSITION_",
+			"tf_chain",
+			"TimeframeBasedSub",
+			"BitcoinAlphaStrategySub",
+			"TimeframeBasedSub",
+			"TimeframeBasedSub(",
+			"tfs_chain",
+			"tf_chain",
+			"parent_timeframe",
+			"gen_candles_chain",
+			"parent_entry_tf",
+			".parent_timeframe",
+			"self.timeframes[",
+			"self.tfs_chain",
+			"tfs_chain",
+			"'pivotpoint': ('pivotpoint', 3,),",
+			"histdata-forex",
+			"bt4",
+			"'ema': ('ema', 10,),",
+			"'ema': ('ema', 5,),",
+			"last_s",
+			"levell",
+			"tade.",
+			".tp",
+			"'pivotpoint': ('pivotpoint', 5,),",
+			"SIGNAL_ENTRY",
+			".tp =",
+			"'bollingerbands': None, # ('bollingerbands', 36,),"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'bbawe': ('bbawe', 20, 2.0, 3.0, 5, 34, False),",
+			": 38,",
+			"'price': ('price', 2,),",
+			"ema': ('ema', 8,),",
+			"#             'timeframe': ",
+			"'timeframe': ",
+			"'pivotpoint': ('pivotpoint', 5,),",
+			"'ema': ('ema', 3,),",
+			"'ema': ('ema', 8,),",
+			"'pivotpoint': ('pivotpoint', 3,),",
+			"'bollingerbands': ('bollingerbands', 36,),",
+			"'bollingerbands': None, # ('bollingerbands', 36,),",
+			"'bollingerbands': ('bollingerbands', 36,),",
+			"'rsi': ('rsi', 14,),",
+			"'ema': ('ema', 5,),",
+			"'ema': ('ema', 8,),",
+			"'bollingerbands': ('bollingerbands', 21,),",
+			"'pivotpoint': ('pivotpoint', 5,),",
+			"'ema': ('ema', 10,),",
+			"'pivotpoint': ('pivotpoint', 3,),",
+			"'pivotpoint': ('pivotpoint', 0,),",
+			"_last_ohlcs",
+			"_last_ohlc",
+			")",
+			"http://127.0.0.1:8000",
+			"http://127.0.0.1",
+			"\\),",
+			"INSERT IGNORE ",
+			" TRUE,",
+			" FALSE,",
+			"FALSE,",
+			"ezpiclient",
+			"TRUE,",
+			"FALSE,",
+			"",
+			"doc",
+			", ",
+			"(",
+			"    VALUES('",
+			"VALUES('",
+			"'UMR 1095 : GDEC/Génétique Diversité et Ecophysiologie des Céréales (INRA), Centre de recherche de Clermont-Ferrand-Theix, France'",
+			"('$2', '$1', '$4', '$3', '$5'),",
+			"('$2', '$1', '$4', '$3', '$5'},",
+			"{'last_name': '$1', first_name: '$2', team: '$3', email: '$4'},",
+			"\n            ",
+			"ezpoai.",
+			"span.",
+			": Element.",
+			"'},",
+			"    '},",
+			"    {'",
+			"0",
+			"    'id': $1, 'name': $3, 'parent_id': $2, 'color': $4,",
+			"    'id': $1, 'name': $2, 'parent_id': 'NULL', 'color': $3,",
+			"    'id': $0, 'name': $1, 'parent_id': 'NULL', 'color': $2,",
+			"    'id': $1, 'name': $2, 'parent_id': 'NULL', 'color': $3,",
+			"    'id': $(1), 'name': $(2), 'parent_id': 'NULL', 'color': $(3),",
+			"    'id': %1, 'name': %2, 'parent_id': 'NULL', 'color': %3,",
+			")",
+			"dlg_offset_position",
+			"tmp",
+			", '000000'),",
+			" , '000000'),",
+			"'",
+			"'%s'",
+			"",
+			"),",
+			"(2000+$1, ?, \"$2\")",
+			"(1000+$1, $2, \"$3\")",
+			"($1, \"$2\")",
+			"{{STATIC_URL}}",
+			"^",
+			"",
+			"^",
+			"10000+",
+			"105+",
+			"(90+$1, $2, \"$3\"),",
+			"($1, $2, \"$3\"),",
+			"(\"$2\"),",
+			"($1, \"$2\"),",
+			"($1, $2),",
+			"($1, $2)",
+			"",
+			"cismotif_details_panel",
+			"profile_logout",
+			"profile_sign_up",
+			"profile_sign_in",
+			"is_authenticated()",
+			"{% url 'promoteranalysis:' %}",
+			"{{url}}",
+			"{% url %}",
+			"{{url}}",
+			"success"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "strategy/indicator/bbawe/bbawe.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3010,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2698,
+								2698
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 607.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "strategy/cryptoalpha/casuba.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 37775,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								31443,
+								31443
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 10203.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "scripts/fetch-binance",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 903,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								675,
+								675
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "strategy/indicator/atr/atr.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3316,
+								3316
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1222.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "strategy/cryptoalpha/casubc.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7420,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								760,
+								760
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "strategy/cryptoalpha/castrategytrader.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21333,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14831,
+								14831
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2287.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "strategy/bitcoinalpha/bcasuba.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 28694,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22382,
+								22382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 8406.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "strategy/bitcoinalpha/bcastrategytrader.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23987,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10038,
+								10038
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3097.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "strategy/crystalball/cbparameters.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5270,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1955,
+								1955
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 382.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "strategy/crystalball/cbstrategytrader.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3115,
+								3115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1087.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/frederic/.siis/config/appliance.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 26861,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								25578,
+								25578
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11827.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "strategy/cryptoalpha/caparameters2.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9234,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1078,
+								1078
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 39.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.anaconda_documentation":
+	{
+		"height": 112.0
+	},
+	"output.exec":
+	{
+		"height": 287.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"output.rope_python_documentation":
+	{
+		"height": 112.0
+	},
+	"pinned_build_system": "",
+	"project": "siis.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"fet",
+				"scripts/fetch-ig"
+			],
+			[
+				"bit",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"ig",
+				"scripts/fetch-ig"
+			],
+			[
+				"fe",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"atr",
+				"strategy/indicator/atr/atr.py"
+			],
+			[
+				"bina",
+				"scripts/fetch-binance"
+			],
+			[
+				"rsi",
+				"strategy/indicator/rsi/rsi.py"
+			],
+			[
+				"castr",
+				"strategy/cryptoalpha/castrategytrader.py"
+			],
+			[
+				"casubc",
+				"strategy/cryptoalpha/casubc.py"
+			],
+			[
+				"casuba",
+				"strategy/cryptoalpha/casuba.py"
+			],
+			[
+				"capar",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"cast",
+				"strategy/cryptoalpha/castrategytrader.py"
+			],
+			[
+				"bcas",
+				"strategy/bitcoinalpha/bcasuba.py"
+			],
+			[
+				"capa",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"connector",
+				"connector/bitmex/connector.py"
+			],
+			[
+				"connect",
+				"connector/bitmex/connector.py"
+			],
+			[
+				"fetcher",
+				"watcher/connector/bitmex/fetcher.py"
+			],
+			[
+				"binance",
+				"connector/binance/client.py"
+			],
+			[
+				"fetch",
+				"watcher/connector/binance/fetcher.py"
+			],
+			[
+				"bitmex",
+				"connector/bitmex/connector.py"
+			],
+			[
+				"watche",
+				"watcher/connector/bitmex/watcher.py"
+			],
+			[
+				"bcap",
+				"strategy/bitcoinalpha/bcaparameters.py"
+			],
+			[
+				"bcst",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"bcs",
+				"strategy/bitcoinalpha/bcasuba.py"
+			],
+			[
+				"casu",
+				"strategy/cryptoalpha/casuba.py"
+			],
+			[
+				"cbs",
+				"strategy/crystalball/cbsuba.py"
+			],
+			[
+				"cb",
+				"strategy/crystalball/cbstrategytrader.py"
+			],
+			[
+				"bcasuba",
+				"strategy/bitcoinalpha/bcasuba.py"
+			],
+			[
+				"bol",
+				"strategy/indicator/bollingerbands/bollingerbands.py"
+			],
+			[
+				"bca",
+				"strategy/bitcoinalpha/bcaparameters.py"
+			],
+			[
+				"timfsub",
+				"strategy/timeframebasedsub.py"
+			],
+			[
+				"str",
+				"strategy/strategy.py"
+			],
+			[
+				"stra",
+				"strategy/strategy.py"
+			],
+			[
+				"cbst",
+				"strategy/crystalball/cbstrategy.py"
+			],
+			[
+				"cbstra",
+				"strategy/crystalball/cbstrategy.py"
+			],
+			[
+				"noti",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"cbsuba",
+				"strategy/crystalball/cbsuba.py"
+			],
+			[
+				"cbstr",
+				"strategy/crystalball/cbstrategytrader.py"
+			],
+			[
+				"pref",
+				"scripts/prefetch-bitmex"
+			],
+			[
+				"bba",
+				"strategy/indicator/bbawe/bbawe.py"
+			],
+			[
+				"feeder",
+				"strategy/strategydatafeeder.py"
+			],
+			[
+				"data",
+				"database/database.py"
+			],
+			[
+				"strat",
+				"strategy/crystalball/cbstrategytrader.py"
+			],
+			[
+				"time",
+				"strategy/timeframebasedstrategytrader.py"
+			],
+			[
+				"timefra",
+				"strategy/timeframebasedsub.py"
+			],
+			[
+				"indi",
+				"strategy/indicator/indicator.py"
+			],
+			[
+				"inst",
+				"instrument/instrument.py"
+			],
+			[
+				"ter",
+				"terminal/terminal.py"
+			],
+			[
+				"ins",
+				"instrument/instrument.py"
+			],
+			[
+				"bitm",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"util",
+				"strategy/indicator/utils.py"
+			],
+			[
+				"",
+				"strategy/indicator/price/price.py"
+			],
+			[
+				"price",
+				"strategy/indicator/price/price.py"
+			],
+			[
+				"cbpa",
+				"strategy/crystalball/cbparameters.py"
+			],
+			[
+				"cbsub",
+				"strategy/crystalball/cbsuba.py"
+			],
+			[
+				"timef",
+				"strategy/timeframebasedstrategytrader.py"
+			],
+			[
+				"notif",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"cbsu",
+				"strategy/crystalball/cbsuba.py"
+			],
+			[
+				"casub",
+				"strategy/cryptoalpha/casuba.py"
+			],
+			[
+				"bcasu",
+				"strategy/bitcoinalpha/bcasub.py"
+			],
+			[
+				"conf",
+				"config/config.py"
+			],
+			[
+				"ytrade",
+				"strategy/strategytrade.py"
+			],
+			[
+				"bcastr",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"bcast",
+				"strategy/bitcoinalpha/bcastrategy.py"
+			],
+			[
+				"cap",
+				"strategy/cryptoalpha/caparameters.py"
+			],
+			[
+				"capr",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"fapr",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"bcapa",
+				"strategy/bitcoinalpha/bcaparameters.py"
+			],
+			[
+				"fap",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"fast",
+				"strategy/forexalpha/fastrategytrader.py"
+			],
+			[
+				"fastr",
+				"strategy/forexalpha/fastrategytrader.py"
+			],
+			[
+				"fasuba",
+				"strategy/forexalpha/fasuba.py"
+			],
+			[
+				"fasub",
+				"strategy/forexalpha/fasub.py"
+			],
+			[
+				"tom",
+				"strategy/indicator/tomdemark/tomdemark.py"
+			],
+			[
+				"con",
+				"config/config.py"
+			],
+			[
+				"utils",
+				"strategy/indicator/utils.py"
+			],
+			[
+				"fasubb",
+				"strategy/forexalpha/fasubb.py"
+			],
+			[
+				"bcasubb",
+				"strategy/bitcoinalpha/bcasubb.py"
+			],
+			[
+				"ytrader",
+				"strategy/strategytrader.py"
+			],
+			[
+				"casubb",
+				"strategy/cryptoalpha/casubb.py"
+			],
+			[
+				"suba",
+				"strategy/bitcoinalpha/bcasuba.py"
+			],
+			[
+				"capra",
+				"strategy/cryptoalpha/caparameters.py"
+			],
+			[
+				"fapar",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"bcasub",
+				"strategy/bitcoinalpha/bcasub.py"
+			],
+			[
+				"bastr",
+				"strategy/bitcoinalpha/bcastrategy.py"
+			],
+			[
+				"watc",
+				"watcher/connector/bitmex/watcher.py"
+			],
+			[
+				"trad",
+				"trader/connector/bitmex/trader.py"
+			],
+			[
+				"trader",
+				"trader/connector/bitmex/trader.py"
+			],
+			[
+				"indm",
+				"strategy/strategyindmargintrade.py"
+			],
+			[
+				"watch",
+				"watcher/connector/bitmex/watcher.py"
+			],
+			[
+				"fore",
+				"strategy/forexalpha/fastrategytrader.py"
+			],
+			[
+				"fa",
+				"strategy/forexalpha/fastrategytrader.py"
+			],
+			[
+				"cand",
+				"instrument/candlegenerator.py"
+			],
+			[
+				"timefr",
+				"strategy/timeframebasedsub.py"
+			],
+			[
+				"sub",
+				"strategy/cryptoalpha/casub.py"
+			],
+			[
+				"pivo",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"pio",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"poi",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"point",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"f",
+				"scripts/fetch-ig"
+			],
+			[
+				"fetb",
+				"scripts/fetch-binance"
+			],
+			[
+				"ysig",
+				"strategy/strategysignal.py"
+			],
+			[
+				"ysign",
+				"strategy/strategysignal.py"
+			],
+			[
+				"appl",
+				"config/appliance.py"
+			],
+			[
+				"tader",
+				"trader/trader.py"
+			],
+			[
+				"mysq",
+				"database/mysql.py"
+			],
+			[
+				"pg",
+				"database/pgsql.py"
+			],
+			[
+				"wa",
+				"watcher/connector/binance/watcher.py"
+			],
+			[
+				"or",
+				"trader/order.py"
+			],
+			[
+				"ytrad",
+				"strategy/strategytrade.py"
+			],
+			[
+				"assett",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"apl",
+				"~/.siis/config/appliance.py"
+			],
+			[
+				"paper",
+				"trader/connector/papertrader/trader.py"
+			],
+			[
+				"fapara",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"assettr",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"stratetrader",
+				"strategy/strategytrader.py"
+			],
+			[
+				"ytra",
+				"strategy/strategytrader.py"
+			],
+			[
+				"castra",
+				"strategy/cryptoalpha/castrategytrader.py"
+			],
+			[
+				"fasu",
+				"strategy/forexalpha/fasuba.py"
+			],
+			[
+				"casua",
+				"strategy/cryptoalpha/casuba.py"
+			],
+			[
+				"desk",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"des",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"ore",
+				"trader/order.py"
+			],
+			[
+				"mar",
+				"trader/market.py"
+			],
+			[
+				"yass",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"pos",
+				"trader/position.py"
+			],
+			[
+				"order",
+				"trader/order.py"
+			],
+			[
+				"orde",
+				"trader/order.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/dev/plantpad/master/plantpad.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"Affix"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 280.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
