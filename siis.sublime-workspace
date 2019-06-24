@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"ref",
+				"ref_order_id"
+			],
+			[
+				"ord",
+				"order_id"
+			],
+			[
+				"tri",
+				"trigger_price"
+			],
+			[
+				"liim",
+				"limit_price"
+			],
+			[
 				"vau",
 				"values"
 			],
@@ -498,77 +514,26 @@
 			[
 				"exec",
 				"exec_inst"
-			],
-			[
-				"post",
-				"postdict"
-			],
-			[
-				"exe",
-				"exec_inst"
-			],
-			[
-				"base_t",
-				"base_timeframe"
-			],
-			[
-				"confi",
-				"configured_symbols"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "strategy/strategytrader.py",
+			"file": "app/generalcommands.py",
 			"settings":
 			{
-				"buffer_size": 21724,
+				"buffer_size": 2561,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "config/appliance.py",
+			"file": "app/tradingcommands.py",
 			"settings":
 			{
-				"buffer_size": 10223,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/frederic/.siis/config/appliance.py",
-			"settings":
-			{
-				"buffer_size": 28643,
+				"buffer_size": 16394,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "database/database.py",
-			"settings":
-			{
-				"buffer_size": 15298,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 244 files for \"api/v1/depth\" (case sensitive)\n\n0 matches",
-			"settings":
-			{
-				"buffer_size": 66,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "strategy/service.py",
-			"settings":
-			{
-				"buffer_size": 18051,
 				"line_ending": "Unix"
 			}
 		},
@@ -576,15 +541,74 @@
 			"file": "strategy/strategy.py",
 			"settings":
 			{
-				"buffer_size": 63386,
+				"buffer_size": 64270,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "app/generalcommands.py",
+			"contents": "# @date 2018-08-24\n# @author Frederic SCHERMA\n# @license Copyright (c) 2018 Dream Overflow\n# Strategy trader base class.\n\nimport threading\nimport time\n\nfrom strategy.strategytrade import StrategyTrade\nfrom strategy.strategyassettrade import StrategyAssetTrade\nfrom strategy.strategymargintrade import StrategyMarginTrade\nfrom strategy.strategyindmargintrade import StrategyIndMarginTrade\nfrom terminal.terminal import Terminal\nfrom common.utils import timeframe_to_str\nfrom notifier.signal import Signal\n\nfrom trader.order import Order\n\nimport logging\nlogger = logging.getLogger('siis.strategy')\n\n\nclass StrategyTrader(object):\n    \"\"\"\n    A strategy can manage multiple instrument. Strategy trader is on of the managed instruments.\n    \"\"\"\n\n    def __init__(self, strategy, instrument):\n        self.strategy = strategy\n        self.instrument = instrument\n        self.trades = []\n        self._mutex = threading.RLock()\n        self._next_trade_id = 1\n\n        self._global_streamer = None\n        self._timeframe_streamers = {}\n        self._stats = {\n            'perf': 0.0,     # initial\n            'worst': 0.0,    # worst trade lost\n            'best': 0.0,     # best trade profit\n            'failed': [],    # failed terminated trades\n            'success': [],   # success terminated trades\n            'roe': [],       # return to equity trades\n        }\n\n    def lock(self, blocking=True, timeout=-1):\n        self._mutex.acquire(blocking, timeout)\n\n    def unlock(self):\n        self._mutex.release()\n\n    def create_chart_streamer(self, timeframe):\n        \"\"\"\n        Create a streamer for the chart at a specific timeframe.\n        Must be overrided.\n        \"\"\"\n        return None\n\n    def subscribe(self, timeframe):\n        \"\"\"\n        Use or create a specific streamer.\n        \"\"\"\n        if timeframe in self._timeframe_streamers:\n            self._timeframe_streamers[timeframe].use()\n            return True\n        else:\n            streamer = self.create_chart_streamer(timeframe)\n\n            if streamer:\n                streamer.use()\n                self._timeframe_streamers[timeframe] = streamer\n                return True\n\n        return False\n\n    def unsubscribe(self, timeframe):\n        \"\"\"\n        Delete a specific streamer when no more subscribers.\n        \"\"\"\n        if timeframe in self._timeframe_streamers:\n            self._timeframe_streamers[timeframe].unuse()\n            if self._timeframe_streamers[timeframe].is_free():\n                # delete if 0 subscribers\n                del self._timeframe_streamers[timeframe]\n    \n            return True\n        else:\n            return False\n\n    def stream_call(self):\n        \"\"\"\n        Process the call for the strategy trader. Must be overriden.\n        \"\"\"\n        pass\n\n    def process(self, tf, timestamp):\n        \"\"\"\n        @param tf Smallest updated time unit.\n        @param timestamp Current timestamp (or past time in backtest)\n        \"\"\"\n        pass\n\n    def order_signal(self, signal_type, data):\n        \"\"\"\n        Update quantity/filled on a trade, deleted or canceled.\n        \"\"\"\n        self.lock()\n\n        try:\n            for trade in self.trades:\n                # update each trade relating the order (might be a unique)\n                order_id = data[1]['id'] if type(data[1]) is dict else data[1]\n                ref_order_id = data[2] if (len(data) > 2 and type(data[2]) is str) else None\n\n                if trade.is_target_order(order_id, ref_order_id):\n                    trade.order_signal(signal_type, data[1], data[2] if len(data) > 2 else None)\n\n        except Exception as e:\n            logger.error(repr(e))\n\n        self.unlock()\n\n    def position_signal(self, signal_type, data):\n        \"\"\"\n        Update quantity/filled on a trade, delete or cancel.\n        \"\"\"\n        self.lock()\n\n        try:\n            for trade in self.trades:\n                # update each trade relating the position (could be many)\n                position_id = data[1]['id'] if type(data[1]) is dict else data[1]\n                ref_order_id = data[2] if (len(data) > 2 and type(data[2]) is str) else None\n\n                if trade.is_target_position(position_id, ref_order_id):\n                    trade.position_signal(signal_type, data[1], data[2] if len(data) > 2 else None)\n\n        except Exception as e:\n            logger.error(repr(e))\n\n        self.unlock()\n\n    def add_trade(self, trade):\n        \"\"\"\n        Add a new trade.\n        \"\"\"\n        if not trade:\n            return False\n\n        self.lock()\n\n        trade.id = self._next_trade_id\n        self._next_trade_id += 1\n\n        self.trades.append(trade)\n        self.unlock()\n\n    def remove_trade(self, trade):\n        \"\"\"\n        Remove an existing trade.\n        \"\"\"\n        if not trade:\n            return False\n\n        self.lock()\n        self.trades.remove(trade)\n        self.unlock()\n\n    def update_timeout(self, timestamp, trade):\n        \"\"\"\n        Aadjust the take-profit to current price (bid or ofr)\n        and the stop-loss very tiny to protect the issue of the trade, when\n        the trade arrives to a validity expiration. Mostly depend ofthe timeframe of\n        the trade.\n        \"\"\"\n        if not trade:\n            return False\n\n        if not trade.is_opened() or trade.is_closing() or trade.is_closed():\n            return False\n\n        MAX_TIME_UNIT = 18\n\n        # more than max time unit of the timeframe then abort the trade\n        if (trade.created_time > 0) and ((timestamp - trade.created_time) / trade.timeframe) > MAX_TIME_UNIT:\n            # trade.modify_stop_loss()\n            # trade.modify_take_profit()\n            \n            # this will exit now but prefer exit at limit and use a tiny stop\n            trade.tp = self.instrument.close_exec_price(trade.dir)\n            trade.sl = self.instrument.close_exec_price(trade.dir)\n\n            logger.info(\"> Trade %s timeout !\" % trade.id)\n\n        return True\n\n    def update_trades(self, timestamp):\n        \"\"\"\n        Update managed trades per instruments and delete terminated trades.\n        \"\"\"\n        if not self.strategy.activity:\n            return\n\n        if not self.trades:\n            return\n\n        trader = self.strategy.trader()\n\n        #\n        # for each trade check if the TP or SL is reached and trigger if necessary\n        #\n\n        self.lock()\n\n        for trade in self.trades:\n\n            #\n            # managed operation\n            #\n\n            if trade.has_operations():\n                mutated = False\n\n                for operation in trade.operations:\n                    mutated |= operation.test_and_operate(trade, self.instrument, trader)\n\n                if mutated:\n                    trade.cleanup_operations()\n\n            #\n            # active trade\n            #\n\n            if trade.is_active():\n                self.update_timeout(timestamp, trade)\n\n                # for statistics usage\n                trade.update_stats(self.instrument.close_exec_price(trade.direction), timestamp)\n\n            #\n            # asset trade\n            #\n\n            if trade.trade_type == StrategyTrade.TRADE_BUY_SELL:\n                if trade.is_closed():\n                    continue\n\n                # process only on active trades\n                if not trade.is_active():\n                    # @todo timeout if not filled before condition...\n                    continue\n\n                if trade.is_closing():\n                    continue\n\n                # potential order exec close price (always close a long)\n                close_exec_price = self.instrument.close_exec_price(Order.LONG)\n\n                if trade.tp > 0 and (close_exec_price >= trade.tp):\n                    # take profit order\n                    # @todo or limit order for maker fee\n                    # trade.modify_take_profit(trader, market, take_profit)\n                    # close at market (taker fee)\n                    if trade.close(trader, self.instrument.market_id):\n                        self._global_streamer.member('buy-exit').update(close_exec_price, timestamp)\n\n                    # only get it at the last moment\n                    market = trader.market(self.instrument.market_id)\n\n                    # estimed profit/loss rate\n                    profit_loss_rate = (close_exec_price - trade.p) / trade.p\n\n                    # estimed maker/taker fee rate for entry and exit\n                    if trade.get_stats()['entry-maker']:\n                        profit_loss_rate -= market.maker_fee\n                    else:\n                        profit_loss_rate -= market.taker_fee\n\n                    if trade.get_stats()['exit-maker']:\n                        profit_loss_rate -= market.maker_fee\n                    else:\n                        profit_loss_rate -= market.taker_fee\n\n                    text = \"%s take-profit-market %s %.2f%% on %s (%.4f%s) at %s\" % (\n                        self.strategy.identifier, market.symbol, profit_loss_rate*100.0, market.base,\n                        profit_loss_rate/market.base_exchange_rate, trader.account.currency_display, market.format_price(close_exec_price))\n\n                    Terminal.inst().high(text, view='common') if profit_loss_rate > 0 else Terminal.inst().low(text, view='common')\n\n                    # notify\n                    self.strategy.notify_order(trade.id, Order.SHORT, self.instrument.market_id,\n                            market.format_price(close_exec_price), timestamp, trade.timeframe,\n                            'take-profit', profit_loss_rate)\n\n                elif trade.sl > 0 and (close_exec_price <= trade.sl):\n                    # stop loss order\n                    # close at market (taker fee)\n                    if trade.close(trader, self.instrument.market_id):\n                        self._global_streamer.member('buy-exit').update(close_exec_price, timestamp)\n\n                    # only get it at the last moment\n                    market = trader.market(self.instrument.market_id)\n\n                    # estimed profit/loss rate\n                    profit_loss_rate = (close_exec_price - trade.p) / trade.p\n\n                    # estimed maker/taker fee rate for entry and exit\n                    if trade.get_stats()['entry-maker']:\n                        profit_loss_rate -= market.maker_fee\n                    else:\n                        profit_loss_rate -= market.taker_fee\n\n                    if trade.get_stats()['exit-maker']:\n                        profit_loss_rate -= market.maker_fee\n                    else:\n                        profit_loss_rate -= market.taker_fee\n\n                    text = \"%s stop-market %s %.2f%% %s (%.4f%s) at %s\" % (\n                        self.strategy.identifier, market.symbol, profit_loss_rate*100.0, market.base,\n                        profit_loss_rate/market.base_exchange_rate, trader.account.currency_display, market.format_price(close_exec_price))\n\n                    Terminal.inst().high(text, view='common') if profit_loss_rate > 0 else Terminal.inst().low(text, view='common')\n\n                    # notify\n                    self.strategy.notify_order(trade.id, Order.SHORT, self.instrument.market_id,\n                            market.format_price(close_exec_price), timestamp, trade.timeframe,\n                            'stop-loss', profit_loss_rate)\n\n            #\n            # margin trade\n            #\n\n            elif trade.trade_type == StrategyTrade.TRADE_MARGIN or trade.trade_type == StrategyTrade.TRADE_IND_MARGIN:\n                # process only on active trades\n                if not trade.is_active():\n                    # @todo timeout if not filled before condition...\n                    continue\n\n                if trade.is_closed():\n                    continue\n\n                if trade.is_closing():\n                    continue\n\n                if not self.instrument.market_open:\n                    continue\n\n                # potential order exec close price\n                close_exec_price = self.instrument.close_exec_price(trade.direction)\n\n                if (trade.tp > 0) and (trade.direction > 0 and close_exec_price >= trade.tp) or (trade.direction < 0 and close_exec_price <= trade.tp):\n                    # close in profit at market (taker fee)\n                    if trade.close(trader, self.instrument.market_id):\n                        # only get it at the last moment\n                        market = trader.market(self.instrument.market_id)\n\n                        # estimed profit/loss rate\n                        if trade.direction > 0 and trade.p:\n                            profit_loss_rate = (close_exec_price - trade.p) / trade.p\n                        elif trade.direction < 0 and trade.p:\n                            profit_loss_rate = (trade.p - close_exec_price) / trade.p\n                        else:\n                            profit_loss_rate = 0\n\n                        # estimed maker/taker fee rate for entry and exit\n                        if trade.get_stats()['entry-maker']:\n                            profit_loss_rate -= market.maker_fee\n                        else:\n                            profit_loss_rate -= market.taker_fee\n\n                        if trade.get_stats()['exit-maker']:\n                            profit_loss_rate -= market.maker_fee\n                        else:\n                            profit_loss_rate -= market.taker_fee\n\n                        # and notify\n                        self.strategy.notify_order(trade.id, trade.close_direction(), self.instrument.market_id,\n                                market.format_price(close_exec_price), timestamp, trade.timeframe,\n                                'take-profit', profit_loss_rate)\n\n                        # close a long or a short position at take-profit level\n                        text = \"%s take-profit-market %s %.4f%s (%.4f) at %s\" % (\n                            self.strategy.identifier, market.symbol, profit_loss_rate*100.0, market.quote,\n                            profit_loss_rate/market.base_exchange_rate, market.format_price(close_exec_price))\n\n                        Terminal.inst().high(text, view='common') if profit_loss_rate > 0 else Terminal.inst().low(text, view='common')\n\n                    # and for streaming\n                    self._global_streamer.member('buy-exit').update(close_exec_price, timestamp)\n\n                elif (trade.sl > 0) and (trade.direction > 0 and close_exec_price <= trade.sl) or (trade.direction < 0 and close_exec_price >= trade.sl):\n                    # close a long or a short position at stop-loss level at market (taker fee)\n                    if trade.close(trader, self.instrument.market_id):\n                        # only get it at the last moment\n                        market = trader.market(self.instrument.market_id)\n\n                        # estimed profit/loss rate\n                        if trade.direction > 0 and trade.p:\n                            profit_loss_rate = (close_exec_price - trade.p) / trade.p\n                        elif trade.direction < 0 and trade.p:\n                            profit_loss_rate = (trade.p - close_exec_price) / trade.p\n                        else:\n                            profit_loss_rate = 0\n\n                        # estimed maker/taker fee rate for entry and exit\n                        if trade.get_stats()['entry-maker']:\n                            profit_loss_rate -= market.maker_fee\n                        else:\n                            profit_loss_rate -= market.taker_fee\n\n                        if trade.get_stats()['exit-maker']:\n                            profit_loss_rate -= market.maker_fee\n                        else:\n                            profit_loss_rate -= market.taker_fee\n\n                        # and notify\n                        self.strategy.notify_order(trade.id, trade.close_direction(), self.instrument.market_id,\n                                market.format_price(close_exec_price), timestamp, trade.timeframe,\n                                'stop-loss', profit_loss_rate)\n\n                        text = \"%s stop-market %s %.4f%s (%.4f) at %s\" % (\n                            self.strategy.identifier, market.symbol, profit_loss_rate, market.quote,\n                            profit_loss_rate/market.base_exchange_rate, market.format_price(close_exec_price))\n\n                        Terminal.inst().high(text, view='common') if profit_loss_rate > 0 else Terminal.inst().low(text, view='common')\n\n                    # and for streaming                            \n                    self._global_streamer.member('sell-exit').update(close_exec_price, timestamp)\n\n        self.unlock()\n\n        #\n        # remove terminated, rejected, canceled and empty trades\n        #\n\n        mutated = False\n\n        self.lock()\n\n        for trade in self.trades:\n            if trade.can_delete():\n                mutated = True\n\n                # cleanup if necessary before deleting the trade related refs, and add them to the deletion list\n                trade.remove(trader)\n\n                # record the trade for analysis and learning\n                if not trade.is_canceled():\n                    # estimation on mid last price, but might be close market price\n                    market = trader.market(self.instrument.market_id)\n\n                    rate = trade.pl\n\n                    # estimed maker/taker fee rate for entry and exit\n                    if trade._stats['entry-maker']:\n                        rate -= market.maker_fee\n                    else:\n                        rate -= market.taker_fee\n\n                    if trade._stats['exit-maker']:\n                        rate -= market.maker_fee\n                    else:\n                        rate -= market.taker_fee\n\n                    # estimed commission fee rate\n                    # @todo\n\n                    # perf sommed here it means that its not done during partial closing\n                    if rate != 0.0:\n                        self._stats['perf'] += rate\n                        self._stats['worst'] = min(self._stats['worst'], rate)\n                        self._stats['best'] = max(self._stats['best'], rate)\n\n                    record = {\n                        'id': trade.id,\n                        'ts': trade.t,\n                        'd': trade.direction_to_str(),\n                        'p': market.format_price(trade.p),\n                        'q': market.format_quantity(trade.q),\n                        'e': market.format_quantity(trade.e),\n                        'x': market.format_quantity(trade.x),\n                        'tp': market.format_price(trade.tp),\n                        'sl': market.format_price(trade.sl),\n                        'rate': rate,\n                        'tf': timeframe_to_str(trade.timeframe),\n                        's': trade.state_to_str(),\n                        'c': trade.conditions,\n                        'b': market.format_price(trade.best_price()),\n                        'w': market.format_price(trade.worst_price()),\n                        'bt': trade.best_price_timestamp(),\n                        'wt': trade.worst_price_timestamp(),\n                    }\n\n                    if rate < 0:\n                        self._stats['failed'].append(record)\n                    elif rate > 0:\n                        self._stats['success'].append(record)\n                    else:\n                        self._stats['roe'].append(record)\n\n        # recreate the list of trade\n        if mutated:\n            trades_list = []\n\n            for trade in self.trades:\n                if not trade.can_delete():\n                    trades_list.append(trade)\n\n        self.unlock()\n\n\n\n\n\n        rm_list = []\n\n        self.lock()\n\n        for trade in self.trades:\n            if trade.can_delete():\n                # cleanup if necessary before deleting the trade related refs, and add them to the deletion list\n                trade.remove(trader)\n                rm_list.append(trade)\n\n                # record the trade for analysis and learning\n                if not trade.is_canceled():\n                    # estimation on mid last price, but might be close market price\n                    market = trader.market(self.instrument.market_id)\n\n                    rate = trade.pl\n\n                    # estimed maker/taker fee rate for entry and exit\n                    if trade._stats['entry-maker']:\n                        rate -= market.maker_fee\n                    else:\n                        rate -= market.taker_fee\n\n                    if trade._stats['exit-maker']:\n                        rate -= market.maker_fee\n                    else:\n                        rate -= market.taker_fee\n\n                    # estimed commission fee rate\n                    # @todo\n\n                    # perf sommed here it means that its not done during partial closing\n                    if rate != 0.0:\n                        self._stats['perf'] += rate\n                        self._stats['worst'] = min(self._stats['worst'], rate)\n                        self._stats['best'] = max(self._stats['best'], rate)\n\n                    record = {\n                        'id': trade.id,\n                        'ts': trade.t,\n                        'd': trade.direction_to_str(),\n                        'p': market.format_price(trade.p),\n                        'q': market.format_quantity(trade.q),\n                        'e': market.format_quantity(trade.e),\n                        'x': market.format_quantity(trade.x),\n                        'tp': market.format_price(trade.tp),\n                        'sl': market.format_price(trade.sl),\n                        'rate': rate,\n                        'tf': timeframe_to_str(trade.timeframe),\n                        's': trade.state_to_str(),\n                        'c': trade.conditions,\n                        'b': market.format_price(trade.best_price()),\n                        'w': market.format_price(trade.worst_price()),\n                        'bt': trade.best_price_timestamp(),\n                        'wt': trade.worst_price_timestamp(),\n                    }\n\n                    if rate < 0:\n                        self._stats['failed'].append(record)\n                    elif rate > 0:\n                        self._stats['success'].append(record)\n                    else:\n                        self._stats['roe'].append(record)\n\n        # delete terminated trades\n        for trade in rm_list:\n            self.trades.remove(trade)\n\n        self.unlock()\n\n    def update_trailing_stop(self, trade, market):\n        \"\"\"\n        Update the stop price of a trade using a simple level distance or percent distance method.\n\n        @note This method is not a way to process a stop, it mostly failed, close for nothing at a wrong price.\n        \"\"\"\n        close_exec_price = market.price  #  market.close_exec_price(trade.direction)\n        stop_loss = trade.sl\n\n        if trade.direction > 0:\n            # long case\n            pass\n\n            # ratio = close_exec_price / trade.p\n            # sl_ratio = (trade.p - trade.sl) / trade.p\n            # dist = (close_exec_price - trade.sl) / trade.p\n            # step = 0.01  # 1% trailing stop-loss\n\n            # # # @todo take a stop-loss from a timeframe level\n            # # # profit >= 1% up the stop-loss\n            # # if dist > (sl_ratio + step):\n            # #     stop_loss = close_exec_price * (1.0 - sl_ratio)\n            # #     logger.debug(\"update SL from %s to %s\" % (trade.sl, stop_loss))\n\n            # # # protect from loss when a trade become profitable\n            # # # not a good idea because it depend of the volatility\n            # # if ratio >= 1.01:\n            # #     stop_loss = max(stop_loss, trade.p)  # at 1% profit stop at break-even\n            \n            # # # alternative @todo how to trigger\n            # # if ratio >= 1.10:\n            # #     stop_loss = max(trade.sl, close_exec_price - (close_exec_price/trade.p*(close_exec_price-trade.p)*0.33))\n\n            # # ultra large and based on the distance of the price\n            # # if dist > 0.25:\n            # #     stop_loss = trade.p + (trade.p * (dist * 0.5))\n\n            # # if stop_loss != trade.sl:\n            # #     logger.info(\"update SL from %s to %s (market price %s)\" % (trade.sl, stop_loss, market.price))\n            # #     # trade.modify_stop_loss(trader, market.market_id, stop_loss)\n            # #     trade.sl = stop_loss\n\n        elif trade.direction < 0:\n            # short case\n            pass\n",
+			"file": "strategy/strategytrader.py",
+			"file_size": 24559,
+			"file_write_time": 132057788689655252,
 			"settings":
 			{
-				"buffer_size": 2562,
+				"buffer_size": 24670,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/strategyassettrade.py",
+			"settings":
+			{
+				"buffer_size": 13495,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/strategyindmargintrade.py",
+			"settings":
+			{
+				"buffer_size": 19591,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/strategymargintrade.py",
+			"settings":
+			{
+				"buffer_size": 20725,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "strategy/strategytrade.py",
+			"settings":
+			{
+				"buffer_size": 15191,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 235 files for \"can_del\" (case sensitive)\n\n/home/frederic/dev/trading/siis/strategy/strategytrade.py:\n  177          pass\n  178  \n  179:     def can_delete(self):\n  180          \"\"\"\n  181          Because of the slippage once a trade is closed deletion can only be done once all the quantity of the\n  ...\n  434  \n  435          for operation in self._operations:\n  436:             if not operation.can_delete():\n  437                  ops.append(operation)\n  438  \n\n/home/frederic/dev/trading/siis/strategy/strategytrader.py:\n  439  \n  440          for trade in self.trades:\n  441:             if trade.can_delete():\n  442                  # cleanup if necessary before deleting the trade related refs, and add them to the deletion list\n  443                  trade.remove(trader)\n\n/home/frederic/dev/trading/siis/strategy/tradeop/tradeop.py:\n   77      #\n   78  \n   79:     def can_delete(self):\n   80          return self._count == 0\n   81  \n\n4 matches across 3 files\n\n\nSearching 235 files for \"def remove(self, trade)\" (case sensitive)\n\n0 matches",
+			"settings":
+			{
+				"buffer_size": 1059,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "siis.py",
+			"settings":
+			{
+				"buffer_size": 24992,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -603,15 +627,6 @@
 			"settings":
 			{
 				"buffer_size": 8740,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "strategy/cryptoalpha/castrategytrader.py",
-			"settings":
-			{
-				"buffer_size": 19574,
-				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -638,24 +653,6 @@
 			"settings":
 			{
 				"buffer_size": 1469,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "strategy/strategytrade.py",
-			"settings":
-			{
-				"buffer_size": 14748,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "siis.py",
-			"settings":
-			{
-				"buffer_size": 24766,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1139,52 +1136,81 @@
 		"/home/frederic/dev/trading/siis/strategy",
 		"/home/frederic/dev/trading/siis/strategy/region",
 		"/home/frederic/dev/trading/siis/terminal",
-		"/home/frederic/dev/trading/siis/watcher",
-		"/home/frederic/dev/trading/siis/watcher/connector"
+		"/home/frederic/dev/trading/siis/trader",
+		"/home/frederic/dev/trading/siis/trader/connector"
 	],
 	"file_history":
 	[
-		"/home/frederic/dev/trading/siis/watcher/connector/siis/ohlc.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py",
-		"/home/frederic/dev/trading/siis/strategy/strategy.py",
+		"/home/frederic/dev/trading/siis/trader/connector/binance/trader.py",
 		"/home/frederic/dev/trading/siis/trader/trader.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
+		"/home/frederic/dev/trading/siis/strategy/tradeop/tradeop.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/strategyassettrade.py",
+		"/home/frederic/dev/trading/siis/trader/connector/ig/account.py",
+		"/home/frederic/dev/trading/siis/trader/connector/papertrader/account.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/onebroker/watcher.py",
+		"/home/frederic/dev/trading/siis/trader/order.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py",
+		"/home/frederic/dev/trading/siis/strategy/strategy.py",
+		"/home/frederic/dev/trading/siis/watcher/position.py",
+		"/home/frederic/dev/trading/siis/trader/service.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/siis/ohlc.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/tiingo/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/siis/price.py",
+		"/home/frederic/dev/trading/siis/trader/position.py",
+		"/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py",
+		"/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py",
+		"/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py",
+		"/home/frederic/dev/trading/siis/trader/connector/ig/trader.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/tradingview/watcher.py",
+		"/home/frederic/dev/trading/siis/trader/market.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/dummywatcher/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/service.py",
+		"/home/frederic/dev/trading/siis/strategy/indicealpha/iastrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/socialcopy/scstrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py",
+		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
+		"/home/frederic/dev/trading/siis/siis.py",
 		"/home/frederic/dev/trading/siis/watcher/service.py",
-		"/home/frederic/dev/trading/siis/config/config.py",
+		"/home/frederic/dev/trading/siis/trader/connector/onefox/account.py",
+		"/home/frederic/dev/trading/siis/trader/account.py",
+		"/home/frederic/dev/trading/siis/trader/connector/bitmex/account.py",
+		"/home/frederic/dev/trading/siis/trader/connector/binance/account.py",
+		"/home/frederic/.siis/config/appliance.py",
+		"/home/frederic/dev/trading/siis/config/appliance.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py",
+		"/home/frederic/dev/trading/siis/database/database.py",
 		"/home/frederic/dev/trading/siis/connector/binance/client.py",
+		"/home/frederic/dev/trading/siis/connector/binance/connector.py",
+		"/home/frederic/dev/trading/siis/config/config.py",
 		"/home/frederic/dev/trading/siis/config/utils.py",
 		"/home/frederic/dev/trading/siis/config/identity.py.template",
 		"/home/frederic/dev/trading/siis/app/setup.py",
 		"/home/frederic/dev/trading/siis/terminal/command.py",
 		"/home/frederic/dev/trading/siis/terminal/terminal.py",
 		"/home/frederic/dev/trading/siis/app/tradingcommands.py",
-		"/home/frederic/dev/trading/siis/siis.py",
 		"/home/frederic/.sis",
-		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
 		"/home/frederic/dev/trading/siis/notifier/signal.py",
 		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategy.py",
-		"/home/frederic/.siis/config/appliance.py",
 		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/tradeop/tradeop.py",
-		"/home/frederic/dev/trading/siis/trader/connector/binance/trader.py",
-		"/home/frederic/dev/trading/siis/trader/connector/binance/account.py",
-		"/home/frederic/dev/trading/siis/connector/binance/connector.py",
 		"/home/frederic/dev/trading/siis/trader/asset.py",
 		"/home/frederic/.siis/config/identity.py",
 		"/home/frederic/dev/trading/siis/config/identity.py",
 		"/home/frederic/dev/trading/siis/strategy/region/__init__.py",
-		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
 		"/home/frederic/dev/trading/siis/TODO",
-		"/home/frederic/dev/trading/siis/strategy/strategyassettrade.py",
 		"/home/frederic/dev/trading/siis/scripts/fetch-binance",
 		"/home/frederic/dev/trading/siis/scripts/fetch-ig",
 		"/home/frederic/dev/trading/siis/scripts/fetch-bitmex",
-		"/home/frederic/dev/trading/siis/trader/market.py",
 		"/home/frederic/dev/trading/siis/charting/charting.py",
 		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasuba.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategytrader.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py",
 		"/home/frederic/dev/trading/siis/app/help.py",
 		"/home/frederic/dev/trading/siis/app/generalcommands.py",
 		"/home/frederic/dev/trading/siis/strategy/tradeop.py",
@@ -1193,20 +1219,13 @@
 		"/home/frederic/dev/trading/siis/instrument/instrument.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/sma/sma.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/indicator.py",
-		"/home/frederic/dev/trading/siis/strategy/service.py",
 		"/home/frederic/.siis/config/config.py",
-		"/home/frederic/dev/trading/siis/trader/account.py",
-		"/home/frederic/dev/trading/siis/trader/order.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
-		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategy.py",
 		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategy.py",
 		"/home/frederic/dev/trading/siis/strategy/timeframebasedstrategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/timeframebasedsub.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasub.py",
-		"/home/frederic/dev/trading/siis/strategy/strategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/strategymargintrade.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
 		"/home/frederic/dev/trading/igmarkets.txt",
 		"/home/frederic/dev/trading/instr.txt",
 		"/home/frederic/dev/trading/strategies.rst",
@@ -1218,14 +1237,12 @@
 		"/home/frederic/dev/trading/siis/connector/ig/rest.py",
 		"/home/frederic/dev/trading/siis/connector/ig/stream.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/atr/atr.py",
-		"/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/price/price.py",
 		"/home/frederic/dev/trading/siis/help.py",
 		"/home/frederic/dev/trading/siis/terminal/generalcommands.py",
 		"/home/frederic/dev/trading/siis/terminal/tradingcommands.py",
 		"/home/frederic/dev/trading/siis/__init__.py",
 		"/home/frederic/dev/trading/siis/monitor/discord.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/tradingview/watcher.py",
 		"/home/frederic/dev/trading/siis/runner.py",
 		"/home/frederic/dev/trading/siis/build.sh",
 		"/home/frederic/dev/trading/siis/scripts/prefetch-ig",
@@ -1233,11 +1250,8 @@
 		"/home/frederic/dev/trading/siis/scripts/prefetch-binance",
 		"/home/frederic/dev/trading/siis/setup.py",
 		"/home/frederic/dev/trading/siis/README",
-		"/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py",
 		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/bbawe/bbawe.py",
-		"/home/frederic/dev/trading/siis/trader/service.py",
-		"/home/frederic/dev/trading/siis/database/database.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubb.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubc.py",
 		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsuba.py",
@@ -1254,24 +1268,7 @@
 		"/home/frederic/dev/trading/siis/strategy/crystalball/cbparameters.py",
 		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casub.py",
 		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasub.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsub.py",
-		"/home/frederic/dev/trading/siis/watcher/fetcher.py",
-		"/home/frederic/dev/trading/siis/runner.c",
-		"/home/frederic/dev/trading/siis/strategy/indicator/pivotpoint/pivotpoint.py",
-		"/home/frederic/dev/trading/siis/config/appliance.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/rsi/rsi.py",
-		"/home/frederic/dev/trading/siis/connector/bitmex/connector.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/fetcher.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/binance/fetcher.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/bollingerbands/bollingerbands.py",
-		"/home/frederic/dev/trading/siis/watcher/watcher.py",
-		"/home/frederic/dev/trading/siis/strategy/strategydatafeeder.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/utils.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/tomdemark/tomdemark.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/__init__.py",
-		"/home/frederic/dev/test.py",
-		"/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py",
-		"/home/frederic/dev/trading/siis/instrument/candlegenerator.py"
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsub.py"
 	],
 	"find":
 	{
@@ -1314,134 +1311,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"api/v1/depth",
-			"instruments",
-			"'instruments'",
-			"mapped_instrument",
-			"'market-id'",
-			"'quote'",
-			"'alias'",
-			"alias",
-			"alia",
-			"contrac",
-			"'quote'",
-			"'alias'",
-			"_stop_loosing_position",
-			"'take-profit'",
-			"{0}",
-			"'market-id'",
-			"{0}",
-			"'{0}'",
-			"\"{0}\"",
-			"EURUSD",
-			"'strategy':",
-			"['status']",
-			"'status'",
-			"'instruments'",
-			"asset",
-			"assets",
-			"'assets",
-			"asset",
-			"paper-mode",
-			"'asset'",
-			"'stop-loosing-position'",
-			"'default-margin'",
-			"_profile_config",
-			"\"watchers\"",
-			"applia",
-			"'watchers'",
-			"command",
-			"alias",
-			".setter",
-			"tototo",
-			".command(",
-			".co",
-			".command(",
-			"COMMAND_TRADE_ENTRY",
-			".COMMAND_TRADE_ENTRY",
-			"cmd_trade_entry",
-			"Unsupported command",
-			"process_cli",
-			"execute",
-			".execute(",
-			"'status'",
-			"COMMAND_TRADE_ENTRY",
-			"results['messages']",
-			"binance-baseusdt-top",
-			"ZILUSDT",
-			"SIGNAL_STRATEGY_E",
-			"SIGNAL_STRATEGY_ENTRY_EXIT",
-			"SIGNAL_STRATEGY_SIGNAL",
-			"SIGNAL_STRATEGY_ENTRY_EXIT",
-			"def notify_order",
-			"DEFAULT_PARAMS",
-			"'timeframes'",
-			"timeframes",
-			"'timeframes'",
-			"timeframe",
-			"binance-altbtc-top",
-			"binance-baseusdt-top",
-			"SIZE_FACTOR",
-			"is_ac",
-			"ZIL",
-			"IOTA",
-			"ETHUS",
-			"has_c",
-			".use",
-			".has_count",
-			".quote = ",
-			"asset.quote",
-			"prefered_market = self._markets.get(asset.symbol+asset.quote)",
-			"refered_market = self._markets.get(asset.symbol+asset.quote)",
-			"client-id",
-			"stop-lost",
-			"stop-loss",
-			"stop_loss",
-			"'stop-los",
-			"#85\n",
-			"TP@",
+			"def remove(self, trade)",
+			"can_del",
+			"\"canceled\"",
+			"def remove(",
+			"can_delete",
+			"_entry_state",
+			"cancel_op",
+			"can_delete",
+			"waiting'",
+			"waiting\"",
+			"waiting",
+			".order_signal(",
+			"on_order_canceled",
+			"SIGNAL_ORDER_CANCELED",
+			"cancel_open",
+			"def is_canceled",
+			"can_delete",
+			"can_del",
+			"STATE_CANCELED",
+			"'waiting'",
+			"\"waiting\"",
+			"waiting",
 			"wait",
-			"sauve",
-			"sauvge",
-			"save",
-			"persist",
-			"'stats-head'",
-			"'help'",
-			"'stats'",
-			"'monitor'",
-			"'panel",
-			"panel-head",
-			"'A'",
-			"grid",
-			"grid-",
-			"grid-head",
-			"'grid'",
-			".table",
-			"'table",
-			"'G'",
-			"'con",
-			"MAX_NUM_ENTRIES",
-			".scroll(",
-			"view='content-head')",
-			"List %",
-			"def clear(",
-			"self._active_content =",
-			"'content'",
-			"checking error ",
-			"is_user",
-			"def is_user",
-			"def get_user_help",
-			"display_help",
-			"user",
-			"view='status'",
-			"cmd_trade_mo",
-			"results['error']",
-			"tititi",
-			"test_and_operate",
-			"index",
-			"'index'",
-			"index",
-			"trigger"
+			"\"wait\"",
+			"'wait'",
+			"can_delete",
+			"is_canceled",
+			"def can_delete",
+			"trade.remove(",
+			"is_active",
+			"cancel_",
+			"lprice",
+			"market_or_limit",
+			"'method'",
+			"cmd_trade_exit",
+			"COMMAND_TRADE_EXIT",
+			"copied_position_id",
+			"ORDER_SHORT",
+			"ORDER_LONG",
+			"WatcherPo",
+			"Watcher",
+			"SIGNAL_POSITION_EXIT",
+			"position",
+			"Position",
+			"Author",
+			"Position",
+			"Order",
+			"Position",
+			"Author",
+			"Position",
+			"watcher.position",
+			"POSITION_LONG",
+			"Order.ORDER_",
+			"Position.POSITION_S",
+			"Position.POSITION_L",
+			"Position.POSITIONL",
+			"Position.POSITION",
+			"WatcherPosition",
+			"TraderPosition",
+			"Position",
+			"TraderPosition",
+			"Position",
+			"WatcherPosition",
+			"TraderPosition",
+			"Position",
+			"TraderPosition",
+			"WatcherPosition",
+			"TraderPosition",
+			"Position",
+			"Position.POSITION_LONG",
+			"Position",
+			"Signal",
+			"Author",
+			"Watcher",
+			"Author",
+			"Position",
+			"Market",
+			"Order",
+			"Position",
+			"WatcherPosition",
+			"Position",
+			"WatcherPosition",
+			"TraderPosition",
+			"WatcherPosition.",
+			"Position.",
+			"TraderPosition",
+			"WatcherPosition",
+			"LONG",
+			"WatcherPosition",
+			"Position.",
+			"Position",
+			"ORDER_SHO",
+			"ORDER_LONG",
+			"POSITION_SHO",
+			"POSITION_LONG",
+			"Position",
+			"WatcherService",
+			"WatcherService\n",
+			"Position",
+			"watcher.position",
+			"Position",
+			"Keyed",
+			".currency",
+			"Currency(",
+			"Currency",
+			"Author(",
+			".comment",
+			"Comment(",
+			"DummyWatcher",
+			"self._currency_ratio",
+			"self._currency_display",
+			"'binance-signal'",
+			"'parameters': {",
+			"timefram",
+			"options",
+			"deep",
+			"BTC",
+			"'assets'",
+			"'currency'",
+			"currency",
+			"'value-per-pip'",
+			"binance-baseusdt",
+			"binance-altbtc",
+			"'value-per-pip'",
+			"\"resolution\"",
+			"'resolution",
+			"'deep'",
+			"self._leverage"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1555,24 +1552,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "strategy/strategytrader.py",
+					"file": "app/generalcommands.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21724,
+						"buffer_size": 2561,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6353,
-								6353
+								2321,
+								2321
 							]
 						],
 						"settings":
@@ -1582,56 +1579,57 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3015.0,
+						"translation.y": 892.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "config/appliance.py",
+					"file": "app/tradingcommands.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10223,
+						"buffer_size": 16394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1072,
-								1072
+								4948,
+								4948
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.sublime-syntax",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1777.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "/home/frederic/.siis/config/appliance.py",
+					"file": "strategy/strategy.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 28643,
+						"buffer_size": 64270,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1428,
-								1428
+								39693,
+								39693
 							]
 						],
 						"settings":
@@ -1641,27 +1639,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 15563.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "database/database.py",
+					"file": "strategy/strategytrader.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15298,
+						"buffer_size": 24670,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1550,
-								1550
+								19773,
+								19773
 							]
 						],
 						"settings":
@@ -1671,7 +1669,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 405.0,
+						"translation.y": 6933.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -1679,53 +1677,19 @@
 				},
 				{
 					"buffer": 4,
+					"file": "strategy/strategyassettrade.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 66,
+						"buffer_size": 13495,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "strategy/service.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 18051,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6349,
-								6349
+								3387,
+								3387
 							]
 						],
 						"settings":
@@ -1735,7 +1699,37 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2437.0,
+						"translation.y": 1776.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "strategy/strategyindmargintrade.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6988,
+								6988
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 592.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1743,19 +1737,19 @@
 				},
 				{
 					"buffer": 6,
-					"file": "strategy/strategy.py",
+					"file": "strategy/strategymargintrade.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 63386,
+						"buffer_size": 20725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10581,
-								10581
+								3383,
+								3383
 							]
 						],
 						"settings":
@@ -1765,7 +1759,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 761.0,
+						"translation.y": 939.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1773,19 +1767,19 @@
 				},
 				{
 					"buffer": 7,
-					"file": "app/generalcommands.py",
+					"file": "strategy/strategytrade.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2562,
+						"buffer_size": 15191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2562,
-								2562
+								5618,
+								5618
 							]
 						],
 						"settings":
@@ -1795,14 +1789,102 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 906.0,
+						"translation.y": 2212.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1059,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										154,
+										161
+									],
+									[
+										408,
+										415
+									],
+									[
+										613,
+										620
+									],
+									[
+										889,
+										896
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								982,
+								982
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 465.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "siis.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24992,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13424,
+								13424
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5617.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "strategy/cryptoalpha/caparameters2.py",
 					"semi_transient": false,
 					"settings":
@@ -1828,11 +1910,11 @@
 						"translation.y": 1585.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "strategy/cryptoalpha/caparameters.py",
 					"semi_transient": false,
 					"settings":
@@ -1862,37 +1944,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "strategy/cryptoalpha/castrategytrader.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 19574,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								17850,
-								17850
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 6273.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
+					"buffer": 12,
 					"file": "strategy/cryptoalpha/casuba.py",
 					"semi_transient": false,
 					"settings":
@@ -1918,11 +1970,11 @@
 						"translation.y": 4800.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 13,
 					"file": "TODO",
 					"semi_transient": false,
 					"settings":
@@ -1947,11 +1999,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 15,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
+					"buffer": 14,
 					"file": "strategy/region/region.py",
 					"semi_transient": false,
 					"settings":
@@ -1974,70 +2026,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 276.0,
+						"translation.y": 247.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 14,
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "strategy/strategytrade.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 14748,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								13592,
-								13592
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 5887.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "siis.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 24766,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								21783,
-								21783
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 8242.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -2108,20 +2100,116 @@
 		"selected_items":
 		[
 			[
-				"data",
-				"database/database.py"
+				"trader",
+				"trader/connector/binance/trader.py"
 			],
 			[
-				"ohlc",
-				"watcher/connector/siis/ohlc.py"
+				"margin",
+				"strategy/strategyindmargintrade.py"
+			],
+			[
+				"yass",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"ytra",
+				"strategy/strategytrade.py"
+			],
+			[
+				"siis",
+				"siis.py"
+			],
+			[
+				"ytrade",
+				"strategy/strategytrade.py"
+			],
+			[
+				"ytr",
+				"strategy/strategytrade.py"
+			],
+			[
+				"yasset",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"assettr",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"ytrad",
+				"strategy/strategytrade.py"
+			],
+			[
+				"trad",
+				"app/tradingcommands.py"
+			],
+			[
+				"account",
+				"trader/connector/ig/account.py"
+			],
+			[
+				"order",
+				"trader/order.py"
+			],
+			[
+				"posi",
+				"watcher/position.py"
+			],
+			[
+				"ord",
+				"trader/order.py"
+			],
+			[
+				"pos",
+				"trader/position.py"
+			],
+			[
+				"accou",
+				"trader/connector/onefox/account.py"
+			],
+			[
+				"",
+				"~/.siis/config/appliance.py"
+			],
+			[
+				"acc",
+				"trader/connector/binance/account.py"
+			],
+			[
+				"fap",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"fapar",
+				"strategy/forexalpha/faparameters.py"
 			],
 			[
 				"strateg",
 				"strategy/strategy.py"
 			],
 			[
-				"trader",
-				"trader/trader.py"
+				"fapa",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"ser",
+				"trader/service.py"
+			],
+			[
+				"binac",
+				"connector/binance/client.py"
+			],
+			[
+				"conn",
+				"connector/binance/connector.py"
+			],
+			[
+				"data",
+				"database/database.py"
+			],
+			[
+				"ohlc",
+				"watcher/connector/siis/ohlc.py"
 			],
 			[
 				"util",
@@ -2158,10 +2246,6 @@
 			[
 				"servic",
 				"strategy/service.py"
-			],
-			[
-				"trad",
-				"app/tradingcommands.py"
 			],
 			[
 				"stra",
@@ -2212,10 +2296,6 @@
 				"terminal/terminal.py"
 			],
 			[
-				"accou",
-				"trader/connector/binance/account.py"
-			],
-			[
 				"conne",
 				"connector/binance/connector.py"
 			],
@@ -2236,16 +2316,8 @@
 				"TODO"
 			],
 			[
-				"ytra",
-				"strategy/strategytrade.py"
-			],
-			[
 				"assett",
 				"strategy/strategyassettrade.py"
-			],
-			[
-				"ytrad",
-				"strategy/strategytrade.py"
 			],
 			[
 				"bin",
@@ -2268,10 +2340,6 @@
 				"scripts/fetch-bitmex"
 			],
 			[
-				"siis",
-				"siis.py"
-			],
-			[
 				"straty",
 				"strategy/strategy.py"
 			],
@@ -2292,15 +2360,7 @@
 				"strategy/strategytrader.py"
 			],
 			[
-				"ytr",
-				"strategy/strategytrade.py"
-			],
-			[
 				"trading",
-				"app/tradingcommands.py"
-			],
-			[
-				"",
 				"app/tradingcommands.py"
 			],
 			[
@@ -2352,10 +2412,6 @@
 				"terminal/terminal.py"
 			],
 			[
-				"account",
-				"trader/account.py"
-			],
-			[
 				"inst",
 				"instrument/instrument.py"
 			],
@@ -2365,14 +2421,6 @@
 			],
 			[
 				"orde",
-				"trader/order.py"
-			],
-			[
-				"ord",
-				"trader/order.py"
-			],
-			[
-				"order",
 				"trader/order.py"
 			],
 			[
@@ -2404,10 +2452,6 @@
 				"strategy/crystalball/cbstrategy.py"
 			],
 			[
-				"ser",
-				"strategy/service.py"
-			],
-			[
 				"faytra",
 				"strategy/forexalpha/fastrategytrader.py"
 			],
@@ -2422,10 +2466,6 @@
 			[
 				"fasuba",
 				"strategy/forexalpha/fasuba.py"
-			],
-			[
-				"fapar",
-				"strategy/forexalpha/faparameters.py"
 			],
 			[
 				"bit",
@@ -2460,10 +2500,6 @@
 				"monitor/desktopnotifier.py"
 			],
 			[
-				"ytrade",
-				"strategy/strategytrade.py"
-			],
-			[
 				"utils",
 				"common/utils.py"
 			],
@@ -2474,10 +2510,6 @@
 			[
 				"margintr",
 				"strategy/strategymargintrade.py"
-			],
-			[
-				"assettr",
-				"strategy/strategyassettrade.py"
 			],
 			[
 				"tod",
@@ -2532,10 +2564,6 @@
 				"strategy/strategyindmargintrade.py"
 			],
 			[
-				"margin",
-				"strategy/strategymargintrade.py"
-			],
-			[
 				"market",
 				"trader/market.py"
 			],
@@ -2568,10 +2596,6 @@
 				"runner.py"
 			],
 			[
-				"fapa",
-				"strategy/forexalpha/faparameters.py"
-			],
-			[
 				"dat",
 				"database/database.py"
 			],
@@ -2586,38 +2610,6 @@
 			[
 				"pref",
 				"scripts/prefetch-binance"
-			],
-			[
-				"mare",
-				"trader/market.py"
-			],
-			[
-				"strategytrad",
-				"strategy/strategytrader.py"
-			],
-			[
-				"fap",
-				"strategy/forexalpha/faparameters.py"
-			],
-			[
-				"pivot",
-				"strategy/indicator/pivotpoint/pivotpoint.py"
-			],
-			[
-				"appl",
-				"~/.siis/config/appliance.py"
-			],
-			[
-				"cbsuba",
-				"strategy/crystalball/cbsuba.py"
-			],
-			[
-				"apl",
-				"~/.siis/config/appliance.py"
-			],
-			[
-				"strategytrade",
-				"strategy/strategytrader.py"
 			]
 		],
 		"width": 0.0
