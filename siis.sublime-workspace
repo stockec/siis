@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"pra",
+				"parameters"
+			],
+			[
+				"base",
+				"base-timeframe"
+			],
+			[
+				"timefra",
+				"timeframe_from_str"
+			],
+			[
+				"teim",
+				"timeframes"
+			],
+			[
+				"timefr",
+				"timeframe"
+			],
+			[
+				"time",
+				"timeframe"
+			],
+			[
+				"timefram_",
+				"timeframe_to_str"
+			],
+			[
+				"tim",
+				"timestamp"
+			],
+			[
 				"sta",
 				"staticmethod"
 			],
@@ -108,20 +140,12 @@
 				"_filename_read"
 			],
 			[
-				"time",
-				"timestamp"
-			],
-			[
 				"date",
 				"datetime"
 			],
 			[
 				"Stra",
 				"StrategyChartOhlcSerie"
-			],
-			[
-				"tim",
-				"timeframe"
 			],
 			[
 				"monit",
@@ -490,30 +514,6 @@
 			[
 				"cre",
 				"created_time"
-			],
-			[
-				"load",
-				"load_timestamp"
-			],
-			[
-				"_op",
-				"_open_time"
-			],
-			[
-				"dump",
-				"dump_timestamp"
-			],
-			[
-				"STA",
-				"STAGE_EXIT"
-			],
-			[
-				"_le",
-				"_leverage_limits"
-			],
-			[
-				"prof",
-				"profit-loss"
 			]
 		]
 	},
@@ -523,8 +523,16 @@
 			"file": "strategy/strategytrader.py",
 			"settings":
 			{
-				"buffer_size": 24055,
+				"buffer_size": 24730,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "trader/trader.py",
+			"settings":
+			{
+				"buffer_size": 54261,
 				"line_ending": "Unix"
 			}
 		},
@@ -532,36 +540,33 @@
 			"file": "strategy/cryptoalpha/castrategytrader.py",
 			"settings":
 			{
-				"buffer_size": 22909,
+				"buffer_size": 22920,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 254 files for \"tick\" (case sensitive)\n\n/home/frederic/dev/trading/siis/README.md:\n   30     * AlphaVantage (WIP)\n   31     * Tiingo (WIP)\n   32: * Fetching OHLC and ticks history data in PostgreSQL or MySQL DB\n   33  * Multiple instance can run at the same time\n   34  * Many strategies and markets can run on a same instance (test with 100+ markets on a single instance)\n   ..\n   47  * Compute the average unit price of owned assets on Binance\n   48  * Display account detail and assets quantities\n   49: * Display tickers and markets informations\n   50  * Display per strategy current (active or pending) trades, trades history and performance\n   51  * Manage multiple timeframe\n   ..\n  154      * symbols The list of the market identifier that you want to look for\n  155          * (could be overrided per appliance profile)\n  156:         * on binance all tickers are watched but you can filter for some markets\n  157          * on bitmex all markets are subscribed by default but you can filter too\n  158          * on IG take care because your are limit on the number of subscriptions (like 40 max per account)\n  ...\n  259  The market is identified by the unique broker market name.\n  260  \n  261: Then you will have a sub-directory T/ meaning tick or trade. All filed then found defines data at the tick\n  262: or trade level. For binance or bitmex this is at aggregate trade level, for IG its ticks.\n  263  \n  264  There is one file per month, there is a binary and a tabular version of the file at this time. But maybe later\n  ...\n  355  ------------------\n  356  \n  357: The tick or trade data (price, volume) are stored during the running or when fetching data at the tick timeframe.\n  358  The OHLC data are stored in the PostgreSQL database. But only the 4h, 1D, 1W candle are kept forever :\n  359  \n  ...\n  377  I know there is more work that could be done on this part, but remember this version acts more as a prototype, but fonctionnal.\n  378  \n  379: About the file containing the ticks, there is bad effect of that design. The good effect is the high performance, but because of Python\n  380: performance this is not very impressive, but the C++ version could read millions of tick per seconds, its more performant than any\n  381  timestamp based DB engine. So the bad side is I've choosen to have 1 file per month (per market), and I've not implemented file initial\n  382  seeking method, so its linear (but its not really a problem because when backtesting we not only do it for the last day of the month, and\n  ...\n  385  I know, its really bad, for now if I need clean data set, I delete the month of the market I want to be clean, and I fetch them.\n  386  \n  387: Where it is more problematic its for IG broker, where it's impossible to get history at tick level. So missed data are forever missing.\n  388  For this case I realize the backtesting on other dataset. A cool solution could be to run an instance with a profile having only\n  389  the watchers, (using your demo account for the IG broker case), always running, then you will have all data from live. And then\n  390: when you run the others instances to avoid multiple writting, use the --read-only option (will not work generated candle, neither ticks in files).\n  391  \n  392  All that to say, this part is far from be perfect, but I can deal with, so you could too.\n\n/home/frederic/dev/trading/siis/siis.py:\n   65      # 'account'\n   66      # 'market'\n   67:     # 'ticker'\n   68  \n   69  def application(argv):\n   ..\n  489                                      Terminal.inst().switch_view('market')\n  490                                  elif value == 'X':\n  491:                                     Terminal.inst().switch_view('ticker')\n  492  \n  493                                  elif value == '?':\n\n/home/frederic/dev/trading/siis/TODO:\n   98  #######\n   99  \n  100: #94 Bien vérifier si en fait mon fetching des ticks sur bitmex est correct\n  101  \n  102  #43 Mécanisme d'abonnement/desabonnement a un flux pour les chart par instrument (nécessite un socket bidir et donc l'API)\n\n/home/frederic/dev/trading/siis/app/help.py:\n   30          Terminal.inst().message(\" - 'm' list availables markets\", view='content')\n   31          Terminal.inst().message(\" - 'w' list watched markets\", view='content')\n   32:         Terminal.inst().message(\" - 't' list tickers\", view='content')\n   33          Terminal.inst().message(\" - 'c' list accounts\", view='content')\n   34          Terminal.inst().message(\" - 'o' list orders\", view='content')\n\n/home/frederic/dev/trading/siis/charting/charting.py:\n   15  import matplotlib.dates as mdates\n   16  import matplotlib.pyplot as plt\n   17: import matplotlib.ticker as ticker\n   18  import matplotlib.animation as animation\n   19  \n   ..\n   21  from matplotlib.dates import date2num\n   22  \n   23: from mpl_finance import candlestick_ohlc, candlestick2_ohlc, volume_overlay2\n   24  \n   25  from terminal.terminal import Terminal\n   ..\n  106  \t\t\tself.scatters[sca_id] = (copy.copy(data), style)\n  107  \n  108: \tdef render(self, ticks=False):\n  109  \t\t# fig = plt.gcf()\n  110  \t\tax = plt.subplot(511 + self.subchart_id)\n  ...\n  129  \n  130  \t\tif self.candles:\n  131: \t\t\tcandlestick_ohlc(ax, self.candles[0], width=self.candles[1] or 0.0003, colorup='#aaaaaa', colordown='#444444', alpha=1.0)\n  132  \n  133  \t\tfor d in self.hlines:\n  ...\n  191  \t\t# \t\tplt.annotate(' ', xy=xy, xytext=(xy[0], xy[1]+0.0001), xycoords='data', arrowprops=dict(facecolor='red', headwidth=10, headlength=10))\n  192  \n  193: \t\tif ticks:\n  194  \t\t\t# on the last only\n  195: \t\t\tplt.xticks(rotation=70)\n  196  \t\t\tax.xaxis.set_major_formatter(mdates.DateFormatter(\"%Y-%m-%d %H:%M:%S\"))\n  197  \t\t\t# ax.xaxis.set_major_locator(mdates.DateFormatter(\"%H:%M:%S\"))\n\n/home/frederic/dev/trading/siis/connector/binance/client.py:\n  274                                  \"minPrice\": \"0.00000100\",\n  275                                  \"maxPrice\": \"100000.00000000\",\n  276:                                 \"tickSize\": \"0.00000100\"\n  277                              }, {\n  278                                  \"filterType\": \"LOT_SIZE\",\n  ...\n  319                          \"minPrice\": \"0.00000100\",\n  320                          \"maxPrice\": \"100000.00000000\",\n  321:                         \"tickSize\": \"0.00000100\"\n  322                      }, {\n  323                          \"filterType\": \"LOT_SIZE\",\n  ...\n  382      # Market Data Endpoints\n  383  \n  384:     def get_all_tickers(self):\n  385          \"\"\"Latest price for all symbols.\n  386  \n  387:         https://www.binance.com/restapipub.html#symbols-price-ticker\n  388  \n  389:         :returns: List of market tickers\n  390  \n  391          .. code-block:: python\n  ...\n  405  \n  406          \"\"\"\n  407:         return self._get('ticker/allPrices')\n  408  \n  409:     def get_orderbook_tickers(self):\n  410          \"\"\"Best price/qty on the order book for all symbols.\n  411  \n  412:         https://www.binance.com/restapipub.html#symbols-order-book-ticker\n  413  \n  414          :returns: List of order book market entries\n  ...\n  436  \n  437          \"\"\"\n  438:         return self._get('ticker/allBookTickers')\n  439  \n  440      def get_order_book(self, **params):\n  ...\n  667  \n  668      def get_klines(self, **params):\n  669:         \"\"\"Kline/candlestick bars for a symbol. Klines are uniquely identified by their open time.\n  670  \n  671:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md#klinecandlestick-data\n  672  \n  673          :param symbol: required\n  ...\n  889                  time.sleep(1)\n  890  \n  891:     def get_ticker(self, **params):\n  892          \"\"\"24 hour price change statistics.\n  893  \n  894:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md#24hr-ticker-price-change-statistics\n  895  \n  896          :param symbol:\n  ...\n  948  \n  949          \"\"\"\n  950:         return self._get('ticker/24hr', data=params)\n  951  \n  952:     def get_symbol_ticker(self, **params):\n  953          \"\"\"Latest price for a symbol or symbols.\n  954  \n  955:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md#24hr-ticker-price-change-statistics\n  956  \n  957          :param symbol:\n  ...\n  985  \n  986          \"\"\"\n  987:         return self._get('ticker/price', data=params, version=self.PRIVATE_API_VERSION)\n  988  \n  989:     def get_orderbook_ticker(self, **params):\n  990          \"\"\"Latest price for a symbol or symbols.\n  991  \n  992:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-api.md#symbol-order-book-ticker\n  993  \n  994          :param symbol:\n  ...\n 1031  \n 1032          \"\"\"\n 1033:         return self._get('ticker/bookTicker', data=params, version=self.PRIVATE_API_VERSION)\n 1034  \n 1035      # Account Endpoints\n\n/home/frederic/dev/trading/siis/connector/binance/websockets.py:\n  174          \"\"\"Start a websocket for symbol kline data\n  175  \n  176:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md#klinecandlestick-streams\n  177  \n  178          :param symbol: required\n  ...\n  217          return self._start_socket(socket_name, callback)\n  218  \n  219:     def start_miniticker_socket(self, callback, update_time=1000):\n  220:         \"\"\"Start a miniticker websocket for all trades\n  221  \n  222          This is not in the official Binance api docs, but this is what\n  223:         feeds the right column on a ticker page on Binance.\n  224  \n  225          :param callback: callback function to handle messages\n  ...\n  317          return self._start_socket(symbol.lower() + '@aggTrade', callback)\n  318  \n  319:     def start_symbol_ticker_socket(self, symbol, callback):\n  320:         \"\"\"Start a websocket for a symbol's ticker data\n  321  \n  322:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md#individual-symbol-ticker-streams\n  323  \n  324          :param symbol: required\n  ...\n  360  \n  361          \"\"\"\n  362:         return self._start_socket(symbol.lower() + '@ticker', callback)\n  363  \n  364:     def start_ticker_socket(self, callback):\n  365:         \"\"\"Start a websocket for all ticker data\n  366  \n  367          By default all markets are included in an array.\n  368  \n  369:         https://github.com/binance-exchange/binance-official-api-docs/blob/master/web-socket-streams.md#all-market-tickers-stream\n  370  \n  371          :param callback: callback function to handle messages\n  ...\n  404              ]\n  405          \"\"\"\n  406:         return self._start_socket('!ticker@arr', callback)\n  407  \n  408      def start_multiplex_socket(self, streams, callback):\n  ...\n  410          User stream sockets can not be included.\n  411  \n  412:         Symbols in socket name must be lowercase i.e bnbbtc@aggTrade, neobtc@ticker\n  413  \n  414          Combined stream events are wrapped as follows: {\"stream\":\"<streamName>\",\"data\":<rawPayload>}\n\n/home/frederic/dev/trading/siis/connector/bitmex/ws.py:\n   23  \n   24  \n   25: def to_nearest(num, tick_size):\n   26  \t\"\"\"\n   27: \tGiven a number, round it to the nearest tick. Very useful for sussing float error\n   28  \tout of numbers: e.g. toNearest(401.46, 0.01) -> 401.46, whereas processing is\n   29  \tnormally with floats would give you 401.46000000000004.\n   30  \tUse this after adding/subtracting/multiplying numbers.\n   31  \t\"\"\"\n   32: \ttick_dec = Decimal(str(tick_size))\n   33: \treturn float((Decimal(round(num / tick_size, 0)) * tick_dec))\n   34  \n   35  \n   ..\n  129  \n  130  \t\tinstrument = matchingInstruments[0]\n  131: \t\t# Turn the 'tickSize' into 'tickLog' for use in rounding\n  132  \t\t# http://stackoverflow.com/a/6190291/832202\n  133: \t\tinstrument['tickLog'] = decimal.Decimal(str(instrument['tickSize'])).as_tuple().exponent * -1\n  134  \n  135  \t\treturn instrument\n  136  \n  137: \tdef get_ticker(self, symbol):\n  138  \t\t\"\"\"\n  139: \t\tReturn a ticker object. Generated from instrument.\n  140  \t\t\"\"\"\n  141  \t\tinstrument = self.get_instrument(symbol)\n  ...\n  143  \t\t# If this is an index, we have to get the data from the last trade.\n  144  \t\tif instrument['symbol'][0] == '.':\n  145: \t\t\tticker = {}\n  146: \t\t\tticker['mid'] = ticker['buy'] = ticker['sell'] = ticker['last'] = instrument['markPrice']\n  147  \t\t# Normal instrument\n  148  \t\telse:\n  149  \t\t\tbid = instrument['bidPrice'] or instrument['lastPrice']\n  150  \t\t\task = instrument['askPrice'] or instrument['lastPrice']\n  151: \t\t\tticker = {\n  152  \t\t\t\t\"last\": instrument['lastPrice'],\n  153  \t\t\t\t\"buy\": bid,\n  ...\n  156  \t\t\t}\n  157  \n  158: \t\t# The instrument has a tickSize. Use it to round values.\n  159: \t\treturn {k: to_nearest(float(v or 0), instrument['tickSize']) for k, v in ticker.items()}\n  160  \n  161  \tdef funds(self):\n  ...\n  423  \n  424  \t\t\t\t\t\t\t\t\tlogger.info(\"BitMex execution: %s %d Contracts of %s at %.*f\" % (\n  425: \t\t\t\t\t\t\t\t\t\titem['side'], contExecuted, item['symbol'], instrument['tickLog'], item['price']))\n  426  \n  427  \t\t\t\t\t\t# Update this item.\n\n/home/frederic/dev/trading/siis/connector/tiingo/connector.py:\n   29  \t======\n   30  \t\n   31: \t- Meta data : https://api.tiingo.com/tiingo/daily/<ticker>\n   32: \t- Latest Price : https://api.tiingo.com/tiingo/daily/<ticker>/prices\n   33: \t- Historical Prices : https://api.tiingo.com/tiingo/daily/<ticker>/prices?startDate=2012-1-1&endDate=2016-1-1\n   34  \n   35  \tEIX\n   36  \t===\n   37  \n   38: \t- Real-time (Latest) Data : https://api.tiingo.com/iex/<ticker>\n   39: \t- Historical Prices : https://api.tiingo.com/iex/<ticker>/prices?startDate=2017-5-22&resampleFreq=5min\n   40  \n   41  \tREST API has limits of 2,000 requests/second for the latest data.\n   ..\n   45  \t======\n   46  \n   47: \t- Real-time (Latest) Data for specific tickers : https://api.tiingo.com/tiingo/crypto/prices?tickers=btcusd,fldcbtc\n   48: \t- Historical Prices : https://api.tiingo.com/tiingo/crypto/prices?tickers=btcusd,fldcbtc&startDate=2017-5-22&resampleFreq=5min\n   49: \t- Top-of-Book Data for specific tickers : https://api.tiingo.com/tiingo/crypto/top?tickers=btcusd,fldcbtc\n   50  \t\"\"\"\n   51  \n\n/home/frederic/dev/trading/siis/database/database.py:\n   22  from config.utils import databases\n   23  \n   24: from .tickstorage import TickStorage, TickStreamer\n   25  from .ohlcstorage import OhlcStorage, OhlcStreamer\n   26  \n   ..\n   45      Ticks are run in exclusive read or write mode :\n   46          - first case is when watcher or fetcher are writing some news data.\n   47:         - second case is during backtesting, streaming data from ticks.\n   48  \n   49      PosgreSQL DB creation :\n   ..\n   78      Optimizer can be used to detect gaps, but some crypto market have few trades per hours.\n   79  \n   80:     If you launch many watcher writing to the same market it could multiply the ticks entries,\n   81:     or if you make a manual fetch of a specific market. Then the tick file will be broken and need to be optimized or re-fetched.\n   82      \"\"\"\n   83      __instance = None\n   ..\n  136          self._pending_user_trader_select = []\n  137  \n  138:         self._last_tick_flush = 0\n  139          self._last_ohlc_flush = 0\n  140          self._last_ohlc_clean = 0\n  141  \n  142          self._markets_path = None\n  143:         self._tick_storages = {}    # TickStorage per market\n  144:         self._pending_tick_insert = []\n  145  \n  146      def lock(self, blocking=True, timeout=-1):\n  ...\n  198          self.disconnect()\n  199  \n  200:         # flush remaining ticks\n  201          self.lock()\n  202:         for k, tick_storage in self._tick_storages.items():\n  203:             tick_storage.flush(force=True)\n  204:             tick_storage.close()\n  205  \n  206:         self._tick_storages = {}\n  207:         self._pending_tick_insert = []\n  208  \n  209          self.unlock()\n  ...\n  236          # store market per keyed array\n  237          key = data[0]+'/'+data[1]\n  238:         tickstorage = self._tick_storages.get(key)\n  239  \n  240:         if not tickstorage:\n  241:             tickstorage = TickStorage(self._markets_path, data[0], data[1])\n  242:             self._tick_storages[key] = tickstorage\n  243  \n  244          # pending list of TickStorage controller having data to process to avoid to check everyone\n  245:         self._pending_tick_insert.append(tickstorage)\n  246  \n  247          self.unlock()\n  248  \n  249:         tickstorage.store(data)\n  250  \n  251:     def num_pending_ticks_storage(self):\n  252          \"\"\"\n  253:         Return current pending tick list size, for storage.\n  254          \"\"\"\n  255          self.lock()\n  256:         n = len(self._pending_tick_insert)\n  257          self.unlock()\n  258          return n\n  ...\n  374      #\n  375  \n  376:     def create_tick_streamer(self, broker_id, market_id, from_date, to_date, buffer_size=32768):\n  377          \"\"\"\n  378:         Create a new tick streamer.\n  379          \"\"\"\n  380          return TickStreamer(self._markets_path, broker_id, market_id, from_date, to_date, buffer_size, True)\n  ...\n  382      def create_ohlc_streamer(self, broker_id, market_id, timeframe, from_date, to_date, buffer_size=8192):\n  383          \"\"\"\n  384:         Create a new tick streamer.\n  385          \"\"\"\n  386          return OhlcStreamer(self._db, timeframe, broker_id, market_id, from_date, to_date, buffer_size)\n  ...\n  479              self.process_market()\n  480              self.process_ohlc()\n  481:             self.process_tick()\n  482  \n  483              time.sleep(0.001)  # don't waste the CPU\n  ...\n  492          pass\n  493  \n  494:     def process_tick(self):\n  495          self.lock()\n  496:         pti = copy.copy(self._pending_tick_insert)\n  497:         self._pending_tick_insert.clear()\n  498          self.unlock()\n  499  \n  500:         for tick_storage in pti:\n  501:             if tick_storage.has_data():\n  502:                 tick_storage.flush()\n  503  \n\n/home/frederic/dev/trading/siis/database/mysql.py:\n   23  from config.utils import databases\n   24  \n   25: from .tickstorage import TickStorage, TickStreamer\n   26  from .ohlcstorage import OhlcStorage, OhlcStreamer\n   27  \n   ..\n  152      def create_ohlc_streamer(self, broker_id, market_id, timeframe, from_date, to_date, buffer_size=8192):\n  153          \"\"\"\n  154:         Create a new tick streamer.\n  155          \"\"\"\n  156          return OhlcStreamer(self._db, timeframe, broker_id, market_id, from_date, to_date, buffer_size)\n\n/home/frederic/dev/trading/siis/database/optimizer.py:\n    8  \n    9  from database.database import Database\n   10: from database.tickstorage import TickStorage, TickSteamer, TextToBinary\n   11  \n   12  \n   ..\n   39  \tTick data optimizer/validate.\n   40  \t\n   41: \t@todo Check for GAP of tick (Take care of week-end/off-market)\n   42: \t@todo Reorder the ticks and recreate the file if necessary\n   43  \t\"\"\"\n   44  \n\n/home/frederic/dev/trading/siis/database/pgsql.py:\n   23  from config.utils import databases\n   24  \n   25: from .tickstorage import TickStorage, TickStreamer\n   26  from .ohlcstorage import OhlcStorage, OhlcStreamer\n   27  \n   ..\n  138      def create_ohlc_streamer(self, broker_id, market_id, timeframe, from_date, to_date, buffer_size=8192):\n  139          \"\"\"\n  140:         Create a new tick streamer.\n  141          \"\"\"\n  142          return OhlcStreamer(self._db, timeframe, broker_id, market_id, from_date, to_date, buffer_size)\n\n/home/frederic/dev/trading/siis/database/tickstorage.py:\n   42          self._last_save = 0\n   43  \n   44:         self._ticks = []\n   45          self._curr_date = None\n   46  \n   ..\n   57          self._mutex.acquire()\n   58          if isinstance(data, list):\n   59:             self._ticks.extend(data)\n   60          else:\n   61:             self._ticks.append(data)        \n   62          self._mutex.release()\n   63  \n   64      def has_data(self):\n   65:         return len(self._ticks) > 0\n   66  \n   67      def open(self, date_utc):\n   ..\n  111  \n  112          self._mutex.acquire()\n  113:         ticks = copy.copy(self._ticks)\n  114:         self._ticks.clear()\n  115          self._mutex.release()\n  116  \n  117:         if not ticks:\n  118              return\n  119  \n  120          n = 0\n  121          try:\n  122:             for d in ticks:\n  123                  date_utc = datetime.utcfromtimestamp(d[2] * 0.001)\n  124  \n  ...\n  145              # retry the next time\n  146              self._mutex.acquire()\n  147:             self._ticks = ticks + self._ticks[n:]\n  148              self._mutex.release()\n  149  \n  ...\n  180  \n  181          self._struct = struct.Struct('dddd')\n  182:         self._tick_type = np.dtype([('t', 'float64'), ('b', 'float64'), ('o', 'float64'), ('v', 'float64')])\n  183  \n  184      def open(self):\n  ...\n  230              # # until timestamp\n  231              # n = 0\n  232:             # for tick in self._buffer:\n  233:             #   if tick[0] <= timestamp:\n  234              #       n += 1\n  235              #   else:\n  ...\n  291  \n  292                      # try with numpy\n  293:                     data = np.fromfile(self._file, dtype=self._tick_type)\n  294                      file_end = True\n  295  \n\n/home/frederic/dev/trading/siis/instrument/candlegenerator.py:\n   69          return to_candles\n   70  \n   71:     def generate_from_ticks(self, from_ticks):\n   72          \"\"\"\n   73:         Generate as many higher candles as possible from the array of ticks given in parameters.\n   74          \"\"\"\n   75          to_candles = []\n   76          self._last_consumed = 0\n   77  \n   78:         for from_tick in from_ticks:\n   79:             to_candle = self.update_from_tick(from_tick)\n   80              if to_candle:\n   81                  to_candles.append(to_candle)\n   ..\n  100              return dt.timestamp()\n  101  \n  102:     def update_from_tick(self, from_tick):\n  103:         if from_tick is None:\n  104              return None\n  105  \n  106:         if from_tick[0] <= self._last_timestamp:\n  107:             # already done (and what if two consecutives ticks have the same timestamp ?)\n  108              return None\n  109  \n  110          # basetime can be slow, uses only to create a new candle\n  111:         # base_time = self.basetime(from_tick[0])\n  112          ended_candle = None\n  113  \n  114          # if self._candle and self._candle.timestamp+self._to_tf <= base_time:\n  115:         if self._candle and from_tick[0] >= self._candle.timestamp+self._to_tf:\n  116              # need to close the candle and to open a new one\n  117              self._candle.set_consolidated(True)\n  ...\n  122          if self._candle is None:\n  123              # open a new one\n  124:             base_time = self.basetime(from_tick[0])  # from_tick[0] directly ?\n  125              self._candle = Candle(base_time, self._to_tf)\n  126  \n  ...\n  128  \n  129              # all open, close, low high from the initial candle\n  130:             self._candle.set_bid(from_tick[1])\n  131:             self._candle.set_ofr(from_tick[2])\n  132  \n  133          # update volumes\n  134:         self._candle._volume += from_tick[3]\n  135  \n  136          # update bid prices\n  137  \n  138          # bid high/low\n  139:         self._candle._bid_high = max(self._candle._bid_high, from_tick[1])\n  140:         self._candle._bid_low = min(self._candle._bid_low, from_tick[1])\n  141  \n  142          # potential close\n  143:         self._candle._bid_close = from_tick[1]\n  144  \n  145          # update ofr prices\n  146  \n  147          # ofr high/low\n  148:         self._candle._ofr_high = max(self._candle._ofr_high, from_tick[2])\n  149:         self._candle._ofr_low = min(self._candle._ofr_low, from_tick[2])\n  150  \n  151          # potential close\n  152:         self._candle._ofr_close = from_tick[2]\n  153  \n  154          # keep last timestamp\n  155:         self._last_timestamp = from_tick[0]\n  156  \n  157          return ended_candle\n\n/home/frederic/dev/trading/siis/instrument/instrument.py:\n  239  class Tick(object):\n  240      \"\"\"\n  241:     A tick is a 4 floats tuple with (timestamp, bid, ofr, volume).\n  242      Because class instance take extra memory an CPU cost we uses a simple tuple.\n  243      Those constant of index are helpers/reminders.\n  ...\n  260  \n  261      @staticmethod\n  262:     def timestamp(tick):\n  263:         return tick[TS]\n  264  \n  265      @staticmethod\n  266:     def bid(tick):\n  267:         return tick[BID]\n  268  \n  269      @staticmethod\n  270:     def ofr(tick):\n  271:         return tick[OFR]\n  272  \n  273      @staticmethod\n  274:     def volume(tick):\n  275:         return tick[VOL]\n  276  \n  277      @staticmethod\n  278:     def price(tick):\n  279:         return (tick[BID] + tick[OFR]) * 0.5\n  280  \n  281      @staticmethod\n  282:     def spread(tick):\n  283:         return tick[OFR] - tick[BID]\n  284  \n  285  \n  ...\n  375          self._wanted = []  # list of wanted timeframe before be ready\n  376  \n  377:         self._ticks = []\n  378          self._candles = {}    # array per timeframe\n  379          self._buy_sells = {}  # array per timeframe\n  ...\n  522  \n  523      #\n  524:     # ticks and candles\n  525      #\n  526  \n  527:     def tick(self, ofs):\n  528:         if abs(ofs) <= len(self._ticks):\n  529:             return self._ticks[ofs]\n  530  \n  531          return None\n  ...\n  539      #     return None\n  540  \n  541:     def add_tick(self, tick):\n  542:         if not tick:\n  543              return\n  544  \n  545:         if isinstance(tick, list):\n  546:             ticks = self._ticks\n  547  \n  548:             if len(ticks) > 0:\n  549:                 for t in tick:\n  550:                     # for each tick only add it if more recent\n  551:                     if t[0] > ticks[-1][0]:\n  552:                         ticks.append(t)\n  553              else:\n  554                  # initiate array\n  555:                 self._ticks = tick\n  556          else:\n  557:             if len(self._ticks) > 0:\n  558:                 # ignore the tick if older than the last one\n  559:                 if tick[0] > self._ticks[-1][0]:\n  560:                     self._ticks.append(tick)\n  561              else:\n  562:                 self._ticks.append(tick)\n  563  \n  564:     def clear_ticks(self):\n  565:         self._ticks.clear()\n  566  \n  567      def add_candle(self, candle, max_candles=-1):\n  ...\n  570          @param max_candles Pop candles until num candles > max_candles.\n  571  \n  572:         @todo might split in two method, and same for tick\n  573          \"\"\"\n  574          if not candle:\n  ...\n  638  \n  639          if tf == 0:\n  640:             # get from ticks\n  641:             ticks = self._ticks\n  642:             if ticks:\n  643                  j = number - 1\n  644:                 for i in range(len(ticks)-1, max(-1, len(ticks)-number-1), -1):\n  645:                     prices[j] = (ticks[i][1] + ticks[i][2]) * 0.5\n  646                      j -= 1\n  647          else:\n  ...\n  659  \n  660          if tf == 0:\n  661:             # get from ticks\n  662:             ticks = self._ticks\n  663:             if ticks:\n  664                  j = number - 1\n  665:                 for i in range(len(ticks)-1, max(-1, len(ticks)-number-1), -1):\n  666:                     volumes[j] = ticks[i][3]\n  667                      j -= 1\n  668          else:\n  ...\n  790          return results      \n  791  \n  792:     def ticks_after(self, after_ts):\n  793          \"\"\"\n  794:         Returns ticks having timestamp > from_ts in seconds.\n  795          \"\"\"\n  796          results = []\n  797  \n  798:         ticks = self._ticks\n  799:         if ticks:\n  800              # process for more recent to the past\n  801:             for t in reversed(ticks):\n  802                  if t[0] > after_ts:\n  803                      results.insert(0, t)\n  ...\n  807          return results\n  808  \n  809:     def last_ticks(self, number):\n  810          results = [Ticks()] * number\n  811  \n  812:         ticks = self._ticks\n  813:         if ticks:\n  814              j = number - 1\n  815:             for i in range(len(ticks)-1, max(-1, len(ticks)-number-1), -1):\n  816:                 results[j] = ticks[i]\n  817                  j -= 1\n  818  \n  ...\n  842                          issues.append(('buysell', tf, i, i-1, candles[i-1].timestamp, buy_sells[i].timestamp - buy_sells[i-1].timestamp))\n  843  \n  844:         ticks = self._ticks\n  845:         if ticks:\n  846:             number = len(ticks)\n  847:             for i in range(len(ticks)-1, max(-1, len(ticks)-number-1), -1):\n  848:                 if ticks[i][0] - ticks[i-1][0] != tf:                    \n  849:                     logger.error(\"Timestamp inconsistency from %s and %s ticks at %s delta=(%s)\" % (i, i-1, ticks[i-1][0], ticks[i][0] - ticks[i-1][0]))\n  850:                     issues.append(('tick', 0, i, i-1, ticks[i-1][0], ticks[i][0] - ticks[i-1][0]))\n  851          \n  852          return issues\n  ...\n  857          @todo need to update market data\n  858          \"\"\"\n  859:         if self._ticks:\n  860:             return self._ticks[-1][2] - self._ticks[-1][1]\n  861          else:\n  862              candles = None\n  ...\n  877          @param tf At desired timeframe or at the most precise found\n  878          \"\"\"\n  879:         if self._ticks:\n  880:             return self._ticks[-1][1]\n  881          else:\n  882              candles = None\n  ...\n  898          @param tf At desired timeframe or at the most precise found\n  899          \"\"\"\n  900:         if self._ticks:\n  901:             return self._ticks[-1][2]\n  902          else:\n  903              candles = None\n  ...\n  919          @param tf At desired timeframe or at the most precise found\n  920          \"\"\"\n  921:         if self._ticks:\n  922:             return (self._ticks[-1][1] + self._ticks[-1][2]) * 0.5\n  923          else:\n  924              candles = None\n  ...\n  937      def num_samples(self, tf):\n  938          if tf == Instrument.TF_TICK:\n  939:             return len(self._ticks)\n  940  \n  941          if self._candles.get(tf):\n  ...\n  957      def purge_last(self, tf, n):\n  958          \"\"\"\n  959:         Clean candle or tick for a particular timeframe, and keep only the n last entries.\n  960          \"\"\"\n  961          if tf > 0:\n  ...\n  963              if candles and len(candles) > n:\n  964                  self._candles[tf] = candles[-n:]\n  965:         elif self._ticks and len(self._ticks) > n:\n  966:             self._ticks = self._ticks[-n:]\n  967  \n  968      def purge(self, older_than=60*60*24, n_last=100):\n  969          \"\"\"\n  970:         Purge ticks and candles that are older than predefined conditions or n keep only n last candles, to avoid memory issues.\n  971          \"\"\"\n  972          now = time.time()\n  973  \n  974:         # on ticks\n  975          m = 0\n  976:         for n, tick in enumerate(self._ticks):\n  977:             if now - tick[0] < older_than:\n  978                  m = n\n  979                  break\n  ...\n  981          if m > 0:\n  982              # keep the m+1 recents\n  983:             self._ticks = self._ticks[m:]\n  984  \n  985          # per tf of candles\n  ...\n 1038  \n 1039          if tf == 0:\n 1040:             # get volumes from ticks\n 1041:             ticks = self._ticks.get(tf)\n 1042:             if ticks:\n 1043                  if from_ts <= 0:\n 1044                      # from the older\n 1045:                     from_ts = ticks[0][0]\n 1046  \n 1047                  if to_ts <= 0:\n 1048                      # to the latest\n 1049:                     to_ts = ticks[-1][0]\n 1050  \n 1051                  j = 0\n 1052:                 for tick in ticks:\n 1053:                     if tick[0] < from_ts:\n 1054                          continue\n 1055:                     elif tick[0] > to_ts:\n 1056                          break\n 1057  \n 1058:                     volumes[j] = tick[3]\n 1059                      j += 1\n 1060          else:\n\n/home/frederic/dev/trading/siis/monitor/desktopnotifier.py:\n  397                      pass\n  398  \n  399:         # tickers view\n  400:         if Terminal.inst().is_active('ticker'):\n  401              traders = self.trader_service.get_traders()\n  402  \n  ...\n  404                  trader = next(iter(traders))\n  405  \n  406:                 Terminal.inst().info(\"Tickers list for tader %s on account %s\" % (trader.name, trader.account.name), view='ticker-head')\n  407  \n  408                  try:\n  409:                     columns, table = trader.markets_tickers_table(*Terminal.inst().active_content().format())\n  410:                     Terminal.inst().table(columns, table, view='ticker')\n  411                  except:\n  412                      pass\n\n/home/frederic/dev/trading/siis/strategy/strategy.py:\n   50      \"\"\"\n   51  \n   52:     MAX_SIGNALS = 2000   # max size of the signals messages queue before ignore some market data (tick, ohlc)\n   53  \n   54      COMMAND_SHOW_STATS = 1\n   ..\n  531      def base_timeframe(self):\n  532          \"\"\"\n  533:         Return the base timeframe at which the strategy process, and accept ticks or candles data from signals.\n  534:         Default returns at tick level. Override this method to change this value.\n  535          \"\"\"\n  536          return Instrument.TF_TICK\n  ...\n  577              elif signal.source == Signal.SOURCE_WATCHER:\n  578                  if signal.signal_type == Signal.SIGNAL_TICK_DATA:\n  579:                     # interest in tick data\n  580  \n  581                      # symbol mapping\n  ...\n  586                      # add the new candle to the instrument in live mode\n  587                      if instrument.ready():\n  588:                         instrument.add_tick(signal.data[1])\n  589  \n  590                      do_update[instrument] = 0\n  ...\n  608  \n  609                  elif signal.signal_type == Signal.SIGNAL_TICK_DATA_BULK:\n  610:                     # incoming bulk of history ticks\n  611                      instrument = self.instrument(signal.data[0])\n  612                      if instrument is None:\n  613                          continue\n  614  \n  615:                     # initials ticks loaded\n  616                      instrument.ack_timeframe(0)\n  617  \n  618:                     # insert the bulk of ticks into the instrument\n  619                      if signal.data[1]:\n  620:                         instrument.add_tick(signal.data[1])\n  621                          do_update[instrument] = 0\n  622  \n  ...\n  942          \"\"\" \n  943          if signal.source == Signal.SOURCE_STRATEGY:\n  944:             # filter by instrument for tick data\n  945              if signal.signal_type == Signal.SIGNAL_TICK_DATA:\n  946                  if signal.data[0] not in self._instruments:\n  ...\n  949  \n  950                  if Instrument.TF_TICK != self.base_timeframe():\n  951:                     # non interested by this tick data\n  952                      return\n  953  \n  ...\n  975                  return\n  976  \n  977:             # filter by instrument for tick data\n  978              if signal.signal_type == Signal.SIGNAL_TICK_DATA:\n  979                  if Instrument.TF_TICK != self.base_timeframe():\n  980:                     # non interested by this tick data\n  981                      return\n  982  \n  ...\n 1410      # def trades_stats_table(self, style='', offset=None, limit=None, col_ofs=None):\n 1411      #     \"\"\"\n 1412:     #     Returns a table of any followed markets tickers.\n 1413      #     \"\"\"\n 1414      #     columns = ('Market', 'Id', 'P/L(%)', 'Price', 'EP', 'SL', 'TP', 'Best', 'Worst', 'Entry date', 'TF')\n\n/home/frederic/dev/trading/siis/strategy/strategydatafeeder.py:\n   15      \"\"\"\n   16  \n   17:     def __init__(self, strategy, market_id, timeframes, ticks):\n   18          \"\"\"\n   19          For backtesting only fetch data from database and stream them according the timestamp.\n   ..\n   28          self._candle_streamer = {tf: None for tf in timeframes}\n   29  \n   30:         self._fetch_ticks = ticks\n   31:         self._tick_streamer = None\n   32  \n   33          self._finished = False\n   ..\n   52              self._candle_streamer[tf] = Database.inst().create_ohlc_streamer(watcher_name, self._market_id, tf, from_date=from_date, to_date=to_date)\n   53  \n   54:         if self._fetch_ticks:\n   55:             self._tick_streamer = Database.inst().create_tick_streamer(watcher_name, self._market_id, from_date=from_date, to_date=to_date)\n   56  \n   57          self._initialized = True\n   ..\n  101              finished = streamer.finished() and not candles\n  102  \n  103:         # ticks must be ready\n  104:         if self._tick_streamer and not self._tick_streamer.finished():\n  105:             # ticks = self._tick_streamer.next(timestamp)\n  106  \n  107:             # if ticks:\n  108:             #   self._instrument.add_tick(ticks)\n  109              #   updated.append(0)\n  110  \n  111              # speedup version, direct fill the instrument array\n  112:             if self._tick_streamer.next_to(timestamp, self._instrument._ticks):\n  113                  updated.append(0)\n  114  \n  115:                 # defines the last market price (prefer at tick if we have candles and ticks)\n  116:                 self.instrument.market_bid = self._instrument._ticks[-1][1]\n  117:                 self.instrument.market_ofr = self._instrument._ticks[-1][2]\n  118  \n  119:             finished = self._tick_streamer.finished()\n  120  \n  121          if finished:\n\n/home/frederic/dev/trading/siis/strategy/timeframebasedstrategytrader.py:\n   25      Timeframe base strategy trader base class.\n   26      Sub timeframe object must be based on TimeframeBasedSub.\n   27:     It support the generation of the candles from tick level,\n   28      or from another candle timeframe with chained generation (cascaded).\n   29  \n   ..\n   39          @param instrument Related unique instance of instrument (mandatory)\n   40          @param base_tf Base time-frame signal accepted. Only this timeframe of incoming data serves as compute signal.\n   41:             Default is at tick level, needing a lot of CPU usage but most reactive.\n   42          @param wait_next_update Or wait a condition defined by need_update(...) method override, for example the next update timestamp.\n   43          \"\"\"\n   ..\n   66              sub.init_candle_generator()\n   67  \n   68:     def gen_candles_from_ticks(self, timestamp):\n   69          \"\"\"\n   70:         Generate the news candles from ticks.\n   71          \"\"\"\n   72          self.lock()\n   73  \n   74:         # at tick we update any timeframes because we want the non consolidated candle\n   75          for tf, sub in self.timeframes.items():\n   76:             # update at tick\n   77:             ticks = self.instrument.ticks_after(sub.candles_gen.last_timestamp)\n   78  \n   79:             generated = sub.candles_gen.generate_from_ticks(ticks)\n   80              if generated:\n   81                  self.instrument.add_candle(generated, sub.history)\n   ..\n   84  \n   85          # no longer need them\n   86:         self.instrument.clear_ticks()\n   87  \n   88          self.unlock()\n   ..\n   94          self.lock()\n   95  \n   96:         # at tick we update any timeframes because we want the non consolidated candle\n   97          for tf, sub in self.timeframes.items():\n   98              # update at candle timeframe\n   ..\n  109      # def gen_candles_chain(self, tfs_chain, tf, timestamp):\n  110      #     \"\"\"\n  111:     #     Generate the news candles from candles of the low timeframe and from ticks.\n  112  \n  113      #     @param tfs_chain A chain of timeframe value, its a dict with key the from timeframe,\n  ...\n  129      #         sub = self.timeframes.get(0)\n  130      #         if sub:\n  131:     #             # first level of candle from ticks\n  132:     #             ticks = self.instrument.ticks_after(sub.candles_gen.last_timestamp)\n  133  \n  134:     #             generated = sub.candles_gen.generate_from_ticks(ticks)\n  135      #             if generated:\n  136      #                 self.instrument.add_candle(generated, sub.history)\n  ...\n  139  \n  140      #         # no longer need them\n  141:     #         self.instrument.clear_ticks()\n  142  \n  143      #         next_tf = tfs_chain.get(0)\n  ...\n  187  \n  188          elif self.base_timeframe == timeframe:\n  189:             # or at min timeframe level (default behavior, and at tick level)\n  190              for tf, sub in self.timeframes.items():\n  191                  signal = sub.process(timestamp)\n\n/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcaparameters.py:\n   12      'max-trades': 3,    # max number of simultaned trades for a same market\n   13      'trade-delay': 30,  # at least wait 30 seconds before sending another signal \n   14:     'base-timeframe': Instrument.TF_TICK,   # process each time strategy receive a tick\n   15      'min-traded-timeframe': Instrument.TF_2MIN,\n   16      'max-traded-timeframe': Instrument.TF_15MIN,\n   ..\n  219  #     'score-increase-factor': 0.4,\n  220  #     'score-regression-factor': 0.3,\n  221: #     'base-timeframe': Instrument.TF_TICK,   # process each time strategy receive a tick\n  222  #     'min-traded-timeframe': Instrument.TF_MIN,\n  223  #     'max-traded-timeframe': Instrument.TF_HOUR,\n\n/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategy.py:\n  125                          instrument.want_timeframe(timeframe['timeframe'])\n  126  \n  127:             # create a feeder per instrument and fetch ticks and candles + ticks\n  128              feeder = StrategyDataFeeder(self, instrument.market_id, [], True)\n  129              self.add_feeder(feeder)\n\n/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategytrader.py:\n  109              return\n  110  \n  111:         # update data at tick level\n  112          if timeframe == self.base_timeframe:\n  113:             self.gen_candles_from_ticks(timestamp)\n  114  \n  115          accept, compute = self.filter_market(timestamp)\n  ...\n  444          # limit best price at tiniest ofr price\n  445  \n  446:         # adjust price to min / tick size / max\n  447          order_price = market.adjust_price(market.ofr)\n  448  \n\n/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters.py:\n   11      'max-trades': 3,    # max number of simultaned trades for a same market\n   12      'trade-delay': 30,  # at least wait 30 seconds before sending another signal \n   13:     'base-timeframe': Instrument.TF_TICK,   # process each time strategy receive a tick\n   14      'min-traded-timeframe': Instrument.TF_MIN,\n   15      'max-traded-timeframe': Instrument.TF_MIN,\n\n/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters2.py:\n   11      'max-trades': 1,    # max number of simultaned trades for a same market\n   12      'trade-delay': 30,  # at least wait 30 seconds before sending another signal \n   13:     'base-timeframe': Instrument.TF_TICK,   # process each time strategy receive a tick\n   14      'min-traded-timeframe': Instrument.TF_MIN,\n   15      'max-traded-timeframe': Instrument.TF_MIN,\n\n/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategy.py:\n  117                          instrument.want_timeframe(timeframe['timeframe'])\n  118  \n  119:             # create a feeder per instrument and fetch ticks and candles + ticks\n  120              feeder = StrategyDataFeeder(self, instrument.market_id, [], True)\n  121              self.add_feeder(feeder)\n\n/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py:\n  126              return\n  127  \n  128:         # update data at tick level\n  129          if timeframe == self.base_timeframe:\n  130:             self.gen_candles_from_ticks(timestamp)\n  131  \n  132          accept, compute = self.filter_market(timestamp)\n\n/home/frederic/dev/trading/siis/strategy/crystalball/cbparameters.py:\n   12      'max-trades': 3,    # max number of simultaned trades for a same market\n   13      'trade-delay': 30,  # at least wait 30 seconds before sending another signal \n   14:     'base-timeframe': Instrument.TF_TICK,   # process each time strategy receive a tick\n   15      'min-traded-timeframe': Instrument.TF_MIN,\n   16      'max-traded-timeframe': Instrument.TF_4HOUR,\n\n/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategy.py:\n  125                          instrument.want_timeframe(timeframe['timeframe'])\n  126  \n  127:             # create a feeder per instrument and fetch ticks and candles + ticks\n  128              feeder = StrategyDataFeeder(self, instrument.market_id, [], True)\n  129              self.add_feeder(feeder)\n\n/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategytrader.py:\n   90              return\n   91  \n   92:         # update data at tick level\n   93          if timeframe == self.base_timeframe:\n   94:             self.gen_candles_from_ticks(timestamp)\n   95  \n   96          accept, compute = self.filter_market(timestamp)\n\n/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py:\n   15      'score-increase-factor': 0.4,\n   16      'score-regression-factor': 0.3,\n   17:     'base-timeframe': Instrument.TF_TICK,   # process each time strategy receive a tick\n   18      'min-traded-timeframe': Instrument.TF_MIN,\n   19      'max-traded-timeframe': Instrument.TF_MIN,\n\n/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategy.py:\n  128                          instrument.want_timeframe(timeframe['timeframe'])\n  129  \n  130:             # create a feeder per instrument and fetch candles + ticks\n  131              feeder = StrategyDataFeeder(self, instrument.market_id, [], True)\n  132              self.add_feeder(feeder)\n\n/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategytrader.py:\n  119              return\n  120  \n  121:         # update data at tick level\n  122          if timeframe == self.base_timeframe:\n  123:             self.gen_candles_from_ticks(timestamp)\n  124  \n  125          accept, compute = self.filter_market(timestamp)\n  ...\n  468          # limit best price at tiniest ofr price\n  469  \n  470:         # adjust price to min / tick size / max\n  471          order_price = market.adjust_price(market.ofr)\n  472  \n\n/home/frederic/dev/trading/siis/strategy/indicator/volume/volume.py:\n   15      \"\"\"\n   16  \n   17:     VOLUME_TICK = 0   # take the tick volume\n   18  \n   19      @classmethod\n   ..\n   64      def Volume_sf(method, data, step=1, filtering=False):\n   65          if method == VolumeIndicator.VOLUME_TICK:\n   66:             tick_volumes = [x.volume for x in data]\n   67  \n   68:             sub_data = down_sample(tick_volumes, step) if filtering else np.array(tick_volumes[::step])\n   69              # todo interpolate\n   70              # t_subdata = range(0,len(data),step)\n\n/home/frederic/dev/trading/siis/terminal/terminal.py:\n  755              'market': View('market', View.MODE_BLOCK, self._stdscr, pos=(0, 2), size=(w1, h1), active=False, border=True),\n  756  \n  757:             'ticker-head': View('ticker-head', View.MODE_BLOCK, self._stdscr, pos=(0, 1), size=(w1, 2), active=False),\n  758:             'ticker': View('ticker', View.MODE_BLOCK, self._stdscr, pos=(0, 2), size=(w1, h1), active=False, border=True),\n  759  \n  760              # right panel\n\n/home/frederic/dev/trading/siis/tools/binarizer.py:\n   15  \n   16  def do_binarizer(options, siis_logger):\n   17:     from database.tickstorage import TextToBinary\n   18  \n   19      Terminal.inst().info(\"Starting SIIS binarizer...\")\n\n/home/frederic/dev/trading/siis/tools/optimizer.py:\n   41  \n   42      if timeframe == 0:\n   43:         # tick\n   44          pass\n   45          # @todo \n\n/home/frederic/dev/trading/siis/trader/market.py:\n  471          \"\"\"\n  472          if use_quote:\n  473:             precision = self._price_limits[3] or self._quote_precision  # uses tick price if defined else quote precision\n  474          else:\n  475              precision = self._base_precision\n  ...\n  480                  precision = -int(math.log10(self.value_per_pip))\n  481              else:\n  482:                 # base use one pip mean alias tick size\n  483                  precision = -int(math.log10(self.one_pip_means))\n  484  \n  ...\n  495          \"\"\"\n  496          if use_quote:\n  497:             precision = self._price_limits[3] or self._quote_precision  # uses tick price if defined else quote precision\n  498          else:\n  499              precision = self._base_precision\n  ...\n  504                  precision = -int(math.log10(self.value_per_pip))\n  505              else:\n  506:                 # base use one pip mean alias tick size\n  507                  precision = -int(math.log10(self.one_pip_means))\n  508  \n  ...\n  582      def recent_price(self, timestamp):\n  583          \"\"\"\n  584:         One minute ticks price history.\n  585          @return Price at timestamp or None if not found.\n  586  \n\n/home/frederic/dev/trading/siis/trader/trader.py:\n   59      COMMAND_LIST_MARKETS = 103                # display list active markets\n   60      COMMAND_LIST_ASSETS = 104                 # display list non empty assets\n   61:     COMMAND_LIST_TICKERS = 105                # display list active markets tickers\n   62  \n   63      # order commands\n   ..\n  378  \n  379          elif command_type == Trader.COMMAND_LIST_TICKERS:\n  380:             # display the list of markets tickers\n  381              if self.connected and self._markets:\n  382  \n  383:                 Terminal.inst().notice(\"List %i markets tickers for %s\" % (len(self._markets), self._name), view='content')\n  384  \n  385:                 columns, table = self.markets_tickers_table(style=Terminal.inst().style())\n  386                  Terminal.inst().table(columns, table)\n  387          \n  ...\n 1106          return columns[col_ofs:], data\n 1107  \n 1108:     def markets_tickers_table(self, style='', offset=None, limit=None, col_ofs=None):\n 1109          \"\"\"\n 1110:         Returns a table of any followed markets tickers.\n 1111          \"\"\"\n 1112          columns = ('Market', 'Symbol', 'Bid', 'Ofr', 'Spread', 'Vol24h base', 'Vol24h quote', 'Time')\n\n/home/frederic/dev/trading/siis/trader/connector/binance/trader.py:\n   36      Binance market trader.\n   37      \n   38:     @note __update_asset use the last tick price in way to compute the average price of the owned asset quantity,\n   39          but querying the prices cost an extra API credit plus an important latency we cannot offer during live.\n   40  \n   ..\n 1040          \"\"\"\n 1041          @note Taking last quote price might be at the timestamp of the trade but it cost an API call credit and plus a delay.\n 1042:               Then assume the last tick price is enough precise.\n 1043          \"\"\"\n 1044          curr_price = asset.price   # might be in BTC\n\n/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py:\n   28      \"\"\"\n   29      @todo update using the shared connector throught its watcher\n   30:     @todo market/ticks/candle checkout\n   31      @todo update order and position through WS API\n   32      @todo cancel_order\n\n/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py:\n  263      In backtesting market data are set manually using method set_market(...).\n  264  \n  265:     @todo support of slippage will need a list of order, and to process in update time, and need a tick level or order book data.\n  266      @note ORDER_STOP_LIMIT and ORDER_TAKE_PROFIT_LIMIT orders are not implemented at this time\n  267      \"\"\"\n  ...\n  271  \n  272          self._spreads = {}  # spread per market\n  273:         self._slippage = 0  # slippage in ticks (not supported for now)\n  274  \n  275          self._watcher = None  # in backtesting refers to a dummy watcher\n\n/home/frederic/dev/trading/siis/watcher/fetcher.py:\n   43          self._available_instruments = set()\n   44  \n   45:         self._last_ticks = []\n   46          self._last_ohlcs = {}\n   47  \n   ..\n   88          from_tf = timeframe\n   89  \n   90:         self._last_ticks = []\n   91          self._last_ohlcs = {}\n   92  \n   ..\n  127  \n  128                  if generators:\n  129:                     self._last_ticks.append((float(data[0]) * 0.001, float(data[1]), float(data[2]), float(data[3])))\n  130  \n  131                  # generate higher candles\n  132                  for generator in generators:\n  133                      if generator.from_tf == 0:\n  134:                         candles = generator.generate_from_ticks(self._last_ticks)\n  135  \n  136                          if candles:\n  ...\n  140                              self._last_ohlcs[generator.to_tf] += candles\n  141  \n  142:                         # remove consumed ticks\n  143:                         self._last_ticks = []\n  144                      else:\n  145                          candles = generator.generate_from_candles(self._last_ohlcs[generator.from_tf])\n  ...\n  162                      Terminal.inst().flush()\n  163  \n  164:                     # calm down the storage of tick, if parsing is faster\n  165:                     while Database.inst().num_pending_ticks_storage() > Fetcher.TICK_STORAGE_DELAY:\n  166                          time.sleep(Fetcher.TICK_STORAGE_DELAY)  # wait a little before continue\n  167  \n\n/home/frederic/dev/trading/siis/watcher/watcher.py:\n   59          self._read_only = service.read_only  # no db storage in read-only mode\n   60  \n   61:         self._last_tick = {}  # last tick per market id\n   62          self._last_ohlc = {}  # last ohlc per market id and then per timeframe\n   63  \n   ..\n  116  \n  117          for timeframe in ltimeframes:\n  118:             if timeframe == Instrument.TF_TICK and market_id not in self._last_tick:\n  119:                 self._last_tick[market_id] = None\n  120              else:\n  121                  if market_id not in self._last_ohlc:\n  ...\n  171  \n  172          @param market_id str Valid market identifier\n  173:         @param timeframe int TF_xxx, 0 for tick/trade data\n  174          \"\"\"\n  175          return False\n  ...\n  217      def update(self):\n  218          \"\"\"\n  219:         Nothing by default by you must call at least update_from_tick.\n  220          \"\"\"\n  221          return True\n  ...\n  332  \n  333          if ohlc and (ohlc.timestamp + tf <= base_time):\n  334:             # later tick data (laggy ?)\n  335              if ts < base_time:\n  336                  # but after that next in laggy data will be ignored...\n  ...\n  371          return ohlc\n  372  \n  373:     def update_from_tick(self):\n  374          \"\"\"\n  375          During update processing, update currently opened candles.\n\n/home/frederic/dev/trading/siis/watcher/connector/alphavantage/watcher.py:\n   62  \twe can at worst 99 cycles after its first update and we will save all the data like this for further backtesting.\n   63  \n   64: \t@todo Fetch and write candles. Also write what we have as lower timeframe as ticks to the database.\n   65  \t\"\"\"\n   66  \n\n/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py:\n   72          self._acount_data = {}\n   73          self._symbols_data = {}\n   74:         self._tickers_data = {}\n   75  \n   76          self._init = False\n   ..\n  133                          self.insert_watched_instrument(instrument['symbol'], [0])\n  134  \n  135:                 # all 24h mini tickers (prefers ticker@arr)\n  136                  # multiplex.append('!miniTicker@arr')\n  137  \n  138:                 # all tickers\n  139:                 multiplex.append('!ticker@arr')\n  140  \n  141:                 # depth+kline+ticker\n  142                  self._multiplex_handler = self._connector.ws.start_multiplex_socket(multiplex, self.__on_multiplex_data)\n  143  \n  ...\n  211  \n  212          self.lock()\n  213:         self.update_from_tick()\n  214          self.unlock()\n  215  \n  ...\n  236          \"\"\"\n  237          symbol = self._symbols_data.get(market_id)\n  238:         ticker = self._tickers_data.get(market_id)\n  239          account = self._acount_data\n  240  \n  241          market = None\n  242  \n  243:         if symbol and ticker and account:\n  244              market = Market(symbol['symbol'], symbol['symbol'])\n  245  \n  ...\n  253              market.set_quote(quote_asset, symbol.get('quoteAssetUnit', quote_asset), symbol['quotePrecision'])\n  254  \n  255:             # tick size at the base asset precision\n  256              market.one_pip_means = math.pow(10.0, -symbol['baseAssetPrecision'])\n  257              market.value_per_pip = 1.0\n  ...\n  275  \n  276                  elif afilter['filterType'] == \"PRICE_FILTER\":\n  277:                     price_limits = [afilter['minPrice'], afilter['maxPrice'], afilter['tickSize']]\n  278  \n  279              if float(size_limits[2]) < 1:\n  ...\n  300  \n  301              # only order book can give us bid/ofr\n  302:             market.bid = float(ticker['price'])\n  303:             market.ofr = float(ticker['price'])\n  304  \n  305:             mid_price = float(ticker['price'])\n  306  \n  307              if quote_asset != self.BASE_QUOTE:\n  308:                 if self._tickers_data.get(quote_asset+self.BASE_QUOTE):\n  309:                     market.base_exchange_rate = float(self._tickers_data.get(quote_asset+self.BASE_QUOTE, {'price', '1.0'})['price'])\n  310:                 elif self._tickers_data.get(self.BASE_QUOTE+quote_asset):\n  311:                     market.base_exchange_rate = 1.0 / float(self._tickers_data.get(self.BASE_QUOTE+quote_asset, {'price', '1.0'})['price'])\n  312                  else:\n  313                      market.base_exchange_rate = 1.0\n  ...\n  320              # volume 24h\n  321  \n  322:             # in client.get_ticker but cost is 40 for any symbols then wait it at all-tickets WS event\n  323:             # vol24_base = ticker24h('volume')\n  324:             # vol24_quote = ticker24h('quoteVolume')\n  325  \n  326              # store the last market info to be used for backtesting\n  ...\n  343  \n  344      def fetch_order_book(self, market_id):\n  345:         # get_orderbook_tickers\n  346          # get_order_book(market_id)\n  347          pass\n  ...\n  353      def __prefetch_markets(self):\n  354          symbols = self._connector.client.get_exchange_info().get('symbols', [])\n  355:         tickers = self._connector.client.get_all_tickers()\n  356  \n  357          self._acount_data = self._connector.client.get_account()\n  358          self._symbols_data = {}\n  359:         self._tickers_data = {}\n  360  \n  361          for symbol in symbols:\n  362              self._symbols_data[symbol['symbol']] = symbol\n  363  \n  364:         for ticker in tickers:\n  365:             self._tickers_data[ticker['symbol']] = ticker\n  366  \n  367:     def __on_tickers_data(self, data):\n  368          # market data instrument by symbol\n  369:         for ticker in data:\n  370:             symbol = ticker['s']\n  371:             last_trade_id = ticker['L']\n  372  \n  373              if last_trade_id != self._last_trade_id.get(symbol, 0):\n  374                  self._last_trade_id[symbol] = last_trade_id\n  375  \n  376:                 last_update_time = ticker['C'] * 0.001\n  377  \n  378:                 bid = float(ticker['b'])\n  379:                 ofr = float(ticker['a'])\n  380  \n  381:                 vol24_base = float(ticker['v']) if ticker['v'] else 0.0\n  382:                 vol24_quote = float(ticker['q']) if ticker['q'] else 0.0\n  383  \n  384                  # @todo compute base_exchange_rate\n  ...\n  386  \n  387                  # if quote_asset != self.BASE_QUOTE:\n  388:                 #     if self._tickers_data.get(quote_asset+self.BASE_QUOTE):\n  389:                 #         market.base_exchange_rate = float(self._tickers_data.get(quote_asset+self.BASE_QUOTE, {'price', '1.0'})['price'])\n  390:                 #     elif self._tickers_data.get(self.BASE_QUOTE+quote_asset):\n  391:                 #         market.base_exchange_rate = 1.0 / float(self._tickers_data.get(self.BASE_QUOTE+quote_asset, {'price', '1.0'})['price'])\n  392                  #     else:\n  393                  #         market.base_exchange_rate = 1.0\n  ...\n  450      def __on_multiplex_data(self, data):\n  451          \"\"\"\n  452:         Intercepts ticker all, depth for followed symbols.\n  453:         Klines are generated from tickers data. Its a prefered way to recuce network traffic and API usage.\n  454          \"\"\"\n  455          if not data.get('stream'):\n  456              return\n  457  \n  458:         if data['stream'] == '!ticker@arr':\n  459:             self.__on_tickers_data(data['data'])\n  460          elif data['stream'].endswith('@aggTrade'):\n  461              self.__on_trade_data(data['data'])\n  ...\n  481              ofr = price\n  482  \n  483:             tick = (trade_time, bid, ofr, vol)\n  484  \n  485              # store for generation of OHLCs\n  486              self.lock()\n  487:             self._last_tick[symbol] = tick\n  488              self.unlock()\n  489  \n  490:             self.service.notify(Signal.SIGNAL_TICK_DATA, self.name, (symbol, tick))\n  491  \n  492              if not self._read_only:\n\n/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py:\n  135  \n  136          self.lock()\n  137:         self.update_from_tick()\n  138          self.unlock()\n  139  \n  ...\n  429  \n  430                      #\n  431:                     # notify a tick data update\n  432                      #\n  433  \n  434                      # if action == 'update':\n  435:                     #    self.connector.ws.get_ticker(market_id)\n  436  \n  437                      volume = instrument.get('volume', 0)  # ex: 32057250\n  ...\n  454  \n  455                      if bid is not None and ofr is not None and volume is not None and last_vol:\n  456:                         # we have a tick when we have a volume in data content\n  457:                         tick = (update_time, bid, ofr, volume)\n  458  \n  459                          self.lock()\n  460:                         self._last_tick[market_id] = tick\n  461                          self.unlock()\n  462  \n  463                          # and notify\n  464:                         self.service.notify(Signal.SIGNAL_TICK_DATA, self.name, (market_id, tick))\n  465  \n  466                          if not self._read_only:\n  467:                             # store trade/tick\n  468                              Database.inst().store_market_trade((self.name, symbol, int(update_time*1000), bid, ofr, volume))\n  469  \n  ...\n  499  \n  500          if instrument:\n  501:             # tickSize is the minimum price increment (0.5USD for XBTUSD)\n  502              tradeable = instrument.get('state', 'Closed') == 'Open'\n  503              update_time = self._parse_datetime(instrument.get('timestamp')).timestamp()\n  ...\n  519              market = Market(market_id, symbol)\n  520  \n  521:             # compute base precision from the tick size, example 0.05 => 2\n  522:             base_precision = -math.floor(math.log10(instrument.get('tickSize', 1.0)))\n  523  \n  524              market.set_base(base_symbol, base_symbol, base_precision)\n  ...\n  543                  min_notional = 0.0001\n  544  \n  545:             # BCHXBT 'maxOrderQty': 100000000, 'maxPrice': 10, 'lotSize': 1, 'tickSize': 0.0001,\n  546:             # XBCUSD 'maxOrderQty': 10000000, 'maxPrice': 1000000, 'lotSize': 1, 'tickSize': 0.5,\n  547:             market.set_size_limits(instrument.get('tickSize', 1.0), instrument.get('maxOrderQty', 0.0), instrument.get('tickSize', 1.0))\n  548              market.set_notional_limits(min_notional, instrument.get('maxPrice', 0.0), 0.0)\n  549:             market.set_price_limits(0.0, 0.0, instrument.get('tickSize', 1.0))\n  550  \n  551              # need to divided by account currency XBt = 100000000\n  ...\n  575              market.contract_size = 1.0\n  576              market.value_per_pip = 1.0\n  577:             market.one_pip_means = instrument.get('tickSize', 1.0)\n  578  \n  579              # contract_size need to be updated as price changes\n\n/home/frederic/dev/trading/siis/watcher/connector/histdata/fetcher.py:\n   42      # Host: www.histdata.com\n   43      # Origin: http://www.histdata.com\n   44:     # Referer: http://www.histdata.com/download-free-forex-historical-data/?/ascii/tick-data-quotes/eurchf/2007/12\n   45      # User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36\n   46      # Form Data: tk=afa5d16664d4d63c7e2f227702f1561b&date=2007&datemonth=200712&platform=ASCII&timeframe=T&fxpair=EURCHF\n   ..\n   49  \n   50      # CANDLE_1M_ENDPOINT = \"1-minute-bar-quotes/%s/%s/%s\"  # symbol / year / month\n   51:     # TICK_ENDPOINT = \"tick-data-quotes/%s/%s/%s\"  # symbol / year / month\n   52  \n   53      def __init__(self, service):\n   ..\n  127                              # 20180101 170014370,1.200370,1.200870,0\n  128                              # timestamp, bid, ofr, volume\n  129:                             yield self.parse_tick(line)\n  130  \n  131                          handle.close()\n  ...\n  203          logger.info(\"Fetcher %s has retrieved on market %s %s candles for timeframe %s\" % (self.name, market_id, count, tf))\n  204  \n  205:     def is_yearly_or_monthly(self, tick, market_id, cur_date):\n  206:         if tick:\n  207              filename = \"%s/%s/T/%s/HISTDATA_COM_ASCII_%s_T%s%02i.zip\" % (HistDataFetcher.BASE_PATH, market_id, cur_date.year, market_id, cur_date.year, cur_date.month)\n  208              if os.path.isfile(filename):\n  ...\n  231              shutil.rmtree(path)\n  232  \n  233:     def internal_filename(self, tick, file_type, market_id, cur_date):\n  234:         if tick:\n  235              if file_type == HistDataFetcher.FILE_MONTHLY:\n  236                  return \"DAT_ASCII_%s_T_%s%02i.csv\" % (market_id, cur_date.year, cur_date.month)\n  ...\n  247                  return None\n  248  \n  249:     def parse_tick(self, row):\n  250          parts = row.rstrip('\\n').split(',')\n  251          ts = int(datetime.strptime(parts[0]+'000', '%Y%m%d %H%M%S%f').replace(tzinfo=UTC()).timestamp() * 1000)\n\n/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py:\n   84  \n   85          # caches for when a value is not defined\n   86:         self._cached_tick = {}\n   87  \n   88      def connect(self):\n   ..\n  148                      self.subscribe_market(symbol)\n  149  \n  150:                     # tick data\n  151:                     self.subscribe_tick(symbol)\n  152  \n  153                      # ohlc data (now generated)\n  ...\n  200          subscription.addlistener(self, IGWatcher.on_trade_update)\n  201  \n  202:     def subscribe_tick(self, instrument):\n  203          \"\"\"\n  204:         Subscribe to an instrument tick updates.\n  205          \"\"\"\n  206          fields = [\"BID\", \"OFR\", \"LTP\", \"LTV\", \"TTV\", \"UTM\"]\n  ...\n  213  \n  214          self.subscribe(subscription)\n  215:         subscription.addlistener(self, IGWatcher.on_tick_update)\n  216  \n  217      # def subscribe_ohlc(self, instrument, timeframe):\n  ...\n  327  \n  328          self.lock()\n  329:         self.update_from_tick()\n  330          self.unlock()\n  331  \n  ...\n  392  \n  393      @staticmethod\n  394:     def on_tick_update(self, item_update):\n  395          name = item_update.get('name', '').split(':')\n  396  \n  ...\n  407                  if values['UTM']:\n  408                      utm = values['UTM']\n  409:                 elif market_id in self._cached_tick:\n  410:                     utm = self._cached_tick[market_id][0]\n  411  \n  412                  if values['BID']:\n  413                      bid = values['BID']\n  414:                 elif market_id in self._cached_tick:\n  415:                     bid = self._cached_tick[market_id][1]\n  416  \n  417                  if values['OFR']:\n  418                      ofr = values['OFR']\n  419:                 elif market_id in self._cached_tick:\n  420:                     ofr = self._cached_tick[market_id][2]\n  421  \n  422                  if values['LTV']:\n  423                      ltv = values['LTV']\n  424:                 elif market_id in self._cached_tick:\n  425:                     ltv = self._cached_tick[market_id][3]\n  426  \n  427                  if utm is None or bid is None or ofr is None:\n  ...\n  430  \n  431                  # cache for when a value is not defined\n  432:                 self._cached_tick[market_id] = (utm, bid, ofr, ltv)\n  433  \n  434:                 tick = (float(utm) * 0.001, float(bid), float(ofr), float(ltv or \"0\"))\n  435  \n  436:                 # keep last complete tick values for ohlc generation\n  437:                 self._last_tick[market_id] = tick\n  438  \n  439:                 self.service.notify(Signal.SIGNAL_TICK_DATA, self.name, (market_id, tick))\n  440  \n  441                  for tf in Watcher.STORED_TIMEFRAMES:\n  442                      # generate candle per each tf\n  443                      self.lock()\n  444:                     candle = self.update_ohlc(market_id, tf, tick[0], tick[1], tick[2], tick[3])\n  445                      self.unlock()\n  446  \n  ...\n  465      #             if values['CONS_END'] == '0':\n  466      #                 # get only consolidated candles\n  467:     #                 # @warning It is rarely defined, so many close could be missing, prefers using tick to rebuild ohlc locally\n  468      #                 return\n  469  \n\n/home/frederic/dev/trading/siis/watcher/connector/onebroker/watcher.py:\n   29  \t# @todo use the 1broker connector to watch social positions and live data (using ws)\n   30  \t# @todo fetch_market and store\n   31: \t# @todo fetch tick and candles and store\n   32  \t# @todo store social buy/sell signals\n   33  \t\"\"\"\n\n/home/frederic/dev/trading/siis/watcher/connector/siis/price.py:\n   19  class SiisPrice(Watcher):\n   20  \t\"\"\"\n   21: \tWebSocket based tick index + bid + ask + volume streaming client.\n   22  \t\"\"\"\n   23  \n\n534 matches across 51 files\n",
+			"file": "strategy/cryptoalpha/castrategy.py",
 			"settings":
 			{
-				"buffer_size": 70079,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 4651,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "watcher/connector/ig/watcher.py",
+			"file": "strategy/strategy.py",
 			"settings":
 			{
-				"buffer_size": 35101,
+				"buffer_size": 82667,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "watcher/connector/binance/watcher.py",
+			"file": "strategy/cryptoalpha/caparameters2.py",
 			"settings":
 			{
-				"buffer_size": 26622,
-				"encoding": "UTF-8",
+				"buffer_size": 4826,
 				"line_ending": "Unix"
 			}
 		},
@@ -578,16 +583,7 @@
 			"file": "strategy/region/region.py",
 			"settings":
 			{
-				"buffer_size": 10807,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "strategy/cryptoalpha/casuba.py",
-			"settings":
-			{
-				"buffer_size": 33792,
+				"buffer_size": 11606,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1099,33 +1095,65 @@
 	],
 	"file_history":
 	[
+		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/tiingo/watcher.py",
 		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py",
-		"/home/frederic/dev/trading/siis/watcher/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/watcher.py",
+		"/home/frederic/dev/trading/siis/database/pgsql.py",
+		"/home/frederic/dev/trading/siis/database/mysql.py",
+		"/home/frederic/dev/trading/siis/database/database.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcaparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters2.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubb.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubb.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casuba.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasub.py",
+		"/home/frederic/dev/trading/siis/strategy/timeframebasedsub.py",
+		"/home/frederic/dev/trading/siis/connector/bitmex/ws.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasuba.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubb.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubc.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/__pycache__/bcasubb.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casub.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsuba.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsub.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubc.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasub.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasuba.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubc.py",
+		"/home/frederic/dev/trading/siis/strategy/strategy.py",
+		"/home/frederic/dev/trading/siis/common/utils.py",
+		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
+		"/home/frederic/dev/trading/siis/terminal/terminal.py",
+		"/home/frederic/dev/trading/siis/strategy/strategysignal.py",
+		"/home/frederic/dev/trading/siis/notifier/signal.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
+		"/home/frederic/dev/trading/siis/siis.py",
+		"/home/frederic/dev/trading/siis/strategy/service.py",
+		"/home/frederic/dev/trading/siis/trader/service.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/fetcher.py",
+		"/home/frederic/dev/trading/siis/scripts/fetch-binance",
 		"/home/frederic/dev/trading/siis/database/tickstorage.py",
+		"/home/frederic/dev/trading/siis/scripts/fetch-bitmex",
+		"/home/frederic/dev/trading/siis/scripts/fetch-ig",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/watcher.py",
 		"/home/frederic/dev/trading/siis/instrument/candlegenerator.py",
 		"/home/frederic/dev/trading/siis/instrument/instrument.py",
-		"/home/frederic/dev/trading/siis/strategy/service.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/price/price.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/volume/volume.py",
-		"/home/frederic/dev/trading/siis/strategy/strategy.py",
 		"/home/frederic/dev/trading/siis/trader/trader.py",
 		"/home/frederic/dev/trading/siis/strategy/region/region.py",
 		"/home/frederic/dev/trading/siis/trader/order.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/pivotpoint/pivotpoint.py",
 		"/home/frederic/dev/trading/siis/connector/binance/enums.py",
 		"/home/frederic/dev/trading/siis/connector/binance/client.py",
-		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
-		"/home/frederic/dev/trading/siis/strategy/strategysignal.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/tomdemark/tomdemark.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters2.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubb.py",
 		"/home/frederic/dev/trading/siis/strategy/timeframebasedstrategytrader.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubb.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasuba.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsuba.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casuba.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasuba.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/fibonacci/fibonacci.py",
 		"/home/frederic/dev/trading/siis/TODO",
 		"/home/frederic/dev/trading/siis/trader/market.py",
@@ -1133,48 +1161,28 @@
 		"/home/frederic/dev/trading/siis/app/tradingcommands.py",
 		"/home/frederic/dev/trading/siis/monitor/client/strategy/strategychart.py",
 		"/home/frederic/dev/trading/siis/monitor/client/client.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
 		"/home/frederic/dev/trading/siis/strategy/strategytrader.py",
 		"/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py",
 		"/home/frederic/dev/trading/siis/trader/connector/ig/trader.py",
-		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
 		"/home/frederic/dev/trading/siis/strategy/strategyassettrade.py",
-		"/home/frederic/dev/trading/siis/database/pgsql.py",
-		"/home/frederic/dev/trading/siis/database/mysql.py",
 		"/home/frederic/dev/trading/siis/monitor/service.py",
-		"/home/frederic/dev/trading/siis/siis.py",
-		"/home/frederic/dev/trading/siis/scripts/fetch-binance",
-		"/home/frederic/dev/trading/siis/scripts/fetch-ig",
-		"/home/frederic/dev/trading/siis/scripts/fetch-bitmex",
 		"/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py",
 		"/home/frederic/dev/trading/siis/monitor/rpc.py",
-		"/home/frederic/dev/trading/siis/notifier/signal.py",
 		"/home/frederic/dev/trading/siis/monitor/streamable.py",
 		"/home/frederic/dev/trading/siis/monitor/client/dispatcher.py",
 		"/home/frederic/dev/trading/siis/charting/charting.py",
 		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py",
-		"/home/frederic/dev/trading/siis/strategy/timeframebasedsub.py",
 		"/home/frederic/dev/trading/siis/common/workerpool.py",
 		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategytrader.py",
 		"/home/frederic/dev/trading/siis/app/generalcommands.py",
 		"/home/frederic/dev/trading/siis/app/help.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubc.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubc.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/__pycache__/bcasubb.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubc.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubb.py",
 		"/home/frederic/dev/trading/siis/app/regioncommands.py",
 		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategy.py",
-		"/home/frederic/dev/trading/siis/watcher/watcher.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/bollingerbands/bollingerbands.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/bbawe/bbawe.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casub.py",
-		"/home/frederic/dev/trading/siis/database/database.py",
 		"/home/frederic/dev/trading/siis/view/service.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
-		"/home/frederic/dev/trading/siis/trader/service.py",
 		"/home/frederic/dev/trading/siis/strategy/strategymargintrade.py",
 		"/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py",
 		"/home/frederic/dev/trading/siis/trader/connector/binance/account.py",
@@ -1194,19 +1202,14 @@
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategy.py",
 		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategy.py",
 		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcaparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbparameters.py",
 		"/home/frederic/dev/trading/siis/common/service.py",
 		"/home/frederic/.sisi",
 		"/home/frederic/dev/trading/siis/sql/initmy.sql",
 		"/home/frederic/dev/trading/siis/view/textview.py",
 		"/home/frederic/dev/trading/siis/common/siislog.py",
-		"/home/frederic/dev/trading/siis/terminal/terminal.py",
 		"/home/frederic/dev/trading/siis/view/view.py",
 		"/home/frederic/dev/trading/siis/view/tableview.py",
 		"/home/frederic/dev/trading/siis/terminal/constants.py",
-		"/home/frederic/dev/trading/siis/common/utils.py",
 		"/home/frederic/dev/trading/siis/database/optimizer.py",
 		"/home/frederic/dev/trading/siis/tools/syncer.py",
 		"/home/frederic/dev/trading/siis/tools/__init__.py",
@@ -1219,14 +1222,7 @@
 		"/home/frederic/dev/trading/siis/config/config.py",
 		"/home/frederic/.siis/config/config.py",
 		"/home/frederic/dev/trading/siis/trader/position.py",
-		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/indicator.py",
-		"/home/frederic/dev/trading/siis/strategy/indicealpha/iastrategy.py",
-		"/home/frederic/dev/trading/siis/trader/connector/onebroker/account.py",
-		"/home/frederic/dev/trading/siis/trader/connector/papertrader/account.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/fetcher.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/watcher.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/binance/fetcher.py"
+		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py"
 	],
 	"find":
 	{
@@ -1269,6 +1265,52 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Tick(",
+			"Tick.",
+			"Candle",
+			", Tick",
+			"Tick",
+			"Tick.",
+			"Tick",
+			"from instrument.instrument import Instrument",
+			"Instrum",
+			"'base-timeframe'",
+			"parse_parameters",
+			"timeframe_from_str",
+			"merge_parameters",
+			".data.",
+			"self.data",
+			"history",
+			"refresh_traders_stats",
+			"refresh_stats",
+			"region.can_delete(\n",
+			"  ",
+			"remove_region",
+			"can_dele",
+			"if self._timeframe > 0 and signal.timeframe != self._timeframe:",
+			"test(",
+			"check_regions",
+			"region(",
+			"region",
+			"test(",
+			".timefra",
+			"paper_mode",
+			"paper-mode",
+			"papermode",
+			"_papermode",
+			"def papermode",
+			".papermode",
+			"def paper_mode",
+			"backtest",
+			"time",
+			"store_market_trade",
+			"store_",
+			"store_ti",
+			"store_trad",
+			"ticks",
+			"update_ohlc",
+			"ticks.",
+			"tick.",
 			"tick",
 			"ticks",
 			"tick",
@@ -1350,53 +1392,7 @@
 			"table_",
 			"tableè",
 			"table",
-			"step_size",
-			"* ",
-			"* 10",
-			"format_p",
-			"logger.not",
-			"logger.inf",
-			"format_price",
-			".get_stats",
-			"table_",
-			".pl",
-			".pl ",
-			"formatted_trade_stats",
-			"get_history_stats",
-			"- 100",
-			"str(",
-			"quantity =",
-			"quantity",
-			"assign",
-			"close_exec_price = self.instrument.close_exec_price(entry.dir)",
-			"last_price",
-			"def price",
-			"if (tp - last_price",
-			".pl ",
-			"pl =",
-			"get_history_stats",
-			"format_price",
-			"format_",
-			"market",
-			" / ",
-			"/ ",
-			"Termin",
-			" market.",
-			" / bid",
-			" / pric",
-			"market",
-			"print(",
-			"def price(",
-			".price(",
-			"market(symbol)",
-			"totot",
-			"#93",
-			"bitmex",
-			"MARKET_DAT",
-			"MARKET_IN",
-			"logg",
-			"fror",
-			"time."
+			"step_size"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1510,7 +1506,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -1519,15 +1515,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 24055,
+						"buffer_size": 24730,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								15596,
-								15596
+								20764,
+								20764
 							]
 						],
 						"settings":
@@ -1537,27 +1533,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5797.0,
+						"translation.y": 7642.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "strategy/cryptoalpha/castrategytrader.py",
+					"file": "trader/trader.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 22909,
+						"buffer_size": 54261,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5189,
-								5189
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1567,2205 +1563,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1575.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "strategy/cryptoalpha/castrategytrader.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 70079,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										175,
-										179
-									],
-									[
-										526,
-										530
-									],
-									[
-										870,
-										874
-									],
-									[
-										1260,
-										1264
-									],
-									[
-										1316,
-										1320
-									],
-									[
-										1411,
-										1415
-									],
-									[
-										1595,
-										1599
-									],
-									[
-										1689,
-										1693
-									],
-									[
-										2009,
-										2013
-									],
-									[
-										2206,
-										2210
-									],
-									[
-										2786,
-										2790
-									],
-									[
-										3242,
-										3246
-									],
-									[
-										3465,
-										3469
-									],
-									[
-										3728,
-										3732
-									],
-									[
-										3918,
-										3922
-									],
-									[
-										4358,
-										4362
-									],
-									[
-										4700,
-										4704
-									],
-									[
-										4710,
-										4714
-									],
-									[
-										4870,
-										4874
-									],
-									[
-										4888,
-										4892
-									],
-									[
-										5068,
-										5072
-									],
-									[
-										5216,
-										5220
-									],
-									[
-										5544,
-										5548
-									],
-									[
-										5595,
-										5599
-									],
-									[
-										6006,
-										6010
-									],
-									[
-										6292,
-										6296
-									],
-									[
-										6477,
-										6481
-									],
-									[
-										6617,
-										6621
-									],
-									[
-										6672,
-										6676
-									],
-									[
-										6792,
-										6796
-									],
-									[
-										6848,
-										6852
-									],
-									[
-										7013,
-										7017
-									],
-									[
-										7153,
-										7157
-									],
-									[
-										7320,
-										7324
-									],
-									[
-										7516,
-										7520
-									],
-									[
-										7643,
-										7647
-									],
-									[
-										7832,
-										7836
-									],
-									[
-										7967,
-										7971
-									],
-									[
-										8028,
-										8032
-									],
-									[
-										8222,
-										8226
-									],
-									[
-										8357,
-										8361
-									],
-									[
-										8456,
-										8460
-									],
-									[
-										8663,
-										8667
-									],
-									[
-										8774,
-										8778
-									],
-									[
-										9135,
-										9139
-									],
-									[
-										9298,
-										9302
-									],
-									[
-										9377,
-										9381
-									],
-									[
-										9538,
-										9542
-									],
-									[
-										9762,
-										9766
-									],
-									[
-										9852,
-										9856
-									],
-									[
-										10001,
-										10005
-									],
-									[
-										10156,
-										10160
-									],
-									[
-										10204,
-										10208
-									],
-									[
-										10279,
-										10283
-									],
-									[
-										10493,
-										10497
-									],
-									[
-										10674,
-										10678
-									],
-									[
-										10923,
-										10927
-									],
-									[
-										11146,
-										11150
-									],
-									[
-										11218,
-										11222
-									],
-									[
-										11493,
-										11497
-									],
-									[
-										11516,
-										11520
-									],
-									[
-										11570,
-										11574
-									],
-									[
-										11587,
-										11591
-									],
-									[
-										11694,
-										11698
-									],
-									[
-										11710,
-										11714
-									],
-									[
-										11813,
-										11817
-									],
-									[
-										11857,
-										11861
-									],
-									[
-										11954,
-										11958
-									],
-									[
-										12007,
-										12011
-									],
-									[
-										12249,
-										12253
-									],
-									[
-										12271,
-										12275
-									],
-									[
-										12287,
-										12291
-									],
-									[
-										12303,
-										12307
-									],
-									[
-										12320,
-										12324
-									],
-									[
-										12547,
-										12551
-									],
-									[
-										12683,
-										12687
-									],
-									[
-										12775,
-										12779
-									],
-									[
-										12799,
-										12803
-									],
-									[
-										13017,
-										13021
-									],
-									[
-										13232,
-										13236
-									],
-									[
-										13302,
-										13306
-									],
-									[
-										13384,
-										13388
-									],
-									[
-										13539,
-										13543
-									],
-									[
-										13605,
-										13609
-									],
-									[
-										13816,
-										13820
-									],
-									[
-										13870,
-										13874
-									],
-									[
-										13967,
-										13971
-									],
-									[
-										14068,
-										14072
-									],
-									[
-										14119,
-										14123
-									],
-									[
-										14280,
-										14284
-									],
-									[
-										14611,
-										14615
-									],
-									[
-										14861,
-										14865
-									],
-									[
-										14948,
-										14952
-									],
-									[
-										15150,
-										15154
-									],
-									[
-										15317,
-										15321
-									],
-									[
-										15393,
-										15397
-									],
-									[
-										15552,
-										15556
-									],
-									[
-										15607,
-										15611
-									],
-									[
-										15629,
-										15633
-									],
-									[
-										15671,
-										15675
-									],
-									[
-										15721,
-										15725
-									],
-									[
-										15771,
-										15775
-									],
-									[
-										15819,
-										15823
-									],
-									[
-										15981,
-										15985
-									],
-									[
-										16001,
-										16005
-									],
-									[
-										16054,
-										16058
-									],
-									[
-										16086,
-										16090
-									],
-									[
-										16175,
-										16179
-									],
-									[
-										16196,
-										16200
-									],
-									[
-										16351,
-										16355
-									],
-									[
-										16370,
-										16374
-									],
-									[
-										16443,
-										16447
-									],
-									[
-										16502,
-										16506
-									],
-									[
-										16580,
-										16584
-									],
-									[
-										16692,
-										16696
-									],
-									[
-										16807,
-										16811
-									],
-									[
-										16936,
-										16940
-									],
-									[
-										17253,
-										17257
-									],
-									[
-										17516,
-										17520
-									],
-									[
-										17648,
-										17652
-									],
-									[
-										17732,
-										17736
-									],
-									[
-										17774,
-										17778
-									],
-									[
-										17850,
-										17854
-									],
-									[
-										17893,
-										17897
-									],
-									[
-										17941,
-										17945
-									],
-									[
-										18085,
-										18089
-									],
-									[
-										18363,
-										18367
-									],
-									[
-										18639,
-										18643
-									],
-									[
-										18797,
-										18801
-									],
-									[
-										18863,
-										18867
-									],
-									[
-										19039,
-										19043
-									],
-									[
-										19317,
-										19321
-									],
-									[
-										19584,
-										19588
-									],
-									[
-										19751,
-										19755
-									],
-									[
-										19816,
-										19820
-									],
-									[
-										19951,
-										19955
-									],
-									[
-										20073,
-										20077
-									],
-									[
-										20097,
-										20101
-									],
-									[
-										20125,
-										20129
-									],
-									[
-										20206,
-										20210
-									],
-									[
-										20316,
-										20320
-									],
-									[
-										20518,
-										20522
-									],
-									[
-										20526,
-										20530
-									],
-									[
-										20540,
-										20544
-									],
-									[
-										20686,
-										20690
-									],
-									[
-										20913,
-										20917
-									],
-									[
-										20961,
-										20965
-									],
-									[
-										21174,
-										21178
-									],
-									[
-										21370,
-										21374
-									],
-									[
-										21387,
-										21391
-									],
-									[
-										21491,
-										21495
-									],
-									[
-										21639,
-										21643
-									],
-									[
-										21652,
-										21656
-									],
-									[
-										21707,
-										21711
-									],
-									[
-										21717,
-										21721
-									],
-									[
-										21890,
-										21894
-									],
-									[
-										21906,
-										21910
-									],
-									[
-										21936,
-										21940
-									],
-									[
-										22012,
-										22016
-									],
-									[
-										22109,
-										22113
-									],
-									[
-										22301,
-										22305
-									],
-									[
-										22479,
-										22483
-									],
-									[
-										22781,
-										22785
-									],
-									[
-										22798,
-										22802
-									],
-									[
-										23020,
-										23024
-									],
-									[
-										23074,
-										23078
-									],
-									[
-										23167,
-										23171
-									],
-									[
-										23329,
-										23333
-									],
-									[
-										23409,
-										23413
-									],
-									[
-										23505,
-										23509
-									],
-									[
-										23667,
-										23671
-									],
-									[
-										23747,
-										23751
-									],
-									[
-										23843,
-										23847
-									],
-									[
-										23939,
-										23943
-									],
-									[
-										24104,
-										24108
-									],
-									[
-										24375,
-										24379
-									],
-									[
-										24404,
-										24408
-									],
-									[
-										24465,
-										24469
-									],
-									[
-										24494,
-										24498
-									],
-									[
-										24556,
-										24560
-									],
-									[
-										24585,
-										24589
-									],
-									[
-										24650,
-										24654
-									],
-									[
-										24679,
-										24683
-									],
-									[
-										24743,
-										24747
-									],
-									[
-										24773,
-										24777
-									],
-									[
-										24785,
-										24789
-									],
-									[
-										24857,
-										24861
-									],
-									[
-										24886,
-										24890
-									],
-									[
-										24898,
-										24902
-									],
-									[
-										25036,
-										25040
-									],
-									[
-										25205,
-										25209
-									],
-									[
-										25259,
-										25263
-									],
-									[
-										25316,
-										25320
-									],
-									[
-										25356,
-										25360
-									],
-									[
-										25464,
-										25468
-									],
-									[
-										25475,
-										25479
-									],
-									[
-										25504,
-										25508
-									],
-									[
-										25573,
-										25577
-									],
-									[
-										25605,
-										25609
-									],
-									[
-										25619,
-										25623
-									],
-									[
-										25659,
-										25663
-									],
-									[
-										25703,
-										25707
-									],
-									[
-										25747,
-										25751
-									],
-									[
-										25816,
-										25820
-									],
-									[
-										25861,
-										25865
-									],
-									[
-										25971,
-										25975
-									],
-									[
-										25979,
-										25983
-									],
-									[
-										26037,
-										26041
-									],
-									[
-										26085,
-										26089
-									],
-									[
-										26143,
-										26147
-									],
-									[
-										26159,
-										26163
-									],
-									[
-										26206,
-										26210
-									],
-									[
-										26219,
-										26223
-									],
-									[
-										26279,
-										26283
-									],
-									[
-										26292,
-										26296
-									],
-									[
-										26327,
-										26331
-									],
-									[
-										26361,
-										26365
-									],
-									[
-										26594,
-										26598
-									],
-									[
-										26719,
-										26723
-									],
-									[
-										26744,
-										26748
-									],
-									[
-										26758,
-										26762
-									],
-									[
-										26786,
-										26790
-									],
-									[
-										26873,
-										26877
-									],
-									[
-										26895,
-										26899
-									],
-									[
-										26958,
-										26962
-									],
-									[
-										26972,
-										26976
-									],
-									[
-										27117,
-										27121
-									],
-									[
-										27142,
-										27146
-									],
-									[
-										27156,
-										27160
-									],
-									[
-										27184,
-										27188
-									],
-									[
-										27271,
-										27275
-									],
-									[
-										27293,
-										27297
-									],
-									[
-										27356,
-										27360
-									],
-									[
-										27488,
-										27492
-									],
-									[
-										27559,
-										27563
-									],
-									[
-										27674,
-										27678
-									],
-									[
-										27688,
-										27692
-									],
-									[
-										27712,
-										27716
-									],
-									[
-										27813,
-										27817
-									],
-									[
-										27976,
-										27980
-									],
-									[
-										28064,
-										28068
-									],
-									[
-										28078,
-										28082
-									],
-									[
-										28102,
-										28106
-									],
-									[
-										28181,
-										28185
-									],
-									[
-										28203,
-										28207
-									],
-									[
-										28262,
-										28266
-									],
-									[
-										28483,
-										28487
-									],
-									[
-										28497,
-										28501
-									],
-									[
-										28521,
-										28525
-									],
-									[
-										28560,
-										28564
-									],
-									[
-										28605,
-										28609
-									],
-									[
-										28627,
-										28631
-									],
-									[
-										28676,
-										28680
-									],
-									[
-										28690,
-										28694
-									],
-									[
-										28811,
-										28815
-									],
-									[
-										28846,
-										28850
-									],
-									[
-										28861,
-										28865
-									],
-									[
-										28875,
-										28879
-									],
-									[
-										28934,
-										28938
-									],
-									[
-										28952,
-										28956
-									],
-									[
-										28967,
-										28971
-									],
-									[
-										28981,
-										28985
-									],
-									[
-										29139,
-										29143
-									],
-									[
-										29178,
-										29182
-									],
-									[
-										29199,
-										29203
-									],
-									[
-										29391,
-										29395
-									],
-									[
-										29430,
-										29434
-									],
-									[
-										29622,
-										29626
-									],
-									[
-										29661,
-										29665
-									],
-									[
-										29853,
-										29857
-									],
-									[
-										29893,
-										29897
-									],
-									[
-										29914,
-										29918
-									],
-									[
-										30113,
-										30117
-									],
-									[
-										30265,
-										30269
-									],
-									[
-										30517,
-										30521
-									],
-									[
-										30537,
-										30541
-									],
-									[
-										30574,
-										30578
-									],
-									[
-										30588,
-										30592
-									],
-									[
-										30708,
-										30712
-									],
-									[
-										30903,
-										30907
-									],
-									[
-										30952,
-										30956
-									],
-									[
-										30976,
-										30980
-									],
-									[
-										31012,
-										31016
-									],
-									[
-										31190,
-										31194
-									],
-									[
-										31204,
-										31208
-									],
-									[
-										31336,
-										31340
-									],
-									[
-										31361,
-										31365
-									],
-									[
-										31375,
-										31379
-									],
-									[
-										31411,
-										31415
-									],
-									[
-										31539,
-										31543
-									],
-									[
-										31675,
-										31679
-									],
-									[
-										31752,
-										31756
-									],
-									[
-										31760,
-										31764
-									],
-									[
-										31797,
-										31801
-									],
-									[
-										31888,
-										31892
-									],
-									[
-										31990,
-										31994
-									],
-									[
-										32171,
-										32175
-									],
-									[
-										32229,
-										32233
-									],
-									[
-										32506,
-										32510
-									],
-									[
-										32615,
-										32619
-									],
-									[
-										32744,
-										32748
-									],
-									[
-										32999,
-										33003
-									],
-									[
-										33198,
-										33202
-									],
-									[
-										33268,
-										33272
-									],
-									[
-										33567,
-										33571
-									],
-									[
-										33810,
-										33814
-									],
-									[
-										34040,
-										34044
-									],
-									[
-										34254,
-										34258
-									],
-									[
-										34378,
-										34382
-									],
-									[
-										34496,
-										34500
-									],
-									[
-										34713,
-										34717
-									],
-									[
-										34996,
-										35000
-									],
-									[
-										35138,
-										35142
-									],
-									[
-										35340,
-										35344
-									],
-									[
-										35568,
-										35572
-									],
-									[
-										35867,
-										35871
-									],
-									[
-										36108,
-										36112
-									],
-									[
-										36116,
-										36120
-									],
-									[
-										36143,
-										36147
-									],
-									[
-										36411,
-										36415
-									],
-									[
-										36443,
-										36447
-									],
-									[
-										36482,
-										36486
-									],
-									[
-										36710,
-										36714
-									],
-									[
-										36754,
-										36758
-									],
-									[
-										36782,
-										36786
-									],
-									[
-										36829,
-										36833
-									],
-									[
-										36843,
-										36847
-									],
-									[
-										36905,
-										36909
-									],
-									[
-										36956,
-										36960
-									],
-									[
-										36961,
-										36965
-									],
-									[
-										37116,
-										37120
-									],
-									[
-										37167,
-										37171
-									],
-									[
-										37290,
-										37294
-									],
-									[
-										37318,
-										37322
-									],
-									[
-										37395,
-										37399
-									],
-									[
-										37478,
-										37482
-									],
-									[
-										37535,
-										37539
-									],
-									[
-										37850,
-										37854
-									],
-									[
-										38198,
-										38202
-									],
-									[
-										38511,
-										38515
-									],
-									[
-										38600,
-										38604
-									],
-									[
-										38681,
-										38685
-									],
-									[
-										38841,
-										38845
-									],
-									[
-										38865,
-										38869
-									],
-									[
-										38889,
-										38893
-									],
-									[
-										39002,
-										39006
-									],
-									[
-										39008,
-										39012
-									],
-									[
-										39210,
-										39214
-									],
-									[
-										39316,
-										39320
-									],
-									[
-										39674,
-										39678
-									],
-									[
-										39930,
-										39934
-									],
-									[
-										39961,
-										39965
-									],
-									[
-										39985,
-										39989
-									],
-									[
-										40104,
-										40108
-									],
-									[
-										40110,
-										40114
-									],
-									[
-										40336,
-										40340
-									],
-									[
-										40541,
-										40545
-									],
-									[
-										41002,
-										41006
-									],
-									[
-										41304,
-										41308
-									],
-									[
-										41644,
-										41648
-									],
-									[
-										41664,
-										41668
-									],
-									[
-										41941,
-										41945
-									],
-									[
-										42045,
-										42049
-									],
-									[
-										42241,
-										42245
-									],
-									[
-										42659,
-										42663
-									],
-									[
-										43106,
-										43110
-									],
-									[
-										43439,
-										43443
-									],
-									[
-										43459,
-										43463
-									],
-									[
-										43734,
-										43738
-									],
-									[
-										43838,
-										43842
-									],
-									[
-										44259,
-										44263
-									],
-									[
-										44594,
-										44598
-									],
-									[
-										44614,
-										44618
-									],
-									[
-										44889,
-										44893
-									],
-									[
-										44993,
-										44997
-									],
-									[
-										45325,
-										45329
-									],
-									[
-										45667,
-										45671
-									],
-									[
-										45941,
-										45945
-									],
-									[
-										46045,
-										46049
-									],
-									[
-										46241,
-										46245
-									],
-									[
-										46459,
-										46463
-									],
-									[
-										46650,
-										46654
-									],
-									[
-										46740,
-										46744
-									],
-									[
-										46787,
-										46791
-									],
-									[
-										47117,
-										47121
-									],
-									[
-										47137,
-										47141
-									],
-									[
-										47243,
-										47247
-									],
-									[
-										47258,
-										47262
-									],
-									[
-										47527,
-										47531
-									],
-									[
-										47737,
-										47741
-									],
-									[
-										47971,
-										47975
-									],
-									[
-										48243,
-										48247
-									],
-									[
-										48473,
-										48477
-									],
-									[
-										48745,
-										48749
-									],
-									[
-										48932,
-										48936
-									],
-									[
-										49327,
-										49331
-									],
-									[
-										49499,
-										49503
-									],
-									[
-										49634,
-										49638
-									],
-									[
-										49763,
-										49767
-									],
-									[
-										49968,
-										49972
-									],
-									[
-										50112,
-										50116
-									],
-									[
-										50409,
-										50413
-									],
-									[
-										50812,
-										50816
-									],
-									[
-										51103,
-										51107
-									],
-									[
-										51485,
-										51489
-									],
-									[
-										51751,
-										51755
-									],
-									[
-										52007,
-										52011
-									],
-									[
-										52138,
-										52142
-									],
-									[
-										52284,
-										52288
-									],
-									[
-										52599,
-										52603
-									],
-									[
-										52616,
-										52620
-									],
-									[
-										52817,
-										52821
-									],
-									[
-										52865,
-										52869
-									],
-									[
-										53138,
-										53142
-									],
-									[
-										53226,
-										53230
-									],
-									[
-										53556,
-										53560
-									],
-									[
-										53574,
-										53578
-									],
-									[
-										53832,
-										53836
-									],
-									[
-										53872,
-										53876
-									],
-									[
-										54104,
-										54108
-									],
-									[
-										54293,
-										54297
-									],
-									[
-										54449,
-										54453
-									],
-									[
-										54653,
-										54657
-									],
-									[
-										55049,
-										55053
-									],
-									[
-										55261,
-										55265
-									],
-									[
-										55462,
-										55466
-									],
-									[
-										55479,
-										55483
-									],
-									[
-										55589,
-										55593
-									],
-									[
-										55639,
-										55643
-									],
-									[
-										55697,
-										55701
-									],
-									[
-										55913,
-										55917
-									],
-									[
-										56055,
-										56059
-									],
-									[
-										56070,
-										56074
-									],
-									[
-										56215,
-										56219
-									],
-									[
-										56467,
-										56471
-									],
-									[
-										56816,
-										56820
-									],
-									[
-										56994,
-										56998
-									],
-									[
-										57049,
-										57053
-									],
-									[
-										57111,
-										57115
-									],
-									[
-										57222,
-										57226
-									],
-									[
-										57336,
-										57340
-									],
-									[
-										57444,
-										57448
-									],
-									[
-										57564,
-										57568
-									],
-									[
-										57807,
-										57811
-									],
-									[
-										57865,
-										57869
-									],
-									[
-										57916,
-										57920
-									],
-									[
-										57971,
-										57975
-									],
-									[
-										58174,
-										58178
-									],
-									[
-										58394,
-										58398
-									],
-									[
-										58435,
-										58439
-									],
-									[
-										58585,
-										58589
-									],
-									[
-										58741,
-										58745
-									],
-									[
-										58751,
-										58755
-									],
-									[
-										58785,
-										58789
-									],
-									[
-										58798,
-										58802
-									],
-									[
-										58818,
-										58822
-									],
-									[
-										58853,
-										58857
-									],
-									[
-										58948,
-										58952
-									],
-									[
-										58992,
-										58996
-									],
-									[
-										59039,
-										59043
-									],
-									[
-										59251,
-										59255
-									],
-									[
-										59314,
-										59318
-									],
-									[
-										59362,
-										59366
-									],
-									[
-										59425,
-										59429
-									],
-									[
-										59441,
-										59445
-									],
-									[
-										59505,
-										59509
-									],
-									[
-										59521,
-										59525
-									],
-									[
-										59720,
-										59724
-									],
-									[
-										59840,
-										59844
-									],
-									[
-										59954,
-										59958
-									],
-									[
-										60080,
-										60084
-									],
-									[
-										60353,
-										60357
-									],
-									[
-										60434,
-										60438
-									],
-									[
-										60641,
-										60645
-									],
-									[
-										60683,
-										60687
-									],
-									[
-										60886,
-										60890
-									],
-									[
-										61041,
-										61045
-									],
-									[
-										61056,
-										61060
-									],
-									[
-										61186,
-										61190
-									],
-									[
-										61381,
-										61385
-									],
-									[
-										61506,
-										61510
-									],
-									[
-										61666,
-										61670
-									],
-									[
-										61932,
-										61936
-									],
-									[
-										62006,
-										62010
-									],
-									[
-										62138,
-										62142
-									],
-									[
-										62156,
-										62160
-									],
-									[
-										62357,
-										62361
-									],
-									[
-										62476,
-										62480
-									],
-									[
-										62686,
-										62690
-									],
-									[
-										63037,
-										63041
-									],
-									[
-										63141,
-										63145
-									],
-									[
-										63388,
-										63392
-									],
-									[
-										63496,
-										63500
-									],
-									[
-										63570,
-										63574
-									],
-									[
-										63639,
-										63643
-									],
-									[
-										63823,
-										63827
-									],
-									[
-										64077,
-										64081
-									],
-									[
-										64415,
-										64419
-									],
-									[
-										64840,
-										64844
-									],
-									[
-										65139,
-										65143
-									],
-									[
-										65392,
-										65396
-									],
-									[
-										65438,
-										65442
-									],
-									[
-										65759,
-										65763
-									],
-									[
-										65816,
-										65820
-									],
-									[
-										66060,
-										66064
-									],
-									[
-										66405,
-										66409
-									],
-									[
-										66553,
-										66557
-									],
-									[
-										66605,
-										66609
-									],
-									[
-										66793,
-										66797
-									],
-									[
-										66878,
-										66882
-									],
-									[
-										67095,
-										67099
-									],
-									[
-										67251,
-										67255
-									],
-									[
-										67352,
-										67356
-									],
-									[
-										67601,
-										67605
-									],
-									[
-										67653,
-										67657
-									],
-									[
-										67822,
-										67826
-									],
-									[
-										67874,
-										67878
-									],
-									[
-										68043,
-										68047
-									],
-									[
-										68095,
-										68099
-									],
-									[
-										68264,
-										68268
-									],
-									[
-										68316,
-										68320
-									],
-									[
-										68525,
-										68529
-									],
-									[
-										68595,
-										68599
-									],
-									[
-										68718,
-										68722
-									],
-									[
-										68784,
-										68788
-									],
-									[
-										68802,
-										68806
-									],
-									[
-										68906,
-										68910
-									],
-									[
-										69145,
-										69149
-									],
-									[
-										69154,
-										69158
-									],
-									[
-										69163,
-										69167
-									],
-									[
-										69172,
-										69176
-									],
-									[
-										69460,
-										69464
-									],
-									[
-										69760,
-										69764
-									],
-									[
-										69980,
-										69984
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								8741,
-								8741
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2880.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "watcher/connector/ig/watcher.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 35101,
+						"buffer_size": 22920,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14563,
-								14563
+								1417,
+								1417
 							]
 						],
 						"settings":
@@ -3775,7 +1593,37 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6213.0,
+						"translation.y": 168.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "strategy/cryptoalpha/castrategy.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4651,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1421,
+								1421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -3783,19 +1631,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "watcher/connector/binance/watcher.py",
+					"file": "strategy/strategy.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 26622,
+						"buffer_size": 82667,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6971,
-								6971
+								81535,
+								81535
 							]
 						],
 						"settings":
@@ -3805,14 +1653,44 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2722.0,
+						"translation.y": 33997.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
+					"file": "strategy/cryptoalpha/caparameters2.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								874,
+								874
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
 					"file": "trader/connector/binance/trader.py",
 					"semi_transient": false,
 					"settings":
@@ -3838,54 +1716,24 @@
 						"translation.y": 3412.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "strategy/region/region.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10807,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10807,
-								10807
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 4807.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "strategy/cryptoalpha/casuba.py",
+					"file": "strategy/region/region.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33792,
+						"buffer_size": 11606,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1688,
-								1688
+								7583,
+								7583
 							]
 						],
 						"settings":
@@ -3895,10 +1743,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 411.0,
+						"translation.y": 3695.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -3928,7 +1776,7 @@
 						"translation.y": 1012.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -3944,8 +1792,8 @@
 						"selection":
 						[
 							[
-								5396,
-								5396
+								0,
+								0
 							]
 						],
 						"settings":
@@ -3955,7 +1803,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1700.0,
+						"translation.y": 1035.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -3985,10 +1833,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1065.0,
+						"translation.y": 922.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
@@ -4059,6 +1907,134 @@
 		"selected_items":
 		[
 			[
+				"cb",
+				"strategy/crystalball/cbparameters.py"
+			],
+			[
+				"paramet",
+				"strategy/crystalball/cbparameters.py"
+			],
+			[
+				"bc",
+				"strategy/bitcoinalpha/bcaparameters.py"
+			],
+			[
+				"fap",
+				"strategy/forexalpha/faparameters.py"
+			],
+			[
+				"capr",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"cap",
+				"strategy/cryptoalpha/caparameters.py"
+			],
+			[
+				"capra",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"castr",
+				"strategy/cryptoalpha/castrategy.py"
+			],
+			[
+				"strate",
+				"strategy/strategy.py"
+			],
+			[
+				"cast",
+				"strategy/cryptoalpha/castrategy.py"
+			],
+			[
+				"stra",
+				"strategy/strategy.py"
+			],
+			[
+				"timef",
+				"strategy/timeframebasedsub.py"
+			],
+			[
+				"casub",
+				"strategy/cryptoalpha/casub.py"
+			],
+			[
+				"util",
+				"common/utils.py"
+			],
+			[
+				"tim",
+				"strategy/timeframebasedstrategytrader.py"
+			],
+			[
+				"str",
+				"strategy/strategy.py"
+			],
+			[
+				"ter",
+				"terminal/terminal.py"
+			],
+			[
+				"des",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"sign",
+				"strategy/strategysignal.py"
+			],
+			[
+				"region",
+				"strategy/region/region.py"
+			],
+			[
+				"ytrad",
+				"strategy/strategytrade.py"
+			],
+			[
+				"trad",
+				"trader/trader.py"
+			],
+			[
+				"ysig",
+				"strategy/strategysignal.py"
+			],
+			[
+				"siis",
+				"siis.py"
+			],
+			[
+				"ser",
+				"trader/service.py"
+			],
+			[
+				"fetcher",
+				"watcher/connector/binance/fetcher.py"
+			],
+			[
+				"fetch-b",
+				"scripts/fetch-binance"
+			],
+			[
+				"bit",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"ig",
+				"scripts/fetch-ig"
+			],
+			[
+				"tick",
+				"database/tickstorage.py"
+			],
+			[
+				"data",
+				"database/database.py"
+			],
+			[
+				"wat",
+				"watcher/watcher.py"
+			],
+			[
 				"inst",
 				"instrument/instrument.py"
 			],
@@ -4095,14 +2071,6 @@
 				"instrument/instrument.py"
 			],
 			[
-				"stra",
-				"strategy/strategy.py"
-			],
-			[
-				"cast",
-				"strategy/cryptoalpha/castrategytrader.py"
-			],
-			[
 				"fee",
 				"strategy/strategydatafeeder.py"
 			],
@@ -4123,20 +2091,12 @@
 				"strategy/strategydatafeeder.py"
 			],
 			[
-				"tick",
-				"database/tickstorage.py"
-			],
-			[
 				"asset",
 				"strategy/strategyassettrade.py"
 			],
 			[
 				"trade",
 				"trader/trader.py"
-			],
-			[
-				"region",
-				"strategy/region/region.py"
 			],
 			[
 				"order",
@@ -4163,19 +2123,7 @@
 				"strategy/strategytrade.py"
 			],
 			[
-				"strate",
-				"strategy/strategy.py"
-			],
-			[
 				"signa",
-				"strategy/strategysignal.py"
-			],
-			[
-				"ytrad",
-				"strategy/strategytrade.py"
-			],
-			[
-				"sign",
 				"strategy/strategysignal.py"
 			],
 			[
@@ -4183,28 +2131,12 @@
 				"strategy/strategysignal.py"
 			],
 			[
-				"capr",
-				"strategy/cryptoalpha/caparameters2.py"
-			],
-			[
 				"casubb",
 				"strategy/cryptoalpha/casubb.py"
 			],
 			[
-				"castr",
-				"strategy/cryptoalpha/castrategytrader.py"
-			],
-			[
 				"strateg",
 				"strategy/strategytrader.py"
-			],
-			[
-				"capra",
-				"strategy/cryptoalpha/caparameters2.py"
-			],
-			[
-				"cap",
-				"strategy/cryptoalpha/caparameters.py"
 			],
 			[
 				"price",
@@ -4231,20 +2163,12 @@
 				"watcher/connector/binance/watcher.py"
 			],
 			[
-				"wat",
-				"watcher/connector/bitmex/watcher.py"
-			],
-			[
 				"watcher",
 				"watcher/connector/bitmex/watcher.py"
 			],
 			[
 				"tradr",
 				"trader/connector/binance/trader.py"
-			],
-			[
-				"trad",
-				"trader/trader.py"
 			],
 			[
 				"ytrader",
@@ -4271,24 +2195,8 @@
 				"app/tradingcommands.py"
 			],
 			[
-				"ser",
-				"monitor/service.py"
-			],
-			[
-				"siis",
-				"siis.py"
-			],
-			[
 				"bi",
 				"scripts/fetch-binance"
-			],
-			[
-				"ig",
-				"scripts/fetch-ig"
-			],
-			[
-				"bit",
-				"scripts/fetch-bitmex"
 			],
 			[
 				"bin",
@@ -4301,10 +2209,6 @@
 			[
 				"srt",
 				"strategy/strategy.py"
-			],
-			[
-				"tim",
-				"strategy/timeframebasedstrategytrader.py"
 			],
 			[
 				"subb",
@@ -4329,10 +2233,6 @@
 			[
 				"sii",
 				"siis.py"
-			],
-			[
-				"str",
-				"strategy/strategy.py"
 			],
 			[
 				"",
@@ -4431,10 +2331,6 @@
 				"strategy/timeframebasedstrategytrader.py"
 			],
 			[
-				"timef",
-				"strategy/timeframebasedstrategytrader.py"
-			],
-			[
 				"trading",
 				"app/tradingcommands.py"
 			],
@@ -4483,10 +2379,6 @@
 				"strategy/timeframebasedsub.py"
 			],
 			[
-				"casub",
-				"strategy/cryptoalpha/casub.py"
-			],
-			[
 				"ma",
 				"trader/market.py"
 			],
@@ -4515,10 +2407,6 @@
 				"strategy/service.py"
 			],
 			[
-				"data",
-				"database/database.py"
-			],
-			[
 				"servc",
 				"strategy/service.py"
 			],
@@ -4529,46 +2417,6 @@
 			[
 				"too",
 				"TODO"
-			],
-			[
-				"pgs",
-				"database/pgsql.py"
-			],
-			[
-				"account",
-				"trader/connector/ig/account.py"
-			],
-			[
-				"tra",
-				"trader/trader.py"
-			],
-			[
-				"ass",
-				"trader/asset.py"
-			],
-			[
-				"accoun",
-				"trader/connector/binance/account.py"
-			],
-			[
-				"accou",
-				"trader/account.py"
-			],
-			[
-				"wa",
-				"watcher/watcher.py"
-			],
-			[
-				"fetcher",
-				"watcher/connector/bitmex/fetcher.py"
-			],
-			[
-				"soci",
-				"strategy/socialcopy/scstrategy.py"
-			],
-			[
-				"mysq",
-				"database/mysql.py"
 			]
 		],
 		"width": 0.0
