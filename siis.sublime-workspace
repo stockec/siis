@@ -4,6 +4,294 @@
 		"selected_items":
 		[
 			[
+				"Li",
+				"LimitIfTouched"
+			],
+			[
+				"Mar",
+				"MarketIfTouched"
+			],
+			[
+				"order",
+				"order_price"
+			],
+			[
+				"stop",
+				"stopPx"
+			],
+			[
+				"trig",
+				"trigger_price"
+			],
+			[
+				"sto",
+				"stopPx"
+			],
+			[
+				"or",
+				"ordType"
+			],
+			[
+				"trg",
+				"trigger_price"
+			],
+			[
+				"orde",
+				"order_price"
+			],
+			[
+				"order_",
+				"order_price"
+			],
+			[
+				"ORDER_TA",
+				"ORDER_TAKE_PROFIT_LIMIT"
+			],
+			[
+				"__e",
+				"__exec_ind_margin_order"
+			],
+			[
+				"__ex",
+				"__exec_margin_order"
+			],
+			[
+				"__exe",
+				"__exec_buysell_order"
+			],
+			[
+				"open",
+				"open_exec_price"
+			],
+			[
+				"ORDER_T",
+				"ORDER_TAKE_PROFIT_LIMIT"
+			],
+			[
+				"app",
+				"append"
+			],
+			[
+				"ORD",
+				"ORDER_MARKET"
+			],
+			[
+				"time",
+				"timestamp"
+			],
+			[
+				"tim",
+				"timeframe"
+			],
+			[
+				"upd",
+				"update_sl"
+			],
+			[
+				"limt",
+				"limit_oid"
+			],
+			[
+				"ref",
+				"limit_ref_oid"
+			],
+			[
+				"has",
+				"has_limit_order"
+			],
+			[
+				"has_t",
+				"has_limit_order"
+			],
+			[
+				"adj",
+				"adjust_price"
+			],
+			[
+				"times",
+				"timestamp"
+			],
+			[
+				"modif",
+				"modify_stop_loss"
+			],
+			[
+				"del",
+				"delta_time"
+			],
+			[
+				"slt",
+				"sltp_max_rate"
+			],
+			[
+				"num",
+				"num_orders"
+			],
+			[
+				"sltp_",
+				"sltp_max_timeframe"
+			],
+			[
+				"last_so",
+				"last_stop_loss"
+			],
+			[
+				"last",
+				"last_sl_ot"
+			],
+			[
+				"tp",
+				"tp_created"
+			],
+			[
+				"exit",
+				"exit_trades"
+			],
+			[
+				"piv",
+				"pivot"
+			],
+			[
+				"has_",
+				"has_stop_order"
+			],
+			[
+				"clos",
+				"close_exec_price"
+			],
+			[
+				"upda",
+				"update_tp"
+			],
+			[
+				"take",
+				"take_profit"
+			],
+			[
+				"is_cl",
+				"is_closing"
+			],
+			[
+				"mar",
+				"market_id"
+			],
+			[
+				"mod",
+				"modify_take_profit"
+			],
+			[
+				"_tr",
+				"_trader_conf"
+			],
+			[
+				"XBT",
+				"XBTU19"
+			],
+			[
+				"_pr",
+				"_profit_loss_market_rate"
+			],
+			[
+				"_prof",
+				"_profit_loss_market"
+			],
+			[
+				"_pro",
+				"_profit_loss_rate"
+			],
+			[
+				"profit",
+				"profit-loss"
+			],
+			[
+				"limi",
+				"limit_oid"
+			],
+			[
+				"lim",
+				"_limit_oid"
+			],
+			[
+				"sell_o",
+				"sell_oid"
+			],
+			[
+				"dir",
+				"direction"
+			],
+			[
+				"T",
+				"TradeOp"
+			],
+			[
+				"_c",
+				"_count"
+			],
+			[
+				"reta",
+				"retained_exit"
+			],
+			[
+				"bu",
+				"buy_oid"
+			],
+			[
+				"STATE_",
+				"STATE_FILLED"
+			],
+			[
+				"in",
+				"instrument"
+			],
+			[
+				"_la",
+				"_prev_lead_sine"
+			],
+			[
+				"_las",
+				"_last_lead_sine"
+			],
+			[
+				"_le",
+				"_lead_sines"
+			],
+			[
+				"SINE",
+				"ta_SINE"
+			],
+			[
+				"_pre",
+				"_prev_lead_sine"
+			],
+			[
+				"pos",
+				"position_data"
+			],
+			[
+				"err",
+				"error_file_logger"
+			],
+			[
+				"exe",
+				"exec_file_logger"
+			],
+			[
+				"DE",
+				"DEBUG"
+			],
+			[
+				"fil",
+				"file_logger"
+			],
+			[
+				"W",
+				"WHITE"
+			],
+			[
+				"quote",
+				"quote_display"
+			],
+			[
 				"id",
 				"identifier"
 			],
@@ -16,20 +304,8 @@
 				"_last_update_time"
 			],
 			[
-				"_pr",
-				"_previous"
-			],
-			[
 				"trad",
 				"trader_service"
-			],
-			[
-				"time",
-				"timeframe"
-			],
-			[
-				"tim",
-				"timeframe"
 			],
 			[
 				"st",
@@ -52,10 +328,6 @@
 				"one_pip_means"
 			],
 			[
-				"_c",
-				"_condition"
-			],
-			[
 				"_vo",
 				"_vol24h_base"
 			],
@@ -70,10 +342,6 @@
 			[
 				"_m",
 				"_market_bid"
-			],
-			[
-				"_tr",
-				"_trade_quantity"
 			],
 			[
 				"_ma",
@@ -120,20 +388,8 @@
 				"_top_partial_interp"
 			],
 			[
-				"_pre",
-				"_prev_cd"
-			],
-			[
-				"_le",
-				"_length"
-			],
-			[
 				"_a",
 				"_last_d"
-			],
-			[
-				"_la",
-				"_last_k"
 			],
 			[
 				"_len",
@@ -153,10 +409,6 @@
 			],
 			[
 				"lat",
-				"last_update_time"
-			],
-			[
-				"last",
 				"last_update_time"
 			],
 			[
@@ -262,323 +514,78 @@
 			[
 				"change_",
 				"change_percent"
-			],
-			[
-				"tot",
-				"total_size"
-			],
-			[
-				"T",
-				"TICK_SIZE"
-			],
-			[
-				"Ti",
-				"TickStreamer"
-			],
-			[
-				"fil",
-				"file_size"
-			],
-			[
-				"path",
-				"pathname"
-			],
-			[
-				"Tic",
-				"TickStorage"
-			],
-			[
-				"comm",
-				"commission_asset"
-			],
-			[
-				"sl",
-				"sltp_timeframe"
-			],
-			[
-				"ref",
-				"ref_timeframe"
-			],
-			[
-				"TF",
-				"TF_4H"
-			],
-			[
-				"sef",
-				"setdefault"
-			],
-			[
-				"TF_",
-				"TF_1H"
-			],
-			[
-				"timefr",
-				"timeframes"
-			],
-			[
-				"pra",
-				"parameters"
-			],
-			[
-				"base",
-				"base-timeframe"
-			],
-			[
-				"timefra",
-				"timeframe_from_str"
-			],
-			[
-				"teim",
-				"timeframes"
-			],
-			[
-				"timefram_",
-				"timeframe_to_str"
-			],
-			[
-				"ex",
-				"extend"
-			],
-			[
-				"end",
-				"ended_candle"
-			],
-			[
-				"from",
-				"from_tick"
-			],
-			[
-				"afte",
-				"after_ts"
-			],
-			[
-				"_ti",
-				"_tick_type"
-			],
-			[
-				"entry",
-				"entry_price"
-			],
-			[
-				"parti",
-				"partial_tp"
-			],
-			[
-				"part",
-				"partial_tp"
-			],
-			[
-				"bb",
-				"bbawe"
-			],
-			[
-				"clo",
-				"close_exec_price"
-			],
-			[
-				"bes",
-				"best_price"
-			],
-			[
-				"step",
-				"step_price"
-			],
-			[
-				"ste",
-				"step_price_precision"
-			],
-			[
-				"order",
-				"order_price"
-			],
-			[
-				"un",
-				"unlock"
-			],
-			[
-				"moni",
-				"monitor_service"
-			],
-			[
-				"_fifo",
-				"_fifo_read"
-			],
-			[
-				"fif",
-				"fifo_rpc"
-			],
-			[
-				"_fil",
-				"_filename"
-			],
-			[
-				"_fi",
-				"_filename"
-			],
-			[
-				"_f",
-				"_filename_read"
-			],
-			[
-				"date",
-				"datetime"
-			],
-			[
-				"monit",
-				"monitor"
-			],
-			[
-				"com",
-				"commands_handler"
-			],
-			[
-				"str",
-				"strategy_service"
-			],
-			[
-				"upd",
-				"update_tp"
-			],
-			[
-				"last_",
-				"last_pivot"
-			],
-			[
-				"max",
-				"max_trades"
-			],
-			[
-				"stoch",
-				"stochrsi"
-			],
-			[
-				"tra",
-				"trader_data"
-			],
-			[
-				"conne",
-				"connected"
-			],
-			[
-				"mar",
-				"market_id"
-			],
-			[
-				"Dat",
-				"database"
-			],
-			[
-				"REST",
-				"REST_OR_WS"
-			],
-			[
-				"pos",
-				"position_id"
-			],
-			[
-				"ass",
-				"asset_quantities"
-			],
-			[
-				"loc",
-				"locked"
-			],
-			[
-				"vol",
-				"vol24h_quote"
-			],
-			[
-				"value",
-				"value_per_pip"
-			],
-			[
-				"tick",
-				"ticker"
-			],
-			[
-				"even",
-				"event_type"
-			],
-			[
-				"traded",
-				"traded_vol"
-			],
-			[
-				"cach",
-				"cached_tick"
-			],
-			[
-				"vo",
-				"volume"
-			],
-			[
-				"us",
-				"user_trader"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "strategy/cryptoalpha/casuba.py",
+			"file": "strategy/bitcoinalpha/bcastrategytrader.py",
 			"settings":
 			{
-				"buffer_size": 33968,
+				"buffer_size": 30072,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "Searching 254 files for \"sub_trader\" (case sensitive)\n\n0 matches",
+			"file": "trader/connector/papertrader/trader.py",
 			"settings":
 			{
-				"buffer_size": 64,
+				"buffer_size": 86485,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 260 files for \".order_price\" (case sensitive)\n\n/home/frederic/dev/trading/siis/strategy/strategy.py:\n 1205                          'ts': trade.entry_open_time,\n 1206                          'd': trade.direction_to_str(),\n 1207:                         'l': market.format_price(trade.order_price),\n 1208                          'p': market.format_price(trade.entry_price),\n 1209                          'q': market.format_quantity(trade.order_quantity),\n\n/home/frederic/dev/trading/siis/strategy/strategyassettrade.py:\n   50          order = Order(trader, market_id)\n   51          order.direction = direction\n   52:         order.order_price = order_price\n   53          order.order_type = order_type\n   54          order.quantity = quantity\n   ..\n   66          self.dir = order.direction\n   67  \n   68:         self.op = order.order_price  # retains the order price\n   69          self.oq = order.quantity     # ordered quantity\n   70  \n   ..\n  155              order.direction = -self.dir  # neg dir\n  156              order.order_type = Order.ORDER_LIMIT\n  157:             order.order_price = price\n  158              order.quantity = self.e - self.x  # remaining\n  159  \n  ...\n  203              order.direction = -self.dir  # neg dir\n  204              order.order_type = Order.ORDER_STOP\n  205:             order.order_price = price\n  206              order.quantity = self.e - self.x  # remaining\n  207  \n\n/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py:\n   53          order = Order(trader, market_id)\n   54          order.direction = direction\n   55:         order.order_price = order_price\n   56          order.order_type = order_type\n   57          order.quantity = quantity\n   ..\n   64          self.dir = order.direction\n   65  \n   66:         self.op = order.order_price  # retains the order price\n   67          self.oq = order.quantity     # ordered quantity\n   68  \n   ..\n  165              order.reduce_only = True  # (not for now because it implies to have the filled qty, and so need to update each time trade qty is updated)\n  166              order.quantity = self.e - self.x  # remaining\n  167:             order.order_price = price\n  168  \n  169              trader.set_ref_order_id(order)\n  ...\n  201              order.reduce_only = True\n  202              order.quantity = self.e - self.x  # remaining\n  203:             order.order_price = price\n  204  \n  205              trader.set_ref_order_id(order)\n\n/home/frederic/dev/trading/siis/strategy/strategymargintrade.py:\n   50          order = Order(trader, market_id)\n   51          order.direction = direction\n   52:         order.order_price = order_price\n   53          order.order_type = order_type\n   54          order.quantity = quantity\n   ..\n   64          self.dir = order.direction\n   65  \n   66:         self.op = order.order_price  # retains the order price\n   67          self.oq = order.quantity     # ordered quantity\n   68  \n   ..\n  181              order.reduce_only = True\n  182              order.quantity = self.e - self.x  # remaining\n  183:             order.order_price = price\n  184  \n  185              trader.set_ref_order_id(order)\n  ...\n  232              order.reduce_only = True\n  233              order.quantity = self.e - self.x  # remaining\n  234:             order.order_price = price\n  235  \n  236              trader.set_ref_order_id(order)\n\n/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py:\n  360                  order = Order(trader, instrument.market_id)\n  361                  order.direction = direction\n  362:                 order.order_price = last_prices[-1]\n  363  \n  364                  # depends of the instrument and the account, and not always necessary, but always in paper trader\n\n/home/frederic/dev/trading/siis/trader/trader.py:\n  888  \n  889              # depending of the type\n  890:             order.order_price = order_data.get('order-price')\n  891              order.trigger_price = order_data.get('trigger-price')\n  892              order.time_in_force = order_data.get('time-in-force')\n  ...\n  907              order.quantity = order_data['quantity']\n  908  \n  909:             order.order_price = order_data.get('order-price')\n  910              order.trigger_price = order_data.get('trigger-price')\n  911  \n\n/home/frederic/dev/trading/siis/trader/connector/binance/trader.py:\n  226          # quantity = market.format_quantity(market.adjust_quantity(order.quantity))\n  227          quantity = market.adjust_quantity(order.quantity)\n  228:         notional = quantity * (order.order_price or market.ofr)\n  229  \n  230          if notional < market.min_notional:\n  ...\n  245          # limit order need timeInForce\n  246          if order.order_type == Order.ORDER_LIMIT:\n  247:             data['price'] = market.format_price(order.order_price)\n  248              data['timeInForce'] = time_in_force\n  249          elif order.order_type == Order.ORDER_STOP:\n  250:             data['stopPrice'] = market.format_price(order.order_price)\n  251          elif order.order_type == Order.ORDER_STOP_LIMIT:\n  252:             data['price'] = market.format_price(order.order_price)\n  253              data['stopPrice'] = market.format_price(order.trigger_price)\n  254              data['timeInForce'] = time_in_force\n  255          elif order.order_type == Order.ORDER_TAKE_PROFIT:\n  256:             data['stopPrice'] = market.format_price(order.order_price)\n  257          elif order.order_type == Order.ORDER_TAKE_PROFIT_LIMIT:\n  258:             data['price'] = market.format_price(order.order_price)\n  259              data['stopPrice'] = market.format_price(order.trigger_price)\n  260              data['timeInForce'] = time_in_force\n  ...\n  874                  if data['type'] == 'LIMIT':\n  875                      order.order_type = Order.ORDER_LIMIT\n  876:                     order.order_price = data['price']\n  877                  elif data['type'] == 'LIMIT_MAKER':\n  878                      order.order_type = Order.ORDER_LIMIT # _MAKER\n  879:                     order.order_price = data['price']\n  880                  elif data['type'] == 'MARKET':\n  881                      order.order_type = Order.ORDER_MARKET\n  882                  elif data['type'] == 'STOP_LOSS':\n  883                      order.order_type = Order.ORDER_STOP\n  884:                     order.order_price = data['stopPrice']\n  885                  elif data['type'] == 'STOP_LOSS_LIMIT':\n  886                      order.order_type = Order.ORDER_STOP_LIMIT\n  887:                     order.order_price = data['price']\n  888                      order.trigger_price = data['stopPrice']\n  889                  elif data['type'] == 'TAKE_PROFIT':\n  890                      order.order_type = Order.ORDER_TAKE_PROFIT\n  891:                     order.order_price = data['stopPrice']\n  892                  elif data['type'] == 'TAKE_PROFIT_LIMIT':\n  893                      order.order_type = Order.ORDER_TAKE_PROFIT_LIMIT\n  894:                     order.order_price = data['price']\n  895                      order.trigger_price = data['stopPrice']\n  896  \n  ...\n 1105  \n 1106              order.quantity = data['quantity']\n 1107:             order.order_price = data['order-price']\n 1108              order.stop_loss = data['stop-loss']\n 1109  \n\n/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py:\n  234              postdict['ordType'] = 'Limit'\n  235              postdict['orderQty'] = qty\n  236:             postdict['price'] = order.order_price\n  237  \n  238              # only possible with limit order\n  ...\n  243              postdict['ordType'] = 'Stop'\n  244              postdict['orderQty'] = qty\n  245:             postdict['stopPx'] = order.order_price\n  246  \n  247          elif order.order_type == Order.ORDER_STOP_LIMIT:\n  ...\n  249              postdict['orderQty'] = qty\n  250              postdict['stopPx'] = order.trigger_price\n  251:             postdict['price'] = order.order_price\n  252  \n  253          elif order.order_type == Order.ORDER_TAKE_PROFIT:\n  254              postdict['ordType'] = 'MarketIfTouched'\n  255              postdict['orderQty'] = qty\n  256:             postdict['stopPx'] = order.order_price\n  257  \n  258          elif order.order_type == Order.ORDER_TAKE_PROFIT_LIMIT:\n  ...\n  260              postdict['orderQty'] = qty\n  261              postdict['stopPx'] = order.trigger_price\n  262:             postdict['price'] = order.order_price\n  263  \n  264          else:\n  ...\n  277              postdict['execInst'] = ','.join(exec_inst)\n  278  \n  279:         logger.info(\"Trader %s order %s %s @%s %s\" % (self.name, order.direction_to_str(), order.symbol, order.order_price, order.quantity))\n  280  \n  281          try:\n  ...\n  387          else:\n  388              order.order_type = Order.ORDER_LIMIT\n  389:             order.order_price = limit_price\n  390  \n  391              postdict['ordType'] = \"Limit\"\n  392:             postdict['price'] = order.order_price\n  393              postdict['orderQty'] = qty\n  394  \n  ...\n  599              elif src_order['ordType'] == \"Limit\":\n  600                  order.order_type = Order.ORDER_LIMIT\n  601:                 order.order_price = src_order.get('price')\n  602              elif src_order['ordType'] == \"Stop\":\n  603                  order.order_type = Order.ORDER_STOP\n  604:                 order.order_price = src_order.get('stopPx')\n  605              else:\n  606                  # stop limit, trigger marke, tripgger limit\n\n/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py:\n  267          }\n  268  \n  269:         if order.order_price:\n  270:             var['order_type_parameter'] = order.order_price  # can be null for market\n  271  \n  272          if order.stop_loss:\n\n/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py:\n  557  \n  558                  if order.order_type == Order.ORDER_LIMIT:\n  559:                     if (order.direction == Position.LONG and open_exec_price <= order.order_price) or \n  560:                        (order.direction == Position.SHORT and open_exec_price >= order.order_price):\n  561  \n  562                          if market.trade == market.TRADE_BUY_SELL:\n  ...\n  572                  elif order.order_type == Order.ORDER_STOP:\n  573                      # opposite trigger + market\n  574:                     if (order.direction == Position.LONG and close_exec_price <= order.order_price) or \n  575:                        (order.direction == Position.SHORT and close_exec_price >= order.order_price):\n  576  \n  577                          if market.trade == market.TRADE_BUY_SELL:\n  ...\n  639  \n  640          if order.order_type in (Order.ORDER_LIMIT, Order.ORDER_STOP_LIMIT, Order.ORDER_TAKE_PROFIT_LIMIT):\n  641:             bid_price = order.order_price\n  642:             ofr_price = order.order_price\n  643  \n  644          elif order.order_type in (Order.ORDER_MARKET, Order.ORDER_STOP, Order.ORDER_TAKE_PROFIT):\n  ...\n  728              if market and limit_price:\n  729                  order.order_type = Order.ORDER_LIMIT\n  730:                 order.order_price = limit_price\n  731              else:\n  732                  order.order_type = Order.ORDER_MARKET\n  ...\n  751              if order.order_type == Order.ORDER_LIMIT:\n  752                  # @todo limit execution when limit reach bid or ofr price (depend of the direction)\n  753:                 bid_price = order.order_price\n  754:                 ofr_price = order.order_price\n  755  \n  756              elif order.order_type == Order.ORDER_MARKET:\n  ...\n 1011                  'timestamp': order.transact_time,\n 1012                  'quantity': order.quantity,\n 1013:                 'order-price': order.order_price,\n 1014                  'stop-loss': order.stop_loss,\n 1015                  'take-profit': order.take_profit,\n ....\n 1028                  'timestamp': order.transact_time,\n 1029                  'quantity': order.quantity,\n 1030:                 'order-price': order.order_price,\n 1031                  'exec-price': open_exec_price,\n 1032                  'filled': base_qty,\n ....\n 1115                  'timestamp': order.transact_time,\n 1116                  'quantity': order.quantity,\n 1117:                 'order-price': order.order_price,\n 1118                  'stop-loss': order.stop_loss,\n 1119                  'take-profit': order.take_profit,\n ....\n 1132                  'timestamp': order.transact_time,\n 1133                  'quantity': order.quantity,\n 1134:                 'order-price': order.order_price,\n 1135                  'exec-price': close_exec_price,\n 1136                  'filled': base_qty,\n ....\n 1316              margin_factor = market.margin_factor\n 1317  \n 1318:             # logger.debug(order.symbol, bid_price, ofr_price, open_exec_price, close_exec_price, delta_price, current_position.entry_price, order.order_price)\n 1319              realized_position_cost = 0.0  # realized cost of the position in base currency\n 1320  \n ....\n 1474                  'timestamp': order.transact_time,\n 1475                  'quantity': order.quantity,\n 1476:                 'order-price': order.order_price,\n 1477                  'stop-loss': order.stop_loss,\n 1478                  'take-profit': order.take_profit,\n ....\n 1491                  'timestamp': order.transact_time,\n 1492                  'quantity': order.quantity,\n 1493:                 'order-price': order.order_price,\n 1494                  'exec-price': exec_price,\n 1495                  'avg-price': current_position.entry_price,\n ....\n 1636                  'timestamp': order.transact_time,\n 1637                  'quantity': order.quantity,\n 1638:                 'order-price': order.order_price,\n 1639                  'stop-loss': order.stop_loss,\n 1640                  'take-profit': order.take_profit,\n ....\n 1653                  'timestamp': order.transact_time,\n 1654                  'quantity': order.quantity,\n 1655:                 'order-price': order.order_price,\n 1656                  'exec-price': position.entry_price,\n 1657                  'avg-price': position.entry_price,\n ....\n 1742              margin_factor = market.margin_factor\n 1743  \n 1744:             # logger.debug(order.symbol, bid_price, ofr_price, open_exec_price, close_exec_price, delta_price, current_position.entry_price, order.order_price)\n 1745              realized_position_cost = 0.0  # realized cost of the position in base currency\n 1746  \n ....\n 1900                  'timestamp': order.transact_time,\n 1901                  'quantity': order.quantity,\n 1902:                 'order-price': order.order_price,\n 1903                  'stop-loss': order.stop_loss,\n 1904                  'take-profit': order.take_profit,\n ....\n 1917                  'timestamp': order.transact_time,\n 1918                  'quantity': order.quantity,\n 1919:                 'order-price': order.order_price,\n 1920                  'exec-price': exec_price,\n 1921                  'avg-price': current_position.entry_price,\n ....\n 2062                  'timestamp': order.transact_time,\n 2063                  'quantity': order.quantity,\n 2064:                 'order-price': order.order_price,\n 2065                  'stop-loss': order.stop_loss,\n 2066                  'take-profit': order.take_profit,\n ....\n 2079                  'timestamp': order.transact_time,\n 2080                  'quantity': order.quantity,\n 2081:                 'order-price': order.order_price,\n 2082                  'exec-price': position.entry_price,\n 2083                  'avg-price': position.entry_price,\n\n64 matches across 10 files\n\n\nSearching 260 files for \".order_price\" (case sensitive)\n\n/home/frederic/dev/trading/siis/strategy/strategy.py:\n 1205                          'ts': trade.entry_open_time,\n 1206                          'd': trade.direction_to_str(),\n 1207:                         'l': market.format_price(trade.order_price),\n 1208                          'p': market.format_price(trade.entry_price),\n 1209                          'q': market.format_quantity(trade.order_quantity),\n\n/home/frederic/dev/trading/siis/strategy/strategyassettrade.py:\n   50          order = Order(trader, market_id)\n   51          order.direction = direction\n   52:         order.order_price = order_price\n   53          order.order_type = order_type\n   54          order.quantity = quantity\n   ..\n   66          self.dir = order.direction\n   67  \n   68:         self.op = order.order_price  # retains the order price\n   69          self.oq = order.quantity     # ordered quantity\n   70  \n   ..\n  155              order.direction = -self.dir  # neg dir\n  156              order.order_type = Order.ORDER_LIMIT\n  157:             order.order_price = price\n  158              order.quantity = self.e - self.x  # remaining\n  159  \n  ...\n  203              order.direction = -self.dir  # neg dir\n  204              order.order_type = Order.ORDER_STOP\n  205:             order.order_price = price\n  206              order.quantity = self.e - self.x  # remaining\n  207  \n\n/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py:\n   53          order = Order(trader, market_id)\n   54          order.direction = direction\n   55:         order.order_price = order_price\n   56          order.order_type = order_type\n   57          order.quantity = quantity\n   ..\n   64          self.dir = order.direction\n   65  \n   66:         self.op = order.order_price  # retains the order price\n   67          self.oq = order.quantity     # ordered quantity\n   68  \n   ..\n  165              order.reduce_only = True  # (not for now because it implies to have the filled qty, and so need to update each time trade qty is updated)\n  166              order.quantity = self.e - self.x  # remaining\n  167:             order.order_price = price\n  168  \n  169              trader.set_ref_order_id(order)\n  ...\n  201              order.reduce_only = True\n  202              order.quantity = self.e - self.x  # remaining\n  203:             order.order_price = price\n  204  \n  205              trader.set_ref_order_id(order)\n\n/home/frederic/dev/trading/siis/strategy/strategymargintrade.py:\n   50          order = Order(trader, market_id)\n   51          order.direction = direction\n   52:         order.order_price = order_price\n   53          order.order_type = order_type\n   54          order.quantity = quantity\n   ..\n   64          self.dir = order.direction\n   65  \n   66:         self.op = order.order_price  # retains the order price\n   67          self.oq = order.quantity     # ordered quantity\n   68  \n   ..\n  181              order.reduce_only = True\n  182              order.quantity = self.e - self.x  # remaining\n  183:             order.order_price = price\n  184  \n  185              trader.set_ref_order_id(order)\n  ...\n  232              order.reduce_only = True\n  233              order.quantity = self.e - self.x  # remaining\n  234:             order.order_price = price\n  235  \n  236              trader.set_ref_order_id(order)\n\n/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py:\n  360                  order = Order(trader, instrument.market_id)\n  361                  order.direction = direction\n  362:                 order.order_price = last_prices[-1]\n  363  \n  364                  # depends of the instrument and the account, and not always necessary, but always in paper trader\n\n/home/frederic/dev/trading/siis/trader/trader.py:\n  888  \n  889              # depending of the type\n  890:             order.order_price = order_data.get('order-price')\n  891              order.trigger_price = order_data.get('trigger-price')\n  892              order.time_in_force = order_data.get('time-in-force')\n  ...\n  907              order.quantity = order_data['quantity']\n  908  \n  909:             order.order_price = order_data.get('order-price')\n  910              order.trigger_price = order_data.get('trigger-price')\n  911  \n\n/home/frederic/dev/trading/siis/trader/connector/binance/trader.py:\n  226          # quantity = market.format_quantity(market.adjust_quantity(order.quantity))\n  227          quantity = market.adjust_quantity(order.quantity)\n  228:         notional = quantity * (order.order_price or market.ofr)\n  229  \n  230          if notional < market.min_notional:\n  ...\n  245          # limit order need timeInForce\n  246          if order.order_type == Order.ORDER_LIMIT:\n  247:             data['price'] = market.format_price(order.order_price)\n  248              data['timeInForce'] = time_in_force\n  249          elif order.order_type == Order.ORDER_STOP:\n  250:             data['stopPrice'] = market.format_price(order.order_price)\n  251          elif order.order_type == Order.ORDER_STOP_LIMIT:\n  252:             data['price'] = market.format_price(order.order_price)\n  253              data['stopPrice'] = market.format_price(order.trigger_price)\n  254              data['timeInForce'] = time_in_force\n  255          elif order.order_type == Order.ORDER_TAKE_PROFIT:\n  256:             data['stopPrice'] = market.format_price(order.order_price)\n  257          elif order.order_type == Order.ORDER_TAKE_PROFIT_LIMIT:\n  258:             data['price'] = market.format_price(order.order_price)\n  259              data['stopPrice'] = market.format_price(order.trigger_price)\n  260              data['timeInForce'] = time_in_force\n  ...\n  874                  if data['type'] == 'LIMIT':\n  875                      order.order_type = Order.ORDER_LIMIT\n  876:                     order.order_price = data['price']\n  877                  elif data['type'] == 'LIMIT_MAKER':\n  878                      order.order_type = Order.ORDER_LIMIT # _MAKER\n  879:                     order.order_price = data['price']\n  880                  elif data['type'] == 'MARKET':\n  881                      order.order_type = Order.ORDER_MARKET\n  882                  elif data['type'] == 'STOP_LOSS':\n  883                      order.order_type = Order.ORDER_STOP\n  884:                     order.order_price = data['stopPrice']\n  885                  elif data['type'] == 'STOP_LOSS_LIMIT':\n  886                      order.order_type = Order.ORDER_STOP_LIMIT\n  887:                     order.order_price = data['price']\n  888                      order.trigger_price = data['stopPrice']\n  889                  elif data['type'] == 'TAKE_PROFIT':\n  890                      order.order_type = Order.ORDER_TAKE_PROFIT\n  891:                     order.order_price = data['stopPrice']\n  892                  elif data['type'] == 'TAKE_PROFIT_LIMIT':\n  893                      order.order_type = Order.ORDER_TAKE_PROFIT_LIMIT\n  894:                     order.order_price = data['price']\n  895                      order.trigger_price = data['stopPrice']\n  896  \n  ...\n 1105  \n 1106              order.quantity = data['quantity']\n 1107:             order.order_price = data['order-price']\n 1108              order.stop_loss = data['stop-loss']\n 1109  \n\n/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py:\n  234              postdict['ordType'] = 'Limit'\n  235              postdict['orderQty'] = qty\n  236:             postdict['price'] = order.order_price\n  237  \n  238              # only possible with limit order\n  ...\n  243              postdict['ordType'] = 'Stop'\n  244              postdict['orderQty'] = qty\n  245:             postdict['stopPx'] = order.order_price\n  246  \n  247          elif order.order_type == Order.ORDER_STOP_LIMIT:\n  ...\n  249              postdict['orderQty'] = qty\n  250              postdict['stopPx'] = order.trigger_price\n  251:             postdict['price'] = order.order_price\n  252  \n  253          elif order.order_type == Order.ORDER_TAKE_PROFIT:\n  254              postdict['ordType'] = 'MarketIfTouched'\n  255              postdict['orderQty'] = qty\n  256:             postdict['stopPx'] = order.order_price\n  257  \n  258          elif order.order_type == Order.ORDER_TAKE_PROFIT_LIMIT:\n  ...\n  260              postdict['orderQty'] = qty\n  261              postdict['stopPx'] = order.trigger_price\n  262:             postdict['price'] = order.order_price\n  263  \n  264          else:\n  ...\n  277              postdict['execInst'] = ','.join(exec_inst)\n  278  \n  279:         logger.info(\"Trader %s order %s %s @%s %s\" % (self.name, order.direction_to_str(), order.symbol, order.order_price, order.quantity))\n  280  \n  281          try:\n  ...\n  387          else:\n  388              order.order_type = Order.ORDER_LIMIT\n  389:             order.order_price = limit_price\n  390  \n  391              postdict['ordType'] = \"Limit\"\n  392:             postdict['price'] = order.order_price\n  393              postdict['orderQty'] = qty\n  394  \n  ...\n  599              elif src_order['ordType'] == \"Limit\":\n  600                  order.order_type = Order.ORDER_LIMIT\n  601:                 order.order_price = src_order.get('price')\n  602              elif src_order['ordType'] == \"Stop\":\n  603                  order.order_type = Order.ORDER_STOP\n  604:                 order.order_price = src_order.get('stopPx')\n  605              else:\n  606                  # stop limit, trigger marke, tripgger limit\n\n/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py:\n  267          }\n  268  \n  269:         if order.order_price:\n  270:             var['order_type_parameter'] = order.order_price  # can be null for market\n  271  \n  272          if order.stop_loss:\n\n/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py:\n  557  \n  558                  if order.order_type == Order.ORDER_LIMIT:\n  559:                     if (order.direction == Position.LONG and open_exec_price <= order.order_price) or \n  560:                        (order.direction == Position.SHORT and open_exec_price >= order.order_price):\n  561  \n  562                          if market.trade == market.TRADE_BUY_SELL:\n  ...\n  572                  elif order.order_type == Order.ORDER_STOP:\n  573                      # opposite trigger + market\n  574:                     if (order.direction == Position.LONG and close_exec_price <= order.order_price) or \n  575:                        (order.direction == Position.SHORT and close_exec_price >= order.order_price):\n  576  \n  577                          if market.trade == market.TRADE_BUY_SELL:\n  ...\n  639  \n  640          if order.order_type in (Order.ORDER_LIMIT, Order.ORDER_STOP_LIMIT, Order.ORDER_TAKE_PROFIT_LIMIT):\n  641:             bid_price = order.order_price\n  642:             ofr_price = order.order_price\n  643  \n  644          elif order.order_type in (Order.ORDER_MARKET, Order.ORDER_STOP, Order.ORDER_TAKE_PROFIT):\n  ...\n  728              if market and limit_price:\n  729                  order.order_type = Order.ORDER_LIMIT\n  730:                 order.order_price = limit_price\n  731              else:\n  732                  order.order_type = Order.ORDER_MARKET\n  ...\n  751              if order.order_type == Order.ORDER_LIMIT:\n  752                  # @todo limit execution when limit reach bid or ofr price (depend of the direction)\n  753:                 bid_price = order.order_price\n  754:                 ofr_price = order.order_price\n  755  \n  756              elif order.order_type == Order.ORDER_MARKET:\n  ...\n 1011                  'timestamp': order.transact_time,\n 1012                  'quantity': order.quantity,\n 1013:                 'order-price': order.order_price,\n 1014                  'stop-loss': order.stop_loss,\n 1015                  'take-profit': order.take_profit,\n ....\n 1028                  'timestamp': order.transact_time,\n 1029                  'quantity': order.quantity,\n 1030:                 'order-price': order.order_price,\n 1031                  'exec-price': open_exec_price,\n 1032                  'filled': base_qty,\n ....\n 1115                  'timestamp': order.transact_time,\n 1116                  'quantity': order.quantity,\n 1117:                 'order-price': order.order_price,\n 1118                  'stop-loss': order.stop_loss,\n 1119                  'take-profit': order.take_profit,\n ....\n 1132                  'timestamp': order.transact_time,\n 1133                  'quantity': order.quantity,\n 1134:                 'order-price': order.order_price,\n 1135                  'exec-price': close_exec_price,\n 1136                  'filled': base_qty,\n ....\n 1316              margin_factor = market.margin_factor\n 1317  \n 1318:             # logger.debug(order.symbol, bid_price, ofr_price, open_exec_price, close_exec_price, delta_price, current_position.entry_price, order.order_price)\n 1319              realized_position_cost = 0.0  # realized cost of the position in base currency\n 1320  \n ....\n 1474                  'timestamp': order.transact_time,\n 1475                  'quantity': order.quantity,\n 1476:                 'order-price': order.order_price,\n 1477                  'stop-loss': order.stop_loss,\n 1478                  'take-profit': order.take_profit,\n ....\n 1491                  'timestamp': order.transact_time,\n 1492                  'quantity': order.quantity,\n 1493:                 'order-price': order.order_price,\n 1494                  'exec-price': exec_price,\n 1495                  'avg-price': current_position.entry_price,\n ....\n 1636                  'timestamp': order.transact_time,\n 1637                  'quantity': order.quantity,\n 1638:                 'order-price': order.order_price,\n 1639                  'stop-loss': order.stop_loss,\n 1640                  'take-profit': order.take_profit,\n ....\n 1653                  'timestamp': order.transact_time,\n 1654                  'quantity': order.quantity,\n 1655:                 'order-price': order.order_price,\n 1656                  'exec-price': position.entry_price,\n 1657                  'avg-price': position.entry_price,\n ....\n 1742              margin_factor = market.margin_factor\n 1743  \n 1744:             # logger.debug(order.symbol, bid_price, ofr_price, open_exec_price, close_exec_price, delta_price, current_position.entry_price, order.order_price)\n 1745              realized_position_cost = 0.0  # realized cost of the position in base currency\n 1746  \n ....\n 1900                  'timestamp': order.transact_time,\n 1901                  'quantity': order.quantity,\n 1902:                 'order-price': order.order_price,\n 1903                  'stop-loss': order.stop_loss,\n 1904                  'take-profit': order.take_profit,\n ....\n 1917                  'timestamp': order.transact_time,\n 1918                  'quantity': order.quantity,\n 1919:                 'order-price': order.order_price,\n 1920                  'exec-price': exec_price,\n 1921                  'avg-price': current_position.entry_price,\n ....\n 2062                  'timestamp': order.transact_time,\n 2063                  'quantity': order.quantity,\n 2064:                 'order-price': order.order_price,\n 2065                  'stop-loss': order.stop_loss,\n 2066                  'take-profit': order.take_profit,\n ....\n 2079                  'timestamp': order.transact_time,\n 2080                  'quantity': order.quantity,\n 2081:                 'order-price': order.order_price,\n 2082                  'exec-price': position.entry_price,\n 2083                  'avg-price': position.entry_price,\n\n64 matches across 10 files\n\n\nSearching 260 files for \"'order-price'\" (case sensitive)\n\n/home/frederic/dev/trading/siis/trader/trader.py:\n  888  \n  889              # depending of the type\n  890:             order.order_price = order_data.get('order-price')\n  891              order.trigger_price = order_data.get('trigger-price')\n  892              order.time_in_force = order_data.get('time-in-force')\n  ...\n  907              order.quantity = order_data['quantity']\n  908  \n  909:             order.order_price = order_data.get('order-price')\n  910              order.trigger_price = order_data.get('trigger-price')\n  911  \n\n/home/frederic/dev/trading/siis/trader/connector/binance/trader.py:\n 1105  \n 1106              order.quantity = data['quantity']\n 1107:             order.order_price = data['order-price']\n 1108              order.stop_loss = data['stop-loss']\n 1109  \n\n/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py:\n 1011                  'timestamp': order.transact_time,\n 1012                  'quantity': order.quantity,\n 1013:                 'order-price': order.order_price,\n 1014                  'trigger-price': order.trigger_price,\n 1015                  'stop-loss': order.stop_loss,\n ....\n 1029                  'timestamp': order.transact_time,\n 1030                  'quantity': order.quantity,\n 1031:                 'order-price': order.order_price,\n 1032                  'trigger-price': order.trigger_price,\n 1033                  'exec-price': open_exec_price,\n ....\n 1117                  'timestamp': order.transact_time,\n 1118                  'quantity': order.quantity,\n 1119:                 'order-price': order.order_price,\n 1120                  'trigger-price': order.trigger_price,\n 1121                  'stop-loss': order.stop_loss,\n ....\n 1135                  'timestamp': order.transact_time,\n 1136                  'quantity': order.quantity,\n 1137:                 'order-price': order.order_price,\n 1138                  'trigger-price': order.trigger_price,\n 1139                  'exec-price': close_exec_price,\n ....\n 1478                  'timestamp': order.transact_time,\n 1479                  'quantity': order.quantity,\n 1480:                 'order-price': order.order_price,\n 1481                  'trigger-price': order.trigger_price,\n 1482                  'stop-loss': order.stop_loss,\n ....\n 1496                  'timestamp': order.transact_time,\n 1497                  'quantity': order.quantity,\n 1498:                 'order-price': order.order_price,\n 1499                  'trigger-price': order.trigger_price,\n 1500                  'exec-price': exec_price,\n ....\n 1642                  'timestamp': order.transact_time,\n 1643                  'quantity': order.quantity,\n 1644:                 'order-price': order.order_price,\n 1645                  'trigger-price': order.trigger_price,\n 1646                  'stop-loss': order.stop_loss,\n ....\n 1660                  'timestamp': order.transact_time,\n 1661                  'quantity': order.quantity,\n 1662:                 'order-price': order.order_price,\n 1663                  'trigger-price': order.trigger_price,\n 1664                  'exec-price': position.entry_price,\n ....\n 1908                  'timestamp': order.transact_time,\n 1909                  'quantity': order.quantity,\n 1910:                 'order-price': order.order_price,\n 1911                  'trigger-price': order.trigger_price,\n 1912                  'stop-loss': order.stop_loss,\n ....\n 1926                  'timestamp': order.transact_time,\n 1927                  'quantity': order.quantity,\n 1928:                 'order-price': order.order_price,\n 1929                  'trigger-price': order.trigger_price,\n 1930                  'exec-price': exec_price,\n ....\n 2072                  'timestamp': order.transact_time,\n 2073                  'quantity': order.quantity,\n 2074:                 'order-price': order.order_price,\n 2075                  'trigger-price': order.trigger_price,\n 2076                  'stop-loss': order.stop_loss,\n ....\n 2090                  'timestamp': order.transact_time,\n 2091                  'quantity': order.quantity,\n 2092:                 'order-price': order.order_price,\n 2093                  'trigger-price': order.trigger_price,\n 2094                  'exec-price': position.entry_price,\n\n/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py:\n  635                      'timestamp': timestamp,\n  636                      'quantity': float(data['q']),\n  637:                     'order-price': order_price,\n  638                      'trigger-price': trigger_price,\n  639                      'exec-price': float(data['L']),\n  ...\n  708                      'timestamp': event_timestamp,\n  709                      'quantity': float(data['q']),\n  710:                     'order-price': order_price,\n  711                      'trigger-price': trigger_price,\n  712                      'time-in-force': time_in_force,\n\n/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py:\n  303                                  'timestamp': operation_time,\n  304                                  'quantity': ld.get('orderQty', None),\n  305:                                 'order-price': order_price,\n  306                                  'trigger-price': trigger_price,\n  307                                  'stop-loss': None,\n  ...\n  374                              'timestamp': transact_time,\n  375                              'quantity': ld.get('orderQty', 0),\n  376:                             'order-price': order_price,\n  377                              'trigger-price': trigger_price,\n  378                              'time-in-force': time_in_force,\n\n19 matches across 5 files\n\n\nSearching 260 files for \".order_price\" (case sensitive)\n\n/home/frederic/dev/trading/siis/strategy/strategy.py:\n 1205                          'ts': trade.entry_open_time,\n 1206                          'd': trade.direction_to_str(),\n 1207:                         'l': market.format_price(trade.order_price),\n 1208                          'p': market.format_price(trade.entry_price),\n 1209                          'q': market.format_quantity(trade.order_quantity),\n\n/home/frederic/dev/trading/siis/strategy/strategyassettrade.py:\n   50          order = Order(trader, market_id)\n   51          order.direction = direction\n   52:         order.order_price = order_price\n   53          order.order_type = order_type\n   54          order.quantity = quantity\n   ..\n   66          self.dir = order.direction\n   67  \n   68:         self.op = order.order_price  # retains the order price\n   69          self.oq = order.quantity     # ordered quantity\n   70  \n   ..\n  155              order.direction = -self.dir  # neg dir\n  156              order.order_type = Order.ORDER_LIMIT\n  157:             order.order_price = price\n  158              order.quantity = self.e - self.x  # remaining\n  159  \n  ...\n  203              order.direction = -self.dir  # neg dir\n  204              order.order_type = Order.ORDER_STOP\n  205:             order.order_price = price\n  206              order.quantity = self.e - self.x  # remaining\n  207  \n\n/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py:\n   53          order = Order(trader, market_id)\n   54          order.direction = direction\n   55:         order.order_price = order_price\n   56          order.order_type = order_type\n   57          order.quantity = quantity\n   ..\n   64          self.dir = order.direction\n   65  \n   66:         self.op = order.order_price  # retains the order price\n   67          self.oq = order.quantity     # ordered quantity\n   68  \n   ..\n  165              order.reduce_only = True  # (not for now because it implies to have the filled qty, and so need to update each time trade qty is updated)\n  166              order.quantity = self.e - self.x  # remaining\n  167:             order.order_price = price\n  168  \n  169              trader.set_ref_order_id(order)\n  ...\n  201              order.reduce_only = True\n  202              order.quantity = self.e - self.x  # remaining\n  203:             order.order_price = price\n  204  \n  205              trader.set_ref_order_id(order)\n\n/home/frederic/dev/trading/siis/strategy/strategymargintrade.py:\n   50          order = Order(trader, market_id)\n   51          order.direction = direction\n   52:         order.order_price = order_price\n   53          order.order_type = order_type\n   54          order.quantity = quantity\n   ..\n   64          self.dir = order.direction\n   65  \n   66:         self.op = order.order_price  # retains the order price\n   67          self.oq = order.quantity     # ordered quantity\n   68  \n   ..\n  181              order.reduce_only = True\n  182              order.quantity = self.e - self.x  # remaining\n  183:             order.order_price = price\n  184  \n  185              trader.set_ref_order_id(order)\n  ...\n  232              order.reduce_only = True\n  233              order.quantity = self.e - self.x  # remaining\n  234:             order.order_price = price\n  235  \n  236              trader.set_ref_order_id(order)\n\n/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py:\n  360                  order = Order(trader, instrument.market_id)\n  361                  order.direction = direction\n  362:                 order.order_price = last_prices[-1]\n  363  \n  364                  # depends of the instrument and the account, and not always necessary, but always in paper trader\n\n/home/frederic/dev/trading/siis/trader/trader.py:\n  888  \n  889              # depending of the type\n  890:             order.order_price = order_data.get('order-price')\n  891              order.trigger_price = order_data.get('trigger-price')\n  892              order.time_in_force = order_data.get('time-in-force')\n  ...\n  907              order.quantity = order_data['quantity']\n  908  \n  909:             order.order_price = order_data.get('order-price')\n  910              order.trigger_price = order_data.get('trigger-price')\n  911  \n\n/home/frederic/dev/trading/siis/trader/connector/binance/trader.py:\n  226          # quantity = market.format_quantity(market.adjust_quantity(order.quantity))\n  227          quantity = market.adjust_quantity(order.quantity)\n  228:         notional = quantity * (order.order_price or market.ofr)\n  229  \n  230          if notional < market.min_notional:\n  ...\n  245          # limit order need timeInForce\n  246          if order.order_type == Order.ORDER_LIMIT:\n  247:             data['price'] = market.format_price(order.order_price)\n  248              data['timeInForce'] = time_in_force\n  249          elif order.order_type == Order.ORDER_STOP:\n  250:             data['stopPrice'] = market.format_price(order.order_price)\n  251          elif order.order_type == Order.ORDER_STOP_LIMIT:\n  252:             data['price'] = market.format_price(order.order_price)\n  253              data['stopPrice'] = market.format_price(order.trigger_price)\n  254              data['timeInForce'] = time_in_force\n  255          elif order.order_type == Order.ORDER_TAKE_PROFIT:\n  256:             data['stopPrice'] = market.format_price(order.order_price)\n  257          elif order.order_type == Order.ORDER_TAKE_PROFIT_LIMIT:\n  258:             data['price'] = market.format_price(order.order_price)\n  259              data['stopPrice'] = market.format_price(order.trigger_price)\n  260              data['timeInForce'] = time_in_force\n  ...\n  874                  if data['type'] == 'LIMIT':\n  875                      order.order_type = Order.ORDER_LIMIT\n  876:                     order.order_price = data['price']\n  877                  elif data['type'] == 'LIMIT_MAKER':\n  878                      order.order_type = Order.ORDER_LIMIT # _MAKER\n  879:                     order.order_price = data['price']\n  880                  elif data['type'] == 'MARKET':\n  881                      order.order_type = Order.ORDER_MARKET\n  882                  elif data['type'] == 'STOP_LOSS':\n  883                      order.order_type = Order.ORDER_STOP\n  884:                     order.order_price = data['stopPrice']\n  885                  elif data['type'] == 'STOP_LOSS_LIMIT':\n  886                      order.order_type = Order.ORDER_STOP_LIMIT\n  887:                     order.order_price = data['price']\n  888                      order.trigger_price = data['stopPrice']\n  889                  elif data['type'] == 'TAKE_PROFIT':\n  890                      order.order_type = Order.ORDER_TAKE_PROFIT\n  891:                     order.order_price = data['stopPrice']\n  892                  elif data['type'] == 'TAKE_PROFIT_LIMIT':\n  893                      order.order_type = Order.ORDER_TAKE_PROFIT_LIMIT\n  894:                     order.order_price = data['price']\n  895                      order.trigger_price = data['stopPrice']\n  896  \n  ...\n 1106              order.quantity = data['quantity']\n 1107  \n 1108:             order.order_price = data.get('order-price')\n 1109              order.trigger_price = data.get('trigger-price')\n 1110  \n\n/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py:\n  234              postdict['ordType'] = 'Limit'\n  235              postdict['orderQty'] = qty\n  236:             postdict['price'] = order.order_price\n  237  \n  238              # only possible with limit order\n  ...\n  243              postdict['ordType'] = 'Stop'\n  244              postdict['orderQty'] = qty\n  245:             postdict['stopPx'] = order.order_price\n  246  \n  247          elif order.order_type == Order.ORDER_STOP_LIMIT:\n  ...\n  249              postdict['orderQty'] = qty\n  250              postdict['stopPx'] = order.trigger_price\n  251:             postdict['price'] = order.order_price\n  252  \n  253          elif order.order_type == Order.ORDER_TAKE_PROFIT:\n  254              postdict['ordType'] = 'MarketIfTouched'\n  255              postdict['orderQty'] = qty\n  256:             postdict['stopPx'] = order.order_price\n  257  \n  258          elif order.order_type == Order.ORDER_TAKE_PROFIT_LIMIT:\n  ...\n  260              postdict['orderQty'] = qty\n  261              postdict['stopPx'] = order.trigger_price\n  262:             postdict['price'] = order.order_price\n  263  \n  264          else:\n  ...\n  277              postdict['execInst'] = ','.join(exec_inst)\n  278  \n  279:         logger.info(\"Trader %s order %s %s @%s %s\" % (self.name, order.direction_to_str(), order.symbol, order.order_price, order.quantity))\n  280  \n  281          try:\n  ...\n  387          else:\n  388              order.order_type = Order.ORDER_LIMIT\n  389:             order.order_price = limit_price\n  390  \n  391              postdict['ordType'] = \"Limit\"\n  392:             postdict['price'] = order.order_price\n  393              postdict['orderQty'] = qty\n  394  \n  ...\n  599              elif src_order['ordType'] == \"Limit\":\n  600                  order.order_type = Order.ORDER_LIMIT\n  601:                 order.order_price = src_order.get('price')\n  602              elif src_order['ordType'] == \"Stop\":\n  603                  order.order_type = Order.ORDER_STOP\n  604:                 order.order_price = src_order.get('stopPx')\n  605              else:\n  606                  # stop limit, trigger marke, tripgger limit\n\n/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py:\n  267          }\n  268  \n  269:         if order.order_price:\n  270:             var['order_type_parameter'] = order.order_price  # can be null for market\n  271  \n  272          if order.stop_loss:\n\n/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py:\n  557  \n  558                  if order.order_type == Order.ORDER_LIMIT:\n  559:                     if (order.direction == Position.LONG and open_exec_price <= order.order_price) or \n  560:                        (order.direction == Position.SHORT and open_exec_price >= order.order_price):\n  561  \n  562                          if market.trade == market.TRADE_BUY_SELL:\n  ...\n  572                  elif order.order_type == Order.ORDER_STOP:\n  573                      # opposite trigger + market\n  574:                     if (order.direction == Position.LONG and close_exec_price <= order.order_price) or \n  575:                        (order.direction == Position.SHORT and close_exec_price >= order.order_price):\n  576  \n  577                          if market.trade == market.TRADE_BUY_SELL:\n  ...\n  639  \n  640          if order.order_type in (Order.ORDER_LIMIT, Order.ORDER_STOP_LIMIT, Order.ORDER_TAKE_PROFIT_LIMIT):\n  641:             bid_price = order.order_price\n  642:             ofr_price = order.order_price\n  643  \n  644          elif order.order_type in (Order.ORDER_MARKET, Order.ORDER_STOP, Order.ORDER_TAKE_PROFIT):\n  ...\n  728              if market and limit_price:\n  729                  order.order_type = Order.ORDER_LIMIT\n  730:                 order.order_price = limit_price\n  731              else:\n  732                  order.order_type = Order.ORDER_MARKET\n  ...\n  751              if order.order_type == Order.ORDER_LIMIT:\n  752                  # @todo limit execution when limit reach bid or ofr price (depend of the direction)\n  753:                 bid_price = order.order_price\n  754:                 ofr_price = order.order_price\n  755  \n  756              elif order.order_type == Order.ORDER_MARKET:\n  ...\n 1011                  'timestamp': order.transact_time,\n 1012                  'quantity': order.quantity,\n 1013:                 'order-price': order.order_price,\n 1014                  'trigger-price': order.trigger_price,\n 1015                  'stop-loss': order.stop_loss,\n ....\n 1029                  'timestamp': order.transact_time,\n 1030                  'quantity': order.quantity,\n 1031:                 'order-price': order.order_price,\n 1032                  'trigger-price': order.trigger_price,\n 1033                  'exec-price': open_exec_price,\n ....\n 1117                  'timestamp': order.transact_time,\n 1118                  'quantity': order.quantity,\n 1119:                 'order-price': order.order_price,\n 1120                  'trigger-price': order.trigger_price,\n 1121                  'stop-loss': order.stop_loss,\n ....\n 1135                  'timestamp': order.transact_time,\n 1136                  'quantity': order.quantity,\n 1137:                 'order-price': order.order_price,\n 1138                  'trigger-price': order.trigger_price,\n 1139                  'exec-price': close_exec_price,\n ....\n 1320              margin_factor = market.margin_factor\n 1321  \n 1322:             # logger.debug(order.symbol, bid_price, ofr_price, open_exec_price, close_exec_price, delta_price, current_position.entry_price, order.order_price)\n 1323              realized_position_cost = 0.0  # realized cost of the position in base currency\n 1324  \n ....\n 1478                  'timestamp': order.transact_time,\n 1479                  'quantity': order.quantity,\n 1480:                 'order-price': order.order_price,\n 1481                  'trigger-price': order.trigger_price,\n 1482                  'stop-loss': order.stop_loss,\n ....\n 1496                  'timestamp': order.transact_time,\n 1497                  'quantity': order.quantity,\n 1498:                 'order-price': order.order_price,\n 1499                  'trigger-price': order.trigger_price,\n 1500                  'exec-price': exec_price,\n ....\n 1642                  'timestamp': order.transact_time,\n 1643                  'quantity': order.quantity,\n 1644:                 'order-price': order.order_price,\n 1645                  'trigger-price': order.trigger_price,\n 1646                  'stop-loss': order.stop_loss,\n ....\n 1660                  'timestamp': order.transact_time,\n 1661                  'quantity': order.quantity,\n 1662:                 'order-price': order.order_price,\n 1663                  'trigger-price': order.trigger_price,\n 1664                  'exec-price': position.entry_price,\n ....\n 1750              margin_factor = market.margin_factor\n 1751  \n 1752:             # logger.debug(order.symbol, bid_price, ofr_price, open_exec_price, close_exec_price, delta_price, current_position.entry_price, order.order_price)\n 1753              realized_position_cost = 0.0  # realized cost of the position in base currency\n 1754  \n ....\n 1908                  'timestamp': order.transact_time,\n 1909                  'quantity': order.quantity,\n 1910:                 'order-price': order.order_price,\n 1911                  'trigger-price': order.trigger_price,\n 1912                  'stop-loss': order.stop_loss,\n ....\n 1926                  'timestamp': order.transact_time,\n 1927                  'quantity': order.quantity,\n 1928:                 'order-price': order.order_price,\n 1929                  'trigger-price': order.trigger_price,\n 1930                  'exec-price': exec_price,\n ....\n 2072                  'timestamp': order.transact_time,\n 2073                  'quantity': order.quantity,\n 2074:                 'order-price': order.order_price,\n 2075                  'trigger-price': order.trigger_price,\n 2076                  'stop-loss': order.stop_loss,\n ....\n 2090                  'timestamp': order.transact_time,\n 2091                  'quantity': order.quantity,\n 2092:                 'order-price': order.order_price,\n 2093                  'trigger-price': order.trigger_price,\n 2094                  'exec-price': position.entry_price,\n\n64 matches across 10 files\n",
+			"settings":
+			{
+				"buffer_size": 52982,
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
 			}
 		},
 		{
-			"file": "strategy/strategy.py",
+			"file": "watcher/connector/bitmex/watcher.py",
 			"settings":
 			{
-				"buffer_size": 86204,
+				"buffer_size": 28714,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "trader/order.py",
+			"settings":
+			{
+				"buffer_size": 7073,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/frederic/.siis/config/appliance.py",
+			"settings":
+			{
+				"buffer_size": 30015,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "strategy/strategytrader.py",
+			"file": "strategy/bitcoinalpha/bcaparameters.py",
 			"settings":
 			{
-				"buffer_size": 25406,
+				"buffer_size": 4902,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "trader/trader.py",
+			"file": "strategy/cryptoalpha/castrategytrader.py",
 			"settings":
 			{
-				"buffer_size": 51376,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "trader/market.py",
-			"settings":
-			{
-				"buffer_size": 21293,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "monitor/desktopnotifier.py",
-			"settings":
-			{
-				"buffer_size": 17581,
+				"buffer_size": 23581,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -1058,51 +1065,123 @@
 	"expanded_folders":
 	[
 		"/home/frederic/dev/trading/siis",
-		"/home/frederic/dev/trading/siis/common",
-		"/home/frederic/dev/trading/siis/monitor",
 		"/home/frederic/dev/trading/siis/strategy",
-		"/home/frederic/dev/trading/siis/view"
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha"
 	],
 	"file_history":
 	[
-		"/home/frederic/dev/trading/siis/strategy/strategy.py",
-		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategy.py",
-		"/home/frederic/dev/trading/siis/strategy/timeframebasedsub.py",
-		"/home/frederic/dev/trading/siis/TODO",
-		"/home/frederic/dev/trading/siis/notifier/signal.py",
-		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
-		"/home/frederic/dev/trading/siis/database/mysql.py",
-		"/home/frederic/dev/trading/siis/strategy/service.py",
-		"/home/frederic/dev/trading/siis/database/pgsql.py",
-		"/home/frederic/dev/trading/siis/database/database.py",
-		"/home/frederic/dev/trading/siis/scripts/fetch-binance",
-		"/home/frederic/dev/trading/siis/scripts/fetch-bitmex",
-		"/home/frederic/dev/trading/siis/scripts/fetch-ig",
-		"/home/frederic/dev/trading/siis/trader/service.py",
+		"/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py",
+		"/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py",
+		"/home/frederic/dev/trading/siis/trader/connector/binance/trader.py",
 		"/home/frederic/dev/trading/siis/trader/trader.py",
+		"/home/frederic/dev/trading/siis/strategy/boostedblueskyday/bbstrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py",
+		"/home/frederic/dev/trading/siis/strategy/strategymargintrade.py",
+		"/home/frederic/dev/trading/siis/strategy/strategyassettrade.py",
+		"/home/frederic/dev/trading/siis/trader/order.py",
+		"/home/frederic/dev/trading/siis/strategy/strategy.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/indicator.py",
+		"/home/frederic/dev/trading/siis/trader/connector/ig/trader.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrader.py",
+		"/home/frederic/dev/trading/siis/database/pgsql.py",
+		"/home/frederic/dev/trading/siis/strategy/strategytrade.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/pivotpoint/pivotpoint.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasuba.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsuba.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubc.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubb.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubb.py",
+		"/home/frederic/.siis/config/identity.py",
+		"/home/frederic/dev/trading/siis/scripts/fetch-binance",
+		"/home/frederic/dev/trading/siis/scripts/fetch-ig",
+		"/home/frederic/dev/trading/siis/scripts/fetch-bitmex",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcaparameters.py",
+		"/home/frederic/dev/trading/siis/strategy/tradeop/tradeop.py",
+		"/home/frederic/dev/trading/siis/strategy/if ld['currentQty'] is None",
+		"/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/utils.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/price/price.py",
+		"/home/frederic/dev/trading/siis/instrument/instrument.py",
 		"/home/frederic/dev/trading/siis/app/regioncommands.py",
-		"/home/frederic/dev/trading/siis/terminal/command.py",
+		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
+		"/home/frederic/dev/trading/siis/notifier/signal.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py",
+		"/home/frederic/dev/trading/siis/common/siislog.py",
+		"/home/frederic/dev/trading/siis/terminal/terminal.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasuba.py",
+		"/home/frederic/dev/trading/siis/connector/bitmex/connector.py",
+		"/home/frederic/dev/trading/siis/database/mysql.py",
+		"/home/frederic/dev/trading/siis/trader/position.py",
 		"/home/frederic/dev/trading/siis/trader/connector/bitmex/account.py",
 		"/home/frederic/dev/trading/siis/trader/account.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/watcher.py",
-		"/home/frederic/dev/trading/siis/trader/market.py",
-		"/home/frederic/dev/trading/siis/trader/connector/binance/account.py",
-		"/home/frederic/dev/trading/siis/trader/connector/onebroker/account.py",
-		"/home/frederic/dev/trading/siis/trader/connector/ig/account.py",
-		"/home/frederic/dev/trading/siis/common/utils.py",
-		"/home/frederic/dev/trading/siis/instrument/instrument.py",
-		"/home/frederic/dev/trading/siis/trader/connector/binance/trader.py",
+		"/home/frederic/dev/trading/siis/siis.py",
+		"/home/frederic/dev/trading/siis/strategy/region/region.py",
+		"/home/frederic/dev/trading/siis/database/database.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casuba.py",
+		"/home/frederic/dev/trading/siis/app/tradingcommands.py",
+		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategy.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategy.py",
+		"/home/frederic/dev/trading/siis/scripts/prefetch-bitmex",
 		"/home/frederic/dev/trading/siis/trader/asset.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/ig/watcher.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcaparameters.py",
-		"/home/frederic/dev/trading/siis/common/keyed.py",
+		"/home/frederic/dev/trading/siis/watcher/position.py",
+		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasub.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casub.py",
+		"/home/frederic/dev/trading/siis/strategy/timeframebasedsub.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/zigzag/zigzag.py",
+		"/home/frederic/dev/trading/siis/app/help.py",
+		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters2.py",
+		"/home/frederic/dev/trading/siis/trader/market.py",
+		"/home/frederic/dev/trading/siis/strategy/service.py",
+		"/home/frederic/dev/trading/siis/strategy/timeframebasedstrategytrader.py",
+		"/home/frederic/dev/trading/siis/database/tickstorage.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/sinewave/sinewave.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/sinewave/__init__.py",
+		"/home/frederic/dev/trading/siis/watcher/watcher.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/fibonacci/fibonacci.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/sma/sma.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/stochastic/stochastic.py",
+		"/home/frederic/dev/trading/siis/strategy/indicator/stochrsi/stochrsi.py",
+		"/home/frederic/dev/trading/siis/config/config.py",
+		"/home/frederic/dev/trading/siis/connector/ig/utils.py",
+		"/home/frederic/dev/trading/siis/connector/ig/stream.py",
+		"/home/frederic/dev/trading/siis/view/service.py",
+		"/home/frederic/dev/trading/siis/connector/bitmex/ws.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/tiingo/watcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/tiingo/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/watcher.py",
+		"/home/frederic/dev/trading/siis/connector/ig/rest.py",
+		"/home/frederic/dev/trading/siis/connector/ig/lightstreamer.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/ig/fetcher.py",
+		"/home/frederic/dev/trading/siis/connector/ig/connector.py",
+		"/home/frederic/dev/trading/siis/siis.sublime-project",
+		"/home/frederic/dev/trading/siis/common/runnable.py",
 		"/home/frederic/dev/trading/siis/common/workerpool.py",
 		"/home/frederic/dev/trading/siis/strategy/forexalpha/fastrategytrader.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/castrategytrader.py",
+		"/home/frederic/dev/trading/siis/watcher/service.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/binance/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/bitmex/fetcher.py",
+		"/home/frederic/dev/trading/siis/watcher/connector/tradingview/watcher.py",
+		"/home/frederic/dev/trading/siis/monitor/service.py",
+		"/home/frederic/dev/trading/siis/database/ohlcstorage.py",
+		"/home/frederic/dev/trading/siis/app/generalcommands.py",
+		"/home/frederic/dev/trading/siis/sql/initpg.sql",
+		"/home/frederic/dev/trading/siis/sql/initmy.sql",
+		"/home/frederic/dev/trading/siis/common/utils.py",
+		"/home/frederic/dev/trading/siis/trader/service.py",
+		"/home/frederic/dev/trading/siis/trader/connector/ig/account.py",
+		"/home/frederic/dev/trading/siis/view/view.py",
+		"/home/frederic/dev/trading/siis/view/accountview.py",
+		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategy.py",
+		"/home/frederic/dev/trading/siis/TODO",
+		"/home/frederic/dev/trading/siis/terminal/command.py",
+		"/home/frederic/dev/trading/siis/trader/connector/binance/account.py",
+		"/home/frederic/dev/trading/siis/trader/connector/onebroker/account.py",
+		"/home/frederic/dev/trading/siis/common/keyed.py",
 		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcastrategytrader.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/donchian/donchian.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/score.py",
@@ -1112,87 +1191,13 @@
 		"/home/frederic/dev/trading/siis/strategy/indicator/volume/volume.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/triangle/triangle.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/tomdemark/tomdemark.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/stochrsi/stochrsi.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/stochastic/stochastic.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/sma/sma.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/sar/sar.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/rsi/rsi.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/price/price.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/indicator.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/pivotpoint/pivotpoint.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/momentum/momentum.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/fibonacci/fibonacci.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/macd/macd.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/hma/hma.py",
 		"/home/frederic/dev/trading/siis/strategy/indicator/history/history.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/ema/ema.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/bollingerbands/bollingerbands.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/bbawe/bbawe.py",
-		"/home/frederic/dev/trading/siis/strategy/indicator/atr/atr.py",
-		"/home/frederic/dev/trading/siis/strategy/strategyassettrade.py",
-		"/home/frederic/dev/trading/siis/instrument/candlegenerator.py",
-		"/home/frederic/dev/trading/siis/strategy/strategyindmargintrade.py",
-		"/home/frederic/dev/trading/siis/strategy/strategymargintrade.py",
-		"/home/frederic/dev/trading/siis/strategy/strategysignal.py",
-		"/home/frederic/dev/trading/siis/strategy/region/region.py",
-		"/home/frederic/dev/trading/siis/database/tickstorage.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/binance/watcher.py",
-		"/home/frederic/dev/trading/siis/terminal/terminal.py",
-		"/home/frederic/dev/trading/siis/strategy/strategydatafeeder.py",
-		"/home/frederic/dev/trading/siis/monitor/client/strategy/strategychart.py",
-		"/home/frederic/dev/trading/siis/watcher/service.py",
-		"/home/frederic/dev/trading/siis/app/tradingcommands.py",
-		"/home/frederic/dev/trading/siis/config/config.py",
-		"/home/frederic/dev/trading/siis/config/identity.py.template",
-		"/home/frederic/dev/trading/siis/strategy/strategytrader.py",
-		"/home/frederic/dev/trading/siis/connector/binance/connector.py",
-		"/home/frederic/dev/trading/siis/watcher/watcher.py",
-		"/home/frederic/dev/trading/siis/connector/binance/client.py",
-		"/home/frederic/dev/trading/siis/sql/initpg.sql",
-		"/home/frederic/dev/trading/siis/sql/initmy.sql",
-		"/home/frederic/dev/trading/siis/monitor/desktopnotifier.py",
-		"/home/frederic/dev/trading/siis/app/help.py",
-		"/home/frederic/dev/trading/siis/siis.py",
-		"/home/frederic/dev/trading/siis/trader/connector/papertrader/trader.py",
-		"/home/frederic/dev/trading/siis/trader/connector/onebroker/trader.py",
-		"/home/frederic/dev/trading/siis/terminal/charmap.py",
-		"/home/frederic/dev/trading/siis/charting/charting.py",
-		"/home/frederic/dev/trading/siis/trader/order.py",
-		"/home/frederic/dev/trading/siis/connector/binance/websockets.py",
-		"/home/frederic/dev/trading/siis/strategy/timeframebasedstrategytrader.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters2.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/tiingo/watcher.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/alphavantage/watcher.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/faparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/caparameters.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubb.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubb.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casuba.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasub.py",
-		"/home/frederic/dev/trading/siis/connector/bitmex/ws.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasuba.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubb.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/bcasubc.py",
-		"/home/frederic/dev/trading/siis/strategy/bitcoinalpha/__pycache__/bcasubb.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casub.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsuba.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbsub.py",
-		"/home/frederic/dev/trading/siis/strategy/cryptoalpha/casubc.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasub.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasuba.py",
-		"/home/frederic/dev/trading/siis/strategy/forexalpha/fasubc.py",
-		"/home/frederic/dev/trading/siis/watcher/connector/binance/fetcher.py",
-		"/home/frederic/dev/trading/siis/watcher/fetcher.py",
-		"/home/frederic/dev/trading/siis/connector/binance/enums.py",
-		"/home/frederic/dev/trading/siis/monitor/client/client.py",
-		"/home/frederic/dev/trading/siis/trader/connector/bitmex/trader.py",
-		"/home/frederic/dev/trading/siis/trader/connector/ig/trader.py",
-		"/home/frederic/dev/trading/siis/monitor/service.py",
-		"/home/frederic/dev/trading/siis/monitor/rpc.py",
-		"/home/frederic/dev/trading/siis/monitor/streamable.py",
-		"/home/frederic/dev/trading/siis/monitor/client/dispatcher.py",
-		"/home/frederic/dev/trading/siis/strategy/crystalball/cbstrategytrader.py"
+		"/home/frederic/dev/trading/siis/strategy/indicator/ema/ema.py"
 	],
 	"find":
 	{
@@ -1235,134 +1240,134 @@
 		"case_sensitive": true,
 		"find_history":
 		[
-			"sub_trader",
-			"_traders",
-			"_sub_traders",
-			"sub_traders",
-			"sub_trader",
-			"_sub_traders",
-			"sub_trader",
-			"sub_traders",
-			"sub_trader",
-			"sub trader",
-			"sub-trader",
-			"sub_trader",
-			"sub_tr",
-			"self.service.tradeops",
-			"user_traders",
-			"notify",
-			"sub_trader =",
-			"signal",
-			"receiv",
-			"SOURCE_STRATEGY",
-			"SIGNAL_MARKET_INFO_DATA",
-			"SOURCE_STRATEGY",
-			"SIGNAL_MARKET_INFO_DATA",
-			"market_inf",
-			"traceback",
-			"setup_live",
-			"load_user_traders",
-			"setup_live",
-			"activit",
-			"user_traders",
-			"load_user_traders",
-			"load_user_trader",
-			"load_user_trade",
-			"store_user",
-			"load_user",
-			"TIMEOUT",
-			"def timestamp",
-			"_last_strategy_view",
-			"assets_table",
-			"_ASSETS",
-			".set_currency(",
-			"currency",
-			".set_currency(",
-			"_currency_display",
-			"._currency_display",
-			"_currency_display",
-			"self._currency_display",
-			"CURRENCY_SYMBOL",
-			"self._net_worth",
-			"self._net_worth =",
-			"self._balance",
-			"self._net_worth =",
-			"Net wort",
-			"op_name",
-			"expir",
-			"basetime(",
-			"self._mode",
-			"mode_str",
-			"Position",
-			".format_spread",
-			".format_quantity(",
-			"step_size",
-			"format_",
-			"truncate",
-			"one_pip_means",
-			"format_spr",
-			"-int(",
-			"self._size_limits",
-			"self._price",
-			"self._size_limits",
-			"-int",
-			"timeframe",
-			"trade_quantity",
-			"trader_quantity",
-			".trader_quantity",
-			"trader_quantity",
-			"trader_qua",
-			"vol24h",
-			"vol",
-			"_vol24h_base",
-			"tdst",
-			"tdsl",
-			"self.eot",
-			"self.oet",
-			".oet",
-			"._market_id",
-			"_leverage",
-			"_order_type",
-			"_market_id",
-			"self._leverage",
-			"self._order_type",
-			"self._market_id",
-			"self._market_id\n",
-			"format_pr",
-			"contract_size",
-			"value_per_pip",
-			"step_price",
-			".step_price",
-			"_price_limits",
-			".last_update_time =",
-			".last_update_time",
-			"last_update",
-			"market.last_update",
-			"/ 0.001",
-			"last_update_time",
-			"last_update",
-			"markets_tickers_table",
-			"_last_update_time",
-			"recent",
-			"bid =",
-			"bid",
-			"_bid",
-			".update_time",
-			"update_time",
-			".update_time",
-			"_update_time",
-			"timestamp",
-			"last_upd",
-			".on_update_market",
-			"def on_update_market",
-			".SIGNAL_MARKET_DATA",
-			"SIGNAL_MARKET_DATA",
-			"on_update_market",
-			"market.bid =",
-			"markets_tickers_table",
-			"recent",
-			"last_upd",
-			"push_price"
+			"trigger-p",
+			"order_price",
+			"stop_pri",
+			"order_price",
+			".order_pric",
+			"modify",
+			"order_price",
+			"price",
+			".order_price",
+			"order-price",
+			"order_price",
+			".order_price",
+			"'order-price'",
+			"'order-price':",
+			"'order-price': o",
+			".order_price",
+			"'take-profit'",
+			"ordType",
+			"create_",
+			"Order.",
+			"Order.ORDE",
+			"Order.",
+			"on_order_up",
+			"on_order_op",
+			"on_trade_op",
+			"'stop-loss'",
+			"ORDER_LIMIT",
+			"SL ",
+			" ORDER_STOP",
+			" = Order.ORDER_STOP",
+			".trigger_price",
+			"limit_pri",
+			"trigger_",
+			".order_price",
+			"order_price",
+			"__exec_ind_margin_order",
+			"Order.ORDER_TAKE_PROFIT",
+			"ORDER_TAKE_PROFIT",
+			"ORDER_STOP_LIMIT",
+			".ORDER_STOP",
+			"ORDER_TAKE_PROFIT",
+			"ORDER_TAKE_PROFIT_LIMIT",
+			"order.order_price\n",
+			"_pending",
+			"self._pending",
+			"collections",
+			"collections\n",
+			"import collections",
+			"__exec_margin_order",
+			"MARKET",
+			"Exit avg-",
+			"pivotpoint.compute(",
+			".pivotpoint.compute(",
+			".prev_",
+			".prev_s",
+			".prev_supports",
+			"_prev_supports",
+			"pivotpoint",
+			"bitmex-alts",
+			"bitmex-all",
+			"SIZE_FACTOR",
+			"bitmex-backtesting",
+			"user_mgmt",
+			"retained_exit =",
+			"has_",
+			"logger.",
+			"logger.info(",
+			"logger.info",
+			"self.limit_oid =",
+			"modify_take_profit",
+			"trade.sl =",
+			"post_only =",
+			".last_",
+			"take_profit",
+			".has_stop_order",
+			".has_limit_order",
+			"def id",
+			"modify_stop",
+			".sl_created",
+			"modify_ta",
+			"modify_s",
+			"modify",
+			"def last_",
+			"last_ta",
+			"self.last_tp_ot",
+			"order.c",
+			"last_tp_ot",
+			"sell_trad",
+			"exit_trades",
+			"self.xot",
+			"_exit_state = StrategyTrade.STATE_OPENED",
+			"self.xot",
+			"exec_logg",
+			"created_time",
+			"order",
+			"order/",
+			"cancel_order",
+			"OPEN",
+			"  File \"/home/frederic/dev/trading/siis/connector/bitmex/ws.py\", line 445, in __on_message\n    self._callback[1](self._callback[0], 'action', (action, table, updated, message['data']))\nif ld['currentQty'] is None:\n\n",
+			"def time",
+			"def opera",
+			".test_and_operate",
+			".operate(",
+			".sl =",
+			"take_profit =",
+			"SIGNAL_STRATEGY_ENTRY_EXIT",
+			"SIGNAL_STRATEGY_MODIFY",
+			"SIGNAL_STRATEGY_ENTRY_EXIT",
+			"SIGNAL_STRATEGY_MODIFY",
+			"].pivotpoint.last_resistances",
+			"Terminal",
+			"pivotpoint.last_resistances[",
+			"pivotpoint.last_resistances[2\n",
+			"pivotpoint.last_resistances[2",
+			"pivotpoint.last_resistances",
+			".loads(",
+			"def notify_order",
+			"notify_order",
+			"notify_order(",
+			"SIGNAL_STRATEGY_ENTRY_EXIT",
+			"view=\"signal\"",
+			"logger.",
+			"view=\"trader\"",
+			"view='trader'",
+			"'content",
+			"content",
+			"exec_",
+			" or self.timeframes[self.sltp_timeframe].pivotpoint.last_resistances[2]"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1370,6 +1375,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"logger.",
 			"strategy_trader",
 			"'atr': ('atr', 14, 1.5),",
 			"'pivotpoint': ('pivotpoint', 0,),",
@@ -1477,24 +1483,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "strategy/cryptoalpha/casuba.py",
+					"file": "strategy/bitcoinalpha/bcastrategytrader.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 33968,
+						"buffer_size": 30072,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								29738,
-								29738
+								20158,
+								20158
 							]
 						],
 						"settings":
@@ -1504,33 +1510,915 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9366.0,
+						"translation.y": 5610.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "trader/connector/papertrader/trader.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 64,
+						"buffer_size": 86485,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								19265,
+								19265
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7893.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 52982,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										294,
+										306
+									],
+									[
+										643,
+										655
+									],
+									[
+										842,
+										854
+									],
+									[
+										1097,
+										1109
+									],
+									[
+										1334,
+										1346
+									],
+									[
+										1608,
+										1620
+									],
+									[
+										1807,
+										1819
+									],
+									[
+										2170,
+										2182
+									],
+									[
+										2388,
+										2400
+									],
+									[
+										2644,
+										2656
+									],
+									[
+										2843,
+										2855
+									],
+									[
+										3093,
+										3105
+									],
+									[
+										3311,
+										3323
+									],
+									[
+										3611,
+										3623
+									],
+									[
+										3897,
+										3909
+									],
+									[
+										4185,
+										4197
+									],
+									[
+										4579,
+										4591
+									],
+									[
+										4834,
+										4846
+									],
+									[
+										5025,
+										5037
+									],
+									[
+										5163,
+										5175
+									],
+									[
+										5441,
+										5453
+									],
+									[
+										5586,
+										5598
+									],
+									[
+										5888,
+										5900
+									],
+									[
+										6081,
+										6093
+									],
+									[
+										6381,
+										6393
+									],
+									[
+										6578,
+										6590
+									],
+									[
+										6835,
+										6847
+									],
+									[
+										7041,
+										7053
+									],
+									[
+										7236,
+										7248
+									],
+									[
+										7541,
+										7553
+									],
+									[
+										7759,
+										7771
+									],
+									[
+										8000,
+										8012
+									],
+									[
+										8236,
+										8248
+									],
+									[
+										8484,
+										8496
+									],
+									[
+										8719,
+										8731
+									],
+									[
+										8885,
+										8897
+									],
+									[
+										9013,
+										9025
+									],
+									[
+										9231,
+										9243
+									],
+									[
+										9412,
+										9424
+									],
+									[
+										9662,
+										9674
+									],
+									[
+										9730,
+										9742
+									],
+									[
+										10050,
+										10062
+									],
+									[
+										10161,
+										10173
+									],
+									[
+										10477,
+										10489
+									],
+									[
+										10589,
+										10601
+									],
+									[
+										10849,
+										10861
+									],
+									[
+										10898,
+										10910
+									],
+									[
+										11164,
+										11176
+									],
+									[
+										11491,
+										11503
+									],
+									[
+										11544,
+										11556
+									],
+									[
+										11786,
+										11798
+									],
+									[
+										12067,
+										12079
+									],
+									[
+										12335,
+										12347
+									],
+									[
+										12616,
+										12628
+									],
+									[
+										12951,
+										12963
+									],
+									[
+										13228,
+										13240
+									],
+									[
+										13509,
+										13521
+									],
+									[
+										13795,
+										13807
+									],
+									[
+										14076,
+										14088
+									],
+									[
+										14430,
+										14442
+									],
+									[
+										14707,
+										14719
+									],
+									[
+										14988,
+										15000
+									],
+									[
+										15274,
+										15286
+									],
+									[
+										15555,
+										15567
+									],
+									[
+										16010,
+										16022
+									],
+									[
+										16359,
+										16371
+									],
+									[
+										16558,
+										16570
+									],
+									[
+										16813,
+										16825
+									],
+									[
+										17050,
+										17062
+									],
+									[
+										17324,
+										17336
+									],
+									[
+										17523,
+										17535
+									],
+									[
+										17886,
+										17898
+									],
+									[
+										18104,
+										18116
+									],
+									[
+										18360,
+										18372
+									],
+									[
+										18559,
+										18571
+									],
+									[
+										18809,
+										18821
+									],
+									[
+										19027,
+										19039
+									],
+									[
+										19327,
+										19339
+									],
+									[
+										19613,
+										19625
+									],
+									[
+										19901,
+										19913
+									],
+									[
+										20295,
+										20307
+									],
+									[
+										20550,
+										20562
+									],
+									[
+										20741,
+										20753
+									],
+									[
+										20879,
+										20891
+									],
+									[
+										21157,
+										21169
+									],
+									[
+										21302,
+										21314
+									],
+									[
+										21604,
+										21616
+									],
+									[
+										21797,
+										21809
+									],
+									[
+										22097,
+										22109
+									],
+									[
+										22294,
+										22306
+									],
+									[
+										22551,
+										22563
+									],
+									[
+										22757,
+										22769
+									],
+									[
+										22952,
+										22964
+									],
+									[
+										23257,
+										23269
+									],
+									[
+										23475,
+										23487
+									],
+									[
+										23716,
+										23728
+									],
+									[
+										23952,
+										23964
+									],
+									[
+										24200,
+										24212
+									],
+									[
+										24435,
+										24447
+									],
+									[
+										24601,
+										24613
+									],
+									[
+										24729,
+										24741
+									],
+									[
+										24947,
+										24959
+									],
+									[
+										25128,
+										25140
+									],
+									[
+										25378,
+										25390
+									],
+									[
+										25446,
+										25458
+									],
+									[
+										25766,
+										25778
+									],
+									[
+										25877,
+										25889
+									],
+									[
+										26193,
+										26205
+									],
+									[
+										26305,
+										26317
+									],
+									[
+										26565,
+										26577
+									],
+									[
+										26614,
+										26626
+									],
+									[
+										26880,
+										26892
+									],
+									[
+										27207,
+										27219
+									],
+									[
+										27260,
+										27272
+									],
+									[
+										27502,
+										27514
+									],
+									[
+										27783,
+										27795
+									],
+									[
+										28051,
+										28063
+									],
+									[
+										28332,
+										28344
+									],
+									[
+										28667,
+										28679
+									],
+									[
+										28944,
+										28956
+									],
+									[
+										29225,
+										29237
+									],
+									[
+										29511,
+										29523
+									],
+									[
+										29792,
+										29804
+									],
+									[
+										30146,
+										30158
+									],
+									[
+										30423,
+										30435
+									],
+									[
+										30704,
+										30716
+									],
+									[
+										30990,
+										31002
+									],
+									[
+										31271,
+										31283
+									],
+									[
+										31645,
+										31658
+									],
+									[
+										31933,
+										31946
+									],
+									[
+										32203,
+										32216
+									],
+									[
+										32485,
+										32498
+									],
+									[
+										32770,
+										32783
+									],
+									[
+										33056,
+										33069
+									],
+									[
+										33341,
+										33354
+									],
+									[
+										33628,
+										33641
+									],
+									[
+										33913,
+										33926
+									],
+									[
+										34194,
+										34207
+									],
+									[
+										34479,
+										34492
+									],
+									[
+										34770,
+										34783
+									],
+									[
+										35055,
+										35068
+									],
+									[
+										35336,
+										35349
+									],
+									[
+										35621,
+										35634
+									],
+									[
+										35981,
+										35994
+									],
+									[
+										36274,
+										36287
+									],
+									[
+										36674,
+										36687
+									],
+									[
+										37005,
+										37018
+									],
+									[
+										37490,
+										37502
+									],
+									[
+										37839,
+										37851
+									],
+									[
+										38038,
+										38050
+									],
+									[
+										38293,
+										38305
+									],
+									[
+										38530,
+										38542
+									],
+									[
+										38804,
+										38816
+									],
+									[
+										39003,
+										39015
+									],
+									[
+										39366,
+										39378
+									],
+									[
+										39584,
+										39596
+									],
+									[
+										39840,
+										39852
+									],
+									[
+										40039,
+										40051
+									],
+									[
+										40289,
+										40301
+									],
+									[
+										40507,
+										40519
+									],
+									[
+										40807,
+										40819
+									],
+									[
+										41093,
+										41105
+									],
+									[
+										41381,
+										41393
+									],
+									[
+										41775,
+										41787
+									],
+									[
+										42030,
+										42042
+									],
+									[
+										42221,
+										42233
+									],
+									[
+										42359,
+										42371
+									],
+									[
+										42637,
+										42649
+									],
+									[
+										42782,
+										42794
+									],
+									[
+										43084,
+										43096
+									],
+									[
+										43277,
+										43289
+									],
+									[
+										43577,
+										43589
+									],
+									[
+										43774,
+										43786
+									],
+									[
+										44031,
+										44043
+									],
+									[
+										44237,
+										44249
+									],
+									[
+										44432,
+										44444
+									],
+									[
+										44753,
+										44765
+									],
+									[
+										44971,
+										44983
+									],
+									[
+										45212,
+										45224
+									],
+									[
+										45448,
+										45460
+									],
+									[
+										45696,
+										45708
+									],
+									[
+										45931,
+										45943
+									],
+									[
+										46097,
+										46109
+									],
+									[
+										46225,
+										46237
+									],
+									[
+										46443,
+										46455
+									],
+									[
+										46624,
+										46636
+									],
+									[
+										46874,
+										46886
+									],
+									[
+										46942,
+										46954
+									],
+									[
+										47262,
+										47274
+									],
+									[
+										47373,
+										47385
+									],
+									[
+										47689,
+										47701
+									],
+									[
+										47801,
+										47813
+									],
+									[
+										48061,
+										48073
+									],
+									[
+										48110,
+										48122
+									],
+									[
+										48376,
+										48388
+									],
+									[
+										48703,
+										48715
+									],
+									[
+										48756,
+										48768
+									],
+									[
+										48998,
+										49010
+									],
+									[
+										49283,
+										49295
+									],
+									[
+										49569,
+										49581
+									],
+									[
+										49854,
+										49866
+									],
+									[
+										50207,
+										50219
+									],
+									[
+										50484,
+										50496
+									],
+									[
+										50769,
+										50781
+									],
+									[
+										51050,
+										51062
+									],
+									[
+										51335,
+										51347
+									],
+									[
+										51692,
+										51704
+									],
+									[
+										51969,
+										51981
+									],
+									[
+										52254,
+										52266
+									],
+									[
+										52535,
+										52547
+									],
+									[
+										52820,
+										52832
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								47266,
+								47266
 							]
 						],
 						"settings":
 						{
 							"detect_indentation": false,
 							"line_numbers": false,
-							"output_tag": 1,
+							"output_tag": 4,
 							"result_base_dir": "",
 							"result_file_regex": "^([^ \t].*):$",
 							"result_line_regex": "^ +([0-9]+):",
@@ -1538,57 +2426,27 @@
 							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5660.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "strategy/strategy.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 86204,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								83875,
-								83885
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 33713.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
 					"buffer": 3,
-					"file": "strategy/strategytrader.py",
+					"file": "watcher/connector/bitmex/watcher.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 25406,
+						"buffer_size": 28714,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1051,
-								1051
+								10401,
+								10401
 							]
 						],
 						"settings":
@@ -1598,7 +2456,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3922.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
@@ -1606,19 +2464,19 @@
 				},
 				{
 					"buffer": 4,
-					"file": "trader/trader.py",
+					"file": "trader/order.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 51376,
+						"buffer_size": 7073,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								42817,
-								42817
+								1618,
+								1618
 							]
 						],
 						"settings":
@@ -1628,27 +2486,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 16349.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "trader/market.py",
+					"file": "/home/frederic/.siis/config/appliance.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 21293,
+						"buffer_size": 30015,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18317,
-								18317
+								20127,
+								20127
 							]
 						],
 						"settings":
@@ -1658,7 +2516,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 9337.0,
+						"translation.y": 9661.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -1666,19 +2524,19 @@
 				},
 				{
 					"buffer": 6,
-					"file": "monitor/desktopnotifier.py",
+					"file": "strategy/bitcoinalpha/bcaparameters.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 17581,
+						"buffer_size": 4902,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								16160,
-								16160
+								3779,
+								3779
 							]
 						],
 						"settings":
@@ -1688,10 +2546,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5725.0,
+						"translation.y": 1042.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "strategy/cryptoalpha/castrategytrader.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 23581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8834,
+								8834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3975.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
 					"type": "text"
 				}
 			]
@@ -1762,252 +2650,184 @@
 		"selected_items":
 		[
 			[
-				"sign",
-				"notifier/signal.py"
-			],
-			[
-				"yt",
-				"strategy/strategytrader.py"
-			],
-			[
-				"ytr",
-				"strategy/strategytrade.py"
-			],
-			[
-				"",
-				"strategy/strategytrader.py"
-			],
-			[
-				"my",
-				"database/mysql.py"
-			],
-			[
-				"ser",
-				"strategy/service.py"
-			],
-			[
-				"m",
-				"database/mysql.py"
-			],
-			[
-				"pg",
-				"database/pgsql.py"
-			],
-			[
-				"cas",
-				"strategy/cryptoalpha/castrategy.py"
-			],
-			[
-				"bcas",
-				"strategy/bitcoinalpha/bcastrategy.py"
-			],
-			[
-				"mysl",
-				"database/mysql.py"
-			],
-			[
-				"mys",
-				"database/mysql.py"
-			],
-			[
-				"sig",
-				"notifier/signal.py"
-			],
-			[
-				"dat",
-				"database/database.py"
-			],
-			[
-				"pgs",
-				"database/pgsql.py"
-			],
-			[
-				"stra",
-				"strategy/strategy.py"
-			],
-			[
-				"fet",
-				"scripts/fetch-bitmex"
-			],
-			[
-				"bi",
-				"scripts/fetch-bitmex"
-			],
-			[
-				"fetig",
-				"scripts/fetch-ig"
-			],
-			[
-				"mar",
-				"trader/market.py"
-			],
-			[
-				"serv",
-				"trader/service.py"
-			],
-			[
-				"desk",
-				"monitor/desktopnotifier.py"
-			],
-			[
-				"trader",
-				"trader/trader.py"
-			],
-			[
-				"com",
-				"terminal/command.py"
-			],
-			[
-				"acc",
-				"trader/account.py"
-			],
-			[
-				"accou",
-				"trader/account.py"
-			],
-			[
-				"watch",
-				"watcher/connector/bitmex/watcher.py"
-			],
-			[
-				"accoun",
-				"trader/account.py"
-			],
-			[
-				"ac",
-				"trader/account.py"
-			],
-			[
-				"comm",
-				"app/regioncommands.py"
-			],
-			[
-				"util",
-				"common/utils.py"
-			],
-			[
-				"ass",
-				"trader/asset.py"
-			],
-			[
-				"ins",
-				"instrument/instrument.py"
-			],
-			[
-				"ut",
-				"common/utils.py"
-			],
-			[
-				"ui",
-				"common/utils.py"
-			],
-			[
-				"bc",
-				"strategy/bitcoinalpha/bcaparameters.py"
-			],
-			[
-				"ke",
-				"common/keyed.py"
-			],
-			[
-				"strat",
-				"strategy/strategy.py"
-			],
-			[
-				"key",
-				"common/keyed.py"
-			],
-			[
-				"ma",
-				"trader/market.py"
-			],
-			[
-				"inst",
-				"instrument/instrument.py"
-			],
-			[
-				"don",
-				"strategy/indicator/donchian/donchian.py"
-			],
-			[
-				"indo",
-				"strategy/indicator/indicator.py"
-			],
-			[
-				"indi",
-				"strategy/indicator/indicator.py"
-			],
-			[
-				"cand",
-				"instrument/candlegenerator.py"
-			],
-			[
-				"ind",
+				"indma",
 				"strategy/strategyindmargintrade.py"
 			],
 			[
-				"asset",
-				"strategy/strategyassettrade.py"
-			],
-			[
-				"ytrade",
-				"strategy/strategytrade.py"
-			],
-			[
-				"marg",
+				"margin",
 				"strategy/strategymargintrade.py"
+			],
+			[
+				"ord",
+				"trader/order.py"
+			],
+			[
+				"or",
+				"trader/order.py"
+			],
+			[
+				"trader",
+				"trader/connector/binance/trader.py"
+			],
+			[
+				"ind",
+				"strategy/indicator/indicator.py"
+			],
+			[
+				"indm",
+				"strategy/strategyindmargintrade.py"
 			],
 			[
 				"assett",
 				"strategy/strategyassettrade.py"
 			],
 			[
-				"ytra",
-				"strategy/strategytrade.py"
-			],
-			[
-				"strasi",
-				"strategy/strategysignal.py"
+				"marg",
+				"strategy/strategymargintrade.py"
 			],
 			[
 				"watc",
 				"watcher/connector/binance/watcher.py"
 			],
 			[
-				"ter",
-				"terminal/terminal.py"
+				"watcher",
+				"watcher/connector/bitmex/watcher.py"
 			],
 			[
-				"tick",
-				"database/tickstorage.py"
-			],
-			[
-				"term",
-				"terminal/terminal.py"
-			],
-			[
-				"in",
-				"instrument/instrument.py"
-			],
-			[
-				"feed",
-				"strategy/strategydatafeeder.py"
-			],
-			[
-				"feede",
-				"strategy/strategydatafeeder.py"
-			],
-			[
-				"tra",
-				"trader/trader.py"
-			],
-			[
-				"trad",
-				"trader/trader.py"
+				"watch",
+				"watcher/connector/binance/watcher.py"
 			],
 			[
 				"ytrader",
 				"strategy/strategytrader.py"
+			],
+			[
+				"order",
+				"trader/order.py"
+			],
+			[
+				"intra",
+				"strategy/strategymargintrade.py"
+			],
+			[
+				"orde",
+				"trader/order.py"
+			],
+			[
+				"papert",
+				"trader/connector/papertrader/trader.py"
+			],
+			[
+				"bcas",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"idn",
+				"strategy/indicator/indicator.py"
+			],
+			[
+				"piv",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"pivo",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"bc",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"para",
+				"strategy/bitcoinalpha/bcaparameters.py"
+			],
+			[
+				"fetig",
+				"scripts/fetch-ig"
+			],
+			[
+				"fetch-bit",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"bin",
+				"scripts/fetch-binance"
+			],
+			[
+				"bit",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"fet",
+				"scripts/fetch-ig"
+			],
+			[
+				"pg",
+				"database/pgsql.py"
+			],
+			[
+				"bcap",
+				"strategy/bitcoinalpha/bcaparameters.py"
+			],
+			[
+				"trad",
+				"trader/connector/bitmex/trader.py"
+			],
+			[
+				"ytr",
+				"strategy/strategytrade.py"
+			],
+			[
+				"stra",
+				"strategy/strategy.py"
+			],
+			[
+				"tradeop",
+				"strategy/tradeop/tradeop.py"
+			],
+			[
+				"ytrad",
+				"strategy/strategytrade.py"
+			],
+			[
+				"ytra",
+				"strategy/strategytrade.py"
+			],
+			[
+				"bitm",
+				"scripts/fetch-bitmex"
+			],
+			[
+				"yt",
+				"strategy/strategytrade.py"
+			],
+			[
+				"bcst",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"sign",
+				"strategy/strategyindmargintrade.py"
+			],
+			[
+				"papertr",
+				"trader/connector/papertrader/trader.py"
+			],
+			[
+				"ut",
+				"strategy/indicator/utils.py"
+			],
+			[
+				"pio",
+				"strategy/indicator/pivotpoint/pivotpoint.py"
+			],
+			[
+				"pric",
+				"strategy/indicator/price/price.py"
+			],
+			[
+				"ins",
+				"instrument/instrument.py"
 			],
 			[
 				"regio",
@@ -2015,167 +2835,159 @@
 			],
 			[
 				"str",
-				"strategy/strategytrader.py"
+				"strategy/strategy.py"
 			],
 			[
-				"con",
-				"config/config.py"
-			],
-			[
-				"conf",
-				"config/config.py"
-			],
-			[
-				"servi",
-				"watcher/service.py"
-			],
-			[
-				"stochri",
-				"strategy/indicator/stochrsi/stochrsi.py"
-			],
-			[
-				"templ",
-				"config/identity.py.template"
-			],
-			[
-				"indma",
-				"strategy/strategyindmargintrade.py"
-			],
-			[
-				"ytrad",
+				"ytrade",
 				"strategy/strategytrade.py"
 			],
 			[
+				"desk",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"castra",
+				"strategy/cryptoalpha/castrategytrader.py"
+			],
+			[
+				"strat",
+				"strategy/strategy.py"
+			],
+			[
+				"cast",
+				"strategy/cryptoalpha/castrategytrader.py"
+			],
+			[
+				"des",
+				"monitor/desktopnotifier.py"
+			],
+			[
+				"wa",
+				"watcher/connector/bitmex/watcher.py"
+			],
+			[
+				"ter",
+				"terminal/terminal.py"
+			],
+			[
+				"wach",
+				"watcher/connector/bitmex/watcher.py"
+			],
+			[
+				"siisl",
+				"common/siislog.py"
+			],
+			[
+				"bcasubb",
+				"strategy/bitcoinalpha/bcasubb.py"
+			],
+			[
+				"castr",
+				"strategy/cryptoalpha/castrategytrader.py"
+			],
+			[
+				"bcasuba",
+				"strategy/bitcoinalpha/bcasuba.py"
+			],
+			[
+				"bitmex",
+				"connector/bitmex/connector.py"
+			],
+			[
+				"mys",
+				"database/mysql.py"
+			],
+			[
+				"bca",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"",
+				"strategy/strategyindmargintrade.py"
+			],
+			[
+				"my",
+				"database/mysql.py"
+			],
+			[
+				"pgs",
+				"database/pgsql.py"
+			],
+			[
+				"bcastr",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"bcast",
+				"strategy/bitcoinalpha/bcastrategytrader.py"
+			],
+			[
+				"po",
+				"trader/position.py"
+			],
+			[
 				"account",
-				"trader/connector/ig/account.py"
+				"trader/connector/bitmex/account.py"
 			],
 			[
-				"conn",
-				"connector/binance/connector.py"
-			],
-			[
-				"watche",
-				"watcher/watcher.py"
-			],
-			[
-				"clien",
-				"connector/binance/client.py"
-			],
-			[
-				"connec",
-				"connector/binance/connector.py"
-			],
-			[
-				"acco",
+				"acc",
 				"trader/account.py"
-			],
-			[
-				"data",
-				"database/database.py"
-			],
-			[
-				"watcher",
-				"watcher/watcher.py"
-			],
-			[
-				"ini",
-				"sql/initpg.sql"
-			],
-			[
-				"iniy",
-				"sql/initmy.sql"
-			],
-			[
-				"initpg",
-				"sql/initpg.sql"
-			],
-			[
-				"init",
-				"sql/initmy.sql"
 			],
 			[
 				"siis",
 				"siis.py"
 			],
 			[
-				"help",
-				"app/help.py"
+				"region",
+				"strategy/region/region.py"
 			],
 			[
-				"trade",
-				"trader/trader.py"
+				"dat",
+				"database/database.py"
 			],
 			[
-				"char",
-				"terminal/charmap.py"
-			],
-			[
-				"order",
-				"trader/order.py"
-			],
-			[
-				"pio",
-				"strategy/indicator/pivotpoint/pivotpoint.py"
-			],
-			[
-				"piv",
-				"strategy/indicator/pivotpoint/pivotpoint.py"
-			],
-			[
-				"ws",
-				"connector/binance/websockets.py"
+				"data",
+				"database/database.py"
 			],
 			[
 				"casuba",
 				"strategy/cryptoalpha/casuba.py"
 			],
 			[
-				"wa",
-				"watcher/connector/binance/watcher.py"
+				"watche",
+				"watcher/connector/bitmex/watcher.py"
 			],
 			[
-				"time",
-				"strategy/timeframebasedstrategytrader.py"
+				"margi",
+				"strategy/strategymargintrade.py"
 			],
 			[
-				"bcap",
-				"strategy/bitcoinalpha/bcaparameters.py"
+				"pos",
+				"trader/position.py"
 			],
 			[
-				"cb",
-				"strategy/crystalball/cbparameters.py"
+				"fastr",
+				"strategy/forexalpha/fastrategy.py"
 			],
 			[
-				"paramet",
-				"strategy/crystalball/cbparameters.py"
+				"fast",
+				"strategy/forexalpha/fastrategy.py"
 			],
 			[
-				"fap",
-				"strategy/forexalpha/faparameters.py"
-			],
-			[
-				"capr",
-				"strategy/cryptoalpha/caparameters2.py"
-			],
-			[
-				"cap",
-				"strategy/cryptoalpha/caparameters.py"
-			],
-			[
-				"capra",
-				"strategy/cryptoalpha/caparameters2.py"
-			],
-			[
-				"castr",
-				"strategy/cryptoalpha/castrategy.py"
-			],
-			[
-				"strate",
+				"strateg",
 				"strategy/strategy.py"
 			],
 			[
-				"cast",
-				"strategy/cryptoalpha/castrategy.py"
+				"pref",
+				"scripts/prefetch-bitmex"
+			],
+			[
+				"wat",
+				"watcher/connector/bitmex/watcher.py"
+			],
+			[
+				"bcasub",
+				"strategy/bitcoinalpha/bcasub.py"
 			],
 			[
 				"timef",
@@ -2186,92 +2998,168 @@
 				"strategy/cryptoalpha/casub.py"
 			],
 			[
-				"tim",
-				"strategy/timeframebasedstrategytrader.py"
-			],
-			[
-				"des",
-				"monitor/desktopnotifier.py"
-			],
-			[
-				"region",
-				"strategy/region/region.py"
-			],
-			[
-				"ysig",
-				"strategy/strategysignal.py"
-			],
-			[
-				"fetcher",
-				"watcher/connector/binance/fetcher.py"
-			],
-			[
-				"fetch-b",
-				"scripts/fetch-binance"
-			],
-			[
-				"bit",
-				"scripts/fetch-bitmex"
-			],
-			[
-				"ig",
-				"scripts/fetch-ig"
-			],
-			[
-				"wat",
-				"watcher/watcher.py"
-			],
-			[
-				"pric",
-				"strategy/indicator/price/price.py"
-			],
-			[
-				"vol",
-				"strategy/indicator/volume/volume.py"
-			],
-			[
-				"fee",
-				"strategy/strategydatafeeder.py"
-			],
-			[
-				"instr",
-				"instrument/instrument.py"
-			],
-			[
-				"tickstor",
-				"database/tickstorage.py"
-			],
-			[
-				"feeder",
-				"strategy/strategydatafeeder.py"
-			],
-			[
-				"yass",
-				"strategy/strategyassettrade.py"
-			],
-			[
-				"ipv",
-				"strategy/indicator/pivotpoint/pivotpoint.py"
-			],
-			[
-				"signa",
-				"strategy/strategysignal.py"
-			],
-			[
-				"sgn",
-				"strategy/strategysignal.py"
+				"bcasu",
+				"strategy/bitcoinalpha/bcasub.py"
 			],
 			[
 				"casubb",
 				"strategy/cryptoalpha/casubb.py"
 			],
 			[
-				"strateg",
+				"cap",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"help",
+				"app/help.py"
+			],
+			[
+				"term",
+				"terminal/terminal.py"
+			],
+			[
+				"asset",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"capar",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"mar",
+				"trader/market.py"
+			],
+			[
+				"strategytr",
 				"strategy/strategytrader.py"
 			],
 			[
-				"price",
-				"strategy/indicator/price/price.py"
+				"pgsql",
+				"database/pgsql.py"
+			],
+			[
+				"inst",
+				"instrument/instrument.py"
+			],
+			[
+				"strar",
+				"strategy/strategytrader.py"
+			],
+			[
+				"time",
+				"strategy/timeframebasedstrategytrader.py"
+			],
+			[
+				"mark",
+				"trader/market.py"
+			],
+			[
+				"instr",
+				"instrument/instrument.py"
+			],
+			[
+				"zi",
+				"strategy/indicator/zigzag/zigzag.py"
+			],
+			[
+				"sinew",
+				"strategy/indicator/sinewave/sinewave.py"
+			],
+			[
+				"sig",
+				"notifier/signal.py"
+			],
+			[
+				"in",
+				"instrument/instrument.py"
+			],
+			[
+				"i",
+				"instrument/instrument.py"
+			],
+			[
+				"yass",
+				"strategy/strategyassettrade.py"
+			],
+			[
+				"fib",
+				"strategy/indicator/fibonacci/fibonacci.py"
+			],
+			[
+				"fibo",
+				"strategy/indicator/fibonacci/fibonacci.py"
+			],
+			[
+				"sma",
+				"strategy/indicator/sma/sma.py"
+			],
+			[
+				"stoc",
+				"strategy/indicator/stochastic/stochastic.py"
+			],
+			[
+				"stochr",
+				"strategy/indicator/stochrsi/stochrsi.py"
+			],
+			[
+				"util",
+				"strategy/indicator/utils.py"
+			],
+			[
+				"conf",
+				"config/config.py"
+			],
+			[
+				"sm",
+				"strategy/indicator/sma/sma.py"
+			],
+			[
+				"strea",
+				"connector/ig/stream.py"
+			],
+			[
+				"casubc",
+				"strategy/cryptoalpha/casubc.py"
+			],
+			[
+				"ca",
+				"strategy/cryptoalpha/casuba.py"
+			],
+			[
+				"capa",
+				"strategy/cryptoalpha/caparameters2.py"
+			],
+			[
+				"magin",
+				"strategy/strategymargintrade.py"
+			],
+			[
+				"serv",
+				"strategy/service.py"
+			],
+			[
+				"servic",
+				"view/service.py"
+			],
+			[
+				"ws.p",
+				"connector/bitmex/ws.py"
+			],
+			[
+				"connect",
+				"connector/ig/connector.py"
+			],
+			[
+				"ligh",
+				"connector/ig/lightstreamer.py"
+			],
+			[
+				"sis",
+				"siis.sublime-project"
+			],
+			[
+				"conne",
+				"connector/ig/connector.py"
 			]
 		],
 		"width": 0.0
